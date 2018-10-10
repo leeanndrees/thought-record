@@ -11,4 +11,13 @@ import Foundation
 class Tag: Codable {
     var name: String
     var useCount: Int
+    
+    init(name: String, useCount: Int) {
+        self.name = name
+        self.useCount = useCount
+    }
+    
+    func updateUseCount() {
+        self.useCount = useCount + 1
+    }
 }

@@ -11,4 +11,9 @@ import Foundation
 class Feeling: Codable {
     var name: String
     var rating: Int
+    
+    init(name: String, rating: Int) {
+        self.name = name
+        self.rating = rating
+    }
 }

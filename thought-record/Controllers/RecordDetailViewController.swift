@@ -34,8 +34,13 @@ class RecordDetailViewController: UITableViewController {
         recordToShow = ThoughtRecordDatabase().thoughts[0]
     }
     
-    func feelingsArrayToString() {
-        
+    func feelingsArrayToString(array: [Feeling]) -> String {
+        var feelingNames: [String] = []
+        for feeling in array {
+            feelingNames.append(feeling.name)
+        }
+        let feelingListString = feelingNames.joined(separator: ", ")
+        return feelingListString
     }
     
     func displayRecordData() {

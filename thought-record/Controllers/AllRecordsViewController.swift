@@ -87,7 +87,7 @@ class AllRecordsViewController: UITableViewController {
     func setCellTitle(recordAtPath: ThoughtRecord) -> String {
         let shortTitle = recordAtPath.thought
         let date = recordAtPath.date
-        return "\(shortTitle), \(date)"
+        return "\(date): \(shortTitle)"
     }
 
 }

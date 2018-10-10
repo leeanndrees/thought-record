@@ -19,6 +19,7 @@
 		434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E3216E4DD7000CD1B6 /* Feeling.swift */; };
 		434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E5216E4F1C000CD1B6 /* Tag.swift */; };
 		43657701216E51E100F54479 /* TemporaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657700216E51E100F54479 /* TemporaryData.swift */; };
+		43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657702216E85C000F54479 /* RecordDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		434C05E3216E4DD7000CD1B6 /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
 		434C05E5216E4F1C000CD1B6 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		43657700216E51E100F54479 /* TemporaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryData.swift; sourceTree = "<group>"; };
+		43657702216E85C000F54479 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				434C05D5216E48A9000CD1B6 /* TabBarViewController.swift */,
 				434C05DB216E4A49000CD1B6 /* HomeViewController.swift */,
 				434C05DF216E4A8C000CD1B6 /* AllRecordsViewController.swift */,
+				43657702216E85C000F54479 /* RecordDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */,
 				434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */,
+				43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */,
 				434C05D6216E48A9000CD1B6 /* TabBarViewController.swift in Sources */,
 				434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,

@@ -21,13 +21,13 @@ class AllRecordsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return records.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordListCell", for: indexPath)
 
-        cell.textLabel?.text = records[0].situation
+        cell.textLabel?.text = setCellTitle(recordAtPath: records[indexPath.row])
 
         return cell
     }
@@ -82,6 +82,12 @@ class AllRecordsViewController: UITableViewController {
     func getRecords() {
         let database = ThoughtRecordDatabase()
         records = database.thoughts
+    }
+    
+    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
+        let shortTitle = recordAtPath.thought
+        let date = recordAtPath.date
+        return "\(shortTitle), \(date)"
     }
 
 }

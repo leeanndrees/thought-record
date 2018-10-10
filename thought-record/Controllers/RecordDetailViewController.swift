@@ -43,12 +43,27 @@ class RecordDetailViewController: UITableViewController {
         return feelingListString
     }
     
+    func tagArrayToString(array: [Tag]) -> String {
+        var tagNames: [String] = []
+        for tag in array {
+            tagNames.append(tag.name)
+        }
+        let tagListString = tagNames.joined(separator: ", ")
+        return tagListString
+    }
+    
     func displayRecordData() {
         if let record = recordToShow {
             dateLabel.text = record.date
             thoughtLabel.text = record.thought
             situationLabel.text = record.situation
-            
+            feelingsStartLabel.text = feelingsArrayToString(array: record.feelingsStart)
+            unhelpfulThoughtsLabel.text = record.unhelpfulThoughts
+            factsSupportingLabel.text = record.factsSupporting
+            factsAgainstLabel.text = record.factsAgainst
+            balancedPerspectiveLabel.text = record.balancedPerspective
+            feelingsEndLabel.text = feelingsArrayToString(array: record.feelingsEnd)
+            tagsLabel.text = tagArrayToString(array: record.tags)
         } else {
             return
         }

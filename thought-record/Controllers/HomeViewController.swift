@@ -30,11 +30,20 @@ class HomeViewController: UIViewController {
     }
 
     func updateLabels() {
+        updateTimeLabel()
+        updateEncouragementLabel()
+    }
+    
+    func updateTimeLabel() {
         if let lastTime = lastRecord?.date {
             timeLabel.text = "Your last check-in was on \(lastTime)."
         } else {
             timeLabel.text = "Nice to see you again!"
         }
+    }
+    
+    func updateEncouragementLabel() {
+        encouragementLabel.text = "Today's a great day to unpack & reframe a thought. :)"
     }
     
 }

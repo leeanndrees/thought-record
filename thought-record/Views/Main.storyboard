@@ -143,6 +143,11 @@
                         <viewLayoutGuide key="safeArea" id="Va6-tc-2Hj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="qiq-2z-Wx0"/>
+                    <connections>
+                        <outlet property="encouragementLabel" destination="OhE-qL-zLQ" id="RVO-uH-dXZ"/>
+                        <outlet property="timeLabel" destination="LGm-Bp-vfB" id="mVh-OP-epl"/>
+                        <outlet property="welcomeLabel" destination="nhy-bS-WvP" id="QVd-g2-ZgP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzd-9W-Bgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

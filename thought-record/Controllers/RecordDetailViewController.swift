@@ -29,6 +29,14 @@ class RecordDetailViewController: UITableViewController {
         getRecordToShow()
         displayRecordData()
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
 
     func getRecordToShow() {
         recordToShow = ThoughtRecordDatabase().thoughts[0]

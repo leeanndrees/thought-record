@@ -95,7 +95,13 @@
                             <outlet property="delegate" destination="O0n-X8-ghM" id="Ojz-hE-3Ay"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HjW-Lq-AJa"/>
+                    <navigationItem key="navigationItem" id="HjW-Lq-AJa">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="CIe-tR-Gg7">
+                            <connections>
+                                <segue destination="0Ai-rA-ogZ" kind="show" id="rjH-l4-ADB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cll-mj-I3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,6 +131,9 @@
                             <outlet property="delegate" destination="Qpn-eo-SRN" id="65E-J0-NVH"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="JWy-Uo-0OP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Cek-iw-I2z"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4je-yV-Rec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,4 +223,7 @@
             <point key="canvasLocation" x="76" y="73.313343328335833"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rjH-l4-ADB"/>
+    </inferredMetricsTieBreakers>
 </document>

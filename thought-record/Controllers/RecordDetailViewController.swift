@@ -54,16 +54,16 @@ class RecordDetailViewController: UITableViewController {
     
     func displayRecordData() {
         if let record = recordToShow {
-            dateLabel.text = record.date
-            thoughtLabel.text = record.thought
-            situationLabel.text = record.situation
-            feelingsStartLabel.text = feelingsArrayToString(array: record.feelingsStart)
-            unhelpfulThoughtsLabel.text = record.unhelpfulThoughts
-            factsSupportingLabel.text = record.factsSupporting
-            factsAgainstLabel.text = record.factsAgainst
-            balancedPerspectiveLabel.text = record.balancedPerspective
-            feelingsEndLabel.text = feelingsArrayToString(array: record.feelingsEnd)
-            tagsLabel.text = tagArrayToString(array: record.tags)
+            dateLabel.text = "Date: \(record.date)"
+            thoughtLabel.text = "Thought: \(record.thought)"
+            situationLabel.text = "Situation: \(record.situation)"
+            feelingsStartLabel.text = "Feelings at time: \(feelingsArrayToString(array: record.feelingsStart))"
+            unhelpfulThoughtsLabel.text = "Unhelpful Thoughts: \(record.unhelpfulThoughts)"
+            factsSupportingLabel.text = "Facts Supporting Unhelpful Thoughts: \(record.factsSupporting)"
+            factsAgainstLabel.text = "Facts Opposing Unhelpful Thoughts: \(record.factsAgainst)"
+            balancedPerspectiveLabel.text = "More Balanced Perspective: \(record.balancedPerspective)"
+            feelingsEndLabel.text = "Feelings After Unpacking: \(feelingsArrayToString(array: record.feelingsEnd))"
+            tagsLabel.text = "Tags: \(tagArrayToString(array: record.tags))"
         } else {
             return
         }

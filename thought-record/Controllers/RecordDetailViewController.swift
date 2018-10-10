@@ -10,6 +10,8 @@ import UIKit
 
 class RecordDetailViewController: UITableViewController {
     
+    var recordToShow: ThoughtRecord?
+    
     // MARK: Outlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var thoughtLabel: UILabel!
@@ -24,7 +26,26 @@ class RecordDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getRecordToShow()
+        displayRecordData()
     }
 
-   
+    func getRecordToShow() {
+        recordToShow = ThoughtRecordDatabase().thoughts[0]
+    }
+    
+    func feelingsArrayToString() {
+        
+    }
+    
+    func displayRecordData() {
+        if let record = recordToShow {
+            dateLabel.text = record.date
+            thoughtLabel.text = record.thought
+            situationLabel.text = record.situation
+            
+        } else {
+            return
+        }
+    }
 }

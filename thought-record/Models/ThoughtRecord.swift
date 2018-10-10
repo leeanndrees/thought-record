@@ -35,4 +35,5 @@ class ThoughtRecord: Codable {
         self.feelingsEnd = feelingsEnd
         self.tags = tags
     }
+    
 }

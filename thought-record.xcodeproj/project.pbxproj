@@ -54,14 +54,38 @@
 		434C05B0216E328A000CD1B6 /* thought-record */ = {
 			isa = PBXGroup;
 			children = (
+				434C05C3216E3CDA000CD1B6 /* Models */,
+				434C05C4216E3CE2000CD1B6 /* Views */,
+				434C05C6216E3CF6000CD1B6 /* Controllers */,
 				434C05B1216E328A000CD1B6 /* AppDelegate.swift */,
-				434C05B3216E328A000CD1B6 /* ViewController.swift */,
-				434C05B5216E328A000CD1B6 /* Main.storyboard */,
 				434C05B8216E328B000CD1B6 /* Assets.xcassets */,
-				434C05BA216E328B000CD1B6 /* LaunchScreen.storyboard */,
 				434C05BD216E328B000CD1B6 /* Info.plist */,
 			);
 			path = "thought-record";
+			sourceTree = "<group>";
+		};
+		434C05C3216E3CDA000CD1B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		434C05C4216E3CE2000CD1B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				434C05B5216E328A000CD1B6 /* Main.storyboard */,
+				434C05BA216E328B000CD1B6 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		434C05C6216E3CF6000CD1B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				434C05B3216E328A000CD1B6 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

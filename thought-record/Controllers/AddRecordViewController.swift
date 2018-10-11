@@ -17,10 +17,10 @@ class AddRecordViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDateButtonText()
+        setDateButtonText(date: Date())
     }
     
-    func formattedDate() -> String {
+    func formattedDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
@@ -31,8 +31,12 @@ class AddRecordViewController: UITableViewController {
         return dateFormatter.string(from: formattedToday!)
     }
     
-    func setDateButtonText() {
-        dateButton.setTitle(formattedDate(), for: .normal)
+    func getCurrentDate() -> Date {
+        return Date()
+    }
+    
+    func setDateButtonText(date: Date) {
+        dateButton.setTitle(formattedDate(date: date), for: .normal)
     }
 
     // let's redo this, maybe with a xib?

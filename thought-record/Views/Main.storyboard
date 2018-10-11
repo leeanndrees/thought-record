@@ -452,7 +452,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Qpn-eo-SRN" kind="show" id="Jv2-U6-tmu"/>
+                                    <segue destination="Qpn-eo-SRN" kind="show" identifier="ShowDetail" id="Jv2-U6-tmu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -26,7 +26,6 @@ class RecordDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRecordToShow()
         displayRecordData()
     }
     
@@ -37,10 +36,6 @@ class RecordDetailViewController: UITableViewController {
 //    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
 //    }
-
-    func getRecordToShow() {
-        recordToShow = ThoughtRecordDatabase().thoughts[0]
-    }
     
     func feelingsArrayToString(array: [Feeling]) -> String {
         var feelingNames: [String] = []

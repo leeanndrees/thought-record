@@ -12,6 +12,7 @@ class AllRecordsViewController: UITableViewController {
     
     // MARK: Properties
     var records: [ThoughtRecord] = []
+    var selectedRecordIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,11 @@ class AllRecordsViewController: UITableViewController {
         cell.textLabel?.text = setCellTitle(recordAtPath: records[indexPath.row])
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedRecordIndex = indexPath.row
+        return indexPath
     }
 
     /*
@@ -67,15 +73,14 @@ class AllRecordsViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == SegueIdentifier.detail.rawValue {
+            guard let detailViewController = segue.destination as? RecordDetailViewController else { return }
+            detailViewController.recordToShow = records[selectedRecordIndex]
+        }
     }
-    */
     
     // MARK: Private Implementation
     

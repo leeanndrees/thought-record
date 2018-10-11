@@ -17,6 +17,7 @@ class AllRecordsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getRecords()
+        useLargeTitles()
     }
 
     // MARK: - Table view data source
@@ -36,6 +37,10 @@ class AllRecordsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRecordIndex = indexPath.row
         return indexPath
+    }
+    
+    func useLargeTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     /*

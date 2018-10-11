@@ -48,10 +48,20 @@ class AllRecordsViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
     }
     
+    func deleteAlert() {
+        let alert = UIAlertController(title: "Are you sure?", message: "For real?", preferredStyle: .alert)
+        let actionYes = UIAlertAction(title: "Yes", style: .destructive, handler: nil)
+        let actionNo = UIAlertAction(title: "Nevermind", style: .default, handler: nil)
+        alert.addAction(actionYes)
+        alert.addAction(actionNo)
+        
+        present(alert, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            swipeToDelete(indexPath: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            deleteAlert()
+            //swipeToDelete(indexPath: indexPath)
         }
     }
 

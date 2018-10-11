@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add New-->
+        <!--Add Record-->
         <scene sceneID="fZ7-F3-rwJ">
             <objects>
                 <tableViewController id="0Ai-rA-ogZ" customClass="AddRecordViewController" customModule="thought_record" customModuleProvider="target" sceneMemberID="viewController">
@@ -393,6 +393,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Add New" id="C2n-9q-ycb"/>
+                    <navigationItem key="navigationItem" title="Add Record" largeTitleDisplayMode="never" id="UJg-1g-3hd">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="OV4-2B-j2F"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateButton" destination="6Lf-vn-0Py" id="OPq-Wy-T5u"/>
@@ -743,7 +746,7 @@
                             <outlet property="delegate" destination="Qpn-eo-SRN" id="65E-J0-NVH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="JWy-Uo-0OP">
+                    <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="JWy-Uo-0OP">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Cek-iw-I2z"/>
                     </navigationItem>
                     <connections>

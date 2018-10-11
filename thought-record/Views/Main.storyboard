@@ -126,6 +126,9 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="zcw-YX-GUf">
                                                     <rect key="frame" x="214" y="6" width="118" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="sliderValueChanged:" destination="0Ai-rA-ogZ" eventType="valueChanged" id="HeE-cg-4wV"/>
+                                                    </connections>
                                                 </slider>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Feeling" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LjI-5L-hCT">
                                                     <rect key="frame" x="16" y="5" width="153" height="30"/>
@@ -154,6 +157,9 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-vL-VfR">
                                                     <rect key="frame" x="214" y="7" width="118" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="sliderValue2Changed:" destination="0Ai-rA-ogZ" eventType="valueChanged" id="KpT-WH-OwS"/>
+                                                    </connections>
                                                 </slider>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Feeling" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ef-C1-ZvS">
                                                     <rect key="frame" x="16" y="6" width="153" height="30"/>
@@ -182,6 +188,9 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-q5-L3M">
                                                     <rect key="frame" x="214" y="7" width="118" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="sliderValue3Changed:" destination="0Ai-rA-ogZ" eventType="valueChanged" id="CEJ-7g-pol"/>
+                                                    </connections>
                                                 </slider>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Feeling" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTL-QH-kLG">
                                                     <rect key="frame" x="16" y="6" width="153" height="30"/>
@@ -387,6 +396,9 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateButton" destination="6Lf-vn-0Py" id="OPq-Wy-T5u"/>
+                        <outlet property="sliderLabel1" destination="c2E-27-xa8" id="qQa-Db-FmP"/>
+                        <outlet property="sliderLabel2" destination="thV-kH-7Ih" id="xjT-3f-Dqp"/>
+                        <outlet property="sliderLabel3" destination="AXO-Wy-VDa" id="D1H-VM-fck"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiL-9f-VOb" userLabel="First Responder" sceneMemberID="firstResponder"/>

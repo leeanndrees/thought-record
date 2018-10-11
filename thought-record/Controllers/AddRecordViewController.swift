@@ -13,7 +13,9 @@ class AddRecordViewController: UITableViewController {
     // MARK: Outlets
     
     @IBOutlet weak var dateButton: UIButton!
-    
+    @IBOutlet weak var sliderLabel1: UILabel!
+    @IBOutlet weak var sliderLabel2: UILabel!
+    @IBOutlet weak var sliderLabel3: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,19 @@ class AddRecordViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        sliderLabel1.text = String(Int(sender.value))
+    }
+    
+    @IBAction func sliderValue2Changed(_ sender: UISlider) {
+        sliderLabel2.text = String(Int(sender.value))
+    }
+    
+    @IBAction func sliderValue3Changed(_ sender: UISlider) {
+        sliderLabel3.text = String(Int(sender.value))
+    }
+    
     
     func formattedDate(date: Date) -> String {
         let dateFormatter = DateFormatter()

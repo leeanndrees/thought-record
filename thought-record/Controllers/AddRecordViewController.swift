@@ -44,9 +44,15 @@ class AddRecordViewController: UITableViewController {
         let datePicker = UIDatePicker()
         let dateChooserAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         dateChooserAlert.view.addSubview(datePicker)
-        dateChooserAlert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: { action in
-            
-        }))
+        
+        // this doesn't work yet:
+        let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
+            let newDate = datePicker.date
+            self.setDateButtonText(date: newDate)
+        }
+        
+        dateChooserAlert.addAction(dateChosen)
+        
         let height: NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
         dateChooserAlert.view.addConstraint(height)
         self.present(dateChooserAlert, animated: true, completion: nil)

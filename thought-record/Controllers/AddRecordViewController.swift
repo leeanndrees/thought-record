@@ -28,8 +28,7 @@ class AddRecordViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
-        let today = Date()
-        let todayString = dateFormatter.string(from: today)
+        let todayString = dateFormatter.string(from: date)
         let formattedToday = dateFormatter.date(from: todayString)
         
         return dateFormatter.string(from: formattedToday!)

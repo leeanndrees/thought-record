@@ -438,7 +438,7 @@
             </objects>
             <point key="canvasLocation" x="-390" y="791"/>
         </scene>
-        <!--All Records View Controller-->
+        <!--All Thought Records-->
         <scene sceneID="bF7-OI-8Qr">
             <objects>
                 <tableViewController id="O0n-X8-ghM" customClass="AllRecordsViewController" customModule="thought_record" customModuleProvider="target" sceneMemberID="viewController">
@@ -464,7 +464,7 @@
                             <outlet property="delegate" destination="O0n-X8-ghM" id="Ojz-hE-3Ay"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HjW-Lq-AJa">
+                    <navigationItem key="navigationItem" title="All Thought Records" id="HjW-Lq-AJa">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="CIe-tR-Gg7">
                             <connections>
                                 <segue destination="0Ai-rA-ogZ" kind="show" id="rjH-l4-ADB"/>

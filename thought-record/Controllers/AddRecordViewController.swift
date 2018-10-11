@@ -35,4 +35,16 @@ class AddRecordViewController: UITableViewController {
         dateButton.setTitle(formattedDate(), for: .normal)
     }
 
+    // let's redo this, maybe with a xib?
+    @IBAction func dateButtonTapped(_ sender: Any) {
+        let datePicker = UIDatePicker()
+        let dateChooserAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
+        dateChooserAlert.view.addSubview(datePicker)
+        dateChooserAlert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: { action in
+            
+        }))
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
+        dateChooserAlert.view.addConstraint(height)
+        self.present(dateChooserAlert, animated: true, completion: nil)
+    }
 }

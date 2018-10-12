@@ -11,36 +11,58 @@ import UIKit
 class AllRecordsViewController: UITableViewController {
     
     // MARK: Properties
+    
     var records: [ThoughtRecord] = []
     var selectedRecordIndex = 0
 
+    // MARK: Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getRecords()
         useLargeTitles()
     }
+}
 
-    // MARK: - Table view data source
+// MARK: Private Implementation
 
+extension AllRecordsViewController {
+    
+    func getRecords() {
+        let database = ThoughtRecordDatabase()
+        records = database.thoughts
+    }
+    
+    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
+        let shortTitle = recordAtPath.thought
+        let date = recordAtPath.date
+        return "\(date): \(shortTitle)"
+    }
+    
+    func useLargeTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+// MARK: Table View Methods
+
+extension AllRecordsViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return records.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordListCell", for: indexPath)
-
+        
         cell.textLabel?.text = setCellTitle(recordAtPath: records[indexPath.row])
-
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRecordIndex = indexPath.row
         return indexPath
-    }
-    
-    func useLargeTitles() {
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func swipeToDelete(indexPath: IndexPath) {
@@ -68,51 +90,15 @@ class AllRecordsViewController: UITableViewController {
             //swipeToDelete(indexPath: indexPath)
         }
     }
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+// MARK: - Navigation
 
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    // MARK: - Navigation
-
+extension AllRecordsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.detail.rawValue {
             guard let detailViewController = segue.destination as? RecordDetailViewController else { return }
             detailViewController.recordToShow = records[selectedRecordIndex]
         }
     }
-    
-    // MARK: Private Implementation
-    
-    func getRecords() {
-        let database = ThoughtRecordDatabase()
-        records = database.thoughts
-    }
-    
-    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
-        let shortTitle = recordAtPath.thought
-        let date = recordAtPath.date
-        return "\(date): \(shortTitle)"
-    }
-
 }

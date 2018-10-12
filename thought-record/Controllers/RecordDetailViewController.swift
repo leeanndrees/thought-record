@@ -10,9 +10,12 @@ import UIKit
 
 class RecordDetailViewController: UITableViewController {
     
+    // MARK: Properties
+    
     var recordToShow: ThoughtRecord?
     
     // MARK: Outlets
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var thoughtLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -24,10 +27,13 @@ class RecordDetailViewController: UITableViewController {
     @IBOutlet weak var feelingsEndLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     
+    // MARK: Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayRecordData()
     }
+    
     
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
@@ -36,8 +42,14 @@ class RecordDetailViewController: UITableViewController {
 //    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
 //    }
+
+}
+
+// MARK: Private Implementation
+
+extension RecordDetailViewController {
     
-    func feelingsArrayToString(array: [Feeling]) -> String {
+    private func feelingsArrayToString(array: [Feeling]) -> String {
         var feelingNames: [String] = []
         for feeling in array {
             feelingNames.append(feeling.name)
@@ -46,7 +58,7 @@ class RecordDetailViewController: UITableViewController {
         return feelingListString
     }
     
-    func tagArrayToString(array: [Tag]) -> String {
+    private func tagArrayToString(array: [Tag]) -> String {
         var tagNames: [String] = []
         for tag in array {
             tagNames.append(tag.name)
@@ -55,7 +67,7 @@ class RecordDetailViewController: UITableViewController {
         return tagListString
     }
     
-    func displayRecordData() {
+    private func displayRecordData() {
         if let record = recordToShow {
             dateLabel.text = "Date: \(record.date)"
             thoughtLabel.text = "Thought: \(record.thought)"
@@ -71,4 +83,15 @@ class RecordDetailViewController: UITableViewController {
             return
         }
     }
+    
+}
+
+// MARK: Table View Methods
+
+extension RecordDetailViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

@@ -11,26 +11,52 @@ import UIKit
 class AllRecordsViewController: UITableViewController {
     
     // MARK: Properties
+    
     var records: [ThoughtRecord] = []
     var selectedRecordIndex = 0
 
+    // MARK: Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getRecords()
         useLargeTitles()
     }
+}
 
-    // MARK: - Table view data source
+// MARK: Private Implementation
 
+extension AllRecordsViewController {
+    
+    func getRecords() {
+        let database = ThoughtRecordDatabase()
+        records = database.thoughts
+    }
+    
+    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
+        let title = recordAtPath.thought
+        let date = recordAtPath.date
+        return "\(date): \(title)"
+    }
+    
+    func useLargeTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+// MARK: Table View Methods
+
+extension AllRecordsViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return records.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordListCell", for: indexPath)
-
+        
         cell.textLabel?.text = setCellTitle(recordAtPath: records[indexPath.row])
-
+        
         return cell
     }
     
@@ -39,20 +65,19 @@ class AllRecordsViewController: UITableViewController {
         return indexPath
     }
     
-    func useLargeTitles() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func swipeToDelete(indexPath: IndexPath) {
+    func deleteRecord(indexPath: IndexPath) {
         records.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
     }
     
-    func deleteAlert(indexPath: IndexPath) {
+    func deletionAlert(indexPath: IndexPath) {
         let alert = UIAlertController(title: "Are you sure?", message: "For real?", preferredStyle: .alert)
         let actionYes = UIAlertAction(title: "Yes", style: .destructive, handler: { (action) -> Void in
-            self.records.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+            self.deleteRecord(indexPath: indexPath)
         }
         )
         let actionNo = UIAlertAction(title: "Nevermind", style: .default, handler: nil)
@@ -64,55 +89,18 @@ class AllRecordsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deleteAlert(indexPath: indexPath)
-            //swipeToDelete(indexPath: indexPath)
+            deletionAlert(indexPath: indexPath)
         }
     }
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+// MARK: - Navigation
 
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    // MARK: - Navigation
-
+extension AllRecordsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.detail.rawValue {
             guard let detailViewController = segue.destination as? RecordDetailViewController else { return }
             detailViewController.recordToShow = records[selectedRecordIndex]
         }
     }
-    
-    // MARK: Private Implementation
-    
-    func getRecords() {
-        let database = ThoughtRecordDatabase()
-        records = database.thoughts
-    }
-    
-    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
-        let shortTitle = recordAtPath.thought
-        let date = recordAtPath.date
-        return "\(date): \(shortTitle)"
-    }
-
 }

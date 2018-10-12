@@ -11,12 +11,16 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: Properties
+    
     var lastRecord: ThoughtRecord?
     
     // MARK: Outlets
+    
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var encouragementLabel: UILabel!
+    
+    // MARK: Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +28,23 @@ class HomeViewController: UIViewController {
         updateLabels()
     }
     
-    func getLastRecord() {
+}
+
+// MARK: Private Implementation
+
+extension HomeViewController {
+    
+    private func getLastRecord() {
         let database = ThoughtRecordDatabase()
         lastRecord = database.thoughts.last
     }
-
-    func updateLabels() {
+    
+    private func updateLabels() {
         updateTimeLabel()
         updateEncouragementLabel()
     }
     
-    func updateTimeLabel() {
+    private func updateTimeLabel() {
         if let lastTime = lastRecord?.date {
             timeLabel.text = "Your last check-in was on \(lastTime)."
         } else {
@@ -42,7 +52,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func updateEncouragementLabel() {
+    private func updateEncouragementLabel() {
         encouragementLabel.text = "Today's a great day to unpack & reframe a thought. :)"
     }
     

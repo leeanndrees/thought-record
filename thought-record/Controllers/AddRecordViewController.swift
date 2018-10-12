@@ -39,21 +39,9 @@ class AddRecordViewController: UITableViewController {
     }
 
     @IBAction func dateButtonTapped(_ sender: Any) {
-        let datePicker = UIDatePicker()
-        let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
-        datePickerAlert.view.addSubview(datePicker)
-        
-        let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
-            let newDate = datePicker.date
-            self.setDateButtonText(date: newDate)
-        }
-        
-        datePickerAlert.addAction(dateChosen)
-        
-        let height: NSLayoutConstraint = NSLayoutConstraint(item: datePickerAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
-        datePickerAlert.view.addConstraint(height)
-        self.present(datePickerAlert, animated: true, completion: nil)
+        showDatePickerActionSheet()
     }
+        
 }
 
 // MARK: Private Implementation
@@ -78,7 +66,24 @@ extension AddRecordViewController {
         dateButton.setTitle(formattedDate(date: date), for: .normal)
     }
     
+    func showDatePickerActionSheet() {
+        let datePicker = UIDatePicker()
+        let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
+        datePickerAlert.view.addSubview(datePicker)
+        
+        let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
+            let newDate = datePicker.date
+            self.setDateButtonText(date: newDate)
+        }
+        
+        datePickerAlert.addAction(dateChosen)
+        
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: datePickerAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
+        datePickerAlert.view.addConstraint(height)
+        self.present(datePickerAlert, animated: true, completion: nil)
+    }
 }
+
 
 // MARK: Table View Methods
 

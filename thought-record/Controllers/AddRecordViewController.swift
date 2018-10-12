@@ -17,14 +17,14 @@ class AddRecordViewController: UITableViewController {
     @IBOutlet weak var sliderLabel2: UILabel!
     @IBOutlet weak var sliderLabel3: UILabel!
     
+    // MARK: Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDateButtonText(date: Date())
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+    // MARK: Actions
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         sliderLabel1.text = String(Int(sender.value))
@@ -37,7 +37,28 @@ class AddRecordViewController: UITableViewController {
     @IBAction func sliderValue3Changed(_ sender: UISlider) {
         sliderLabel3.text = String(Int(sender.value))
     }
-    
+
+    @IBAction func dateButtonTapped(_ sender: Any) {
+        let datePicker = UIDatePicker()
+        let dateChooserAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
+        dateChooserAlert.view.addSubview(datePicker)
+        
+        let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
+            let newDate = datePicker.date
+            self.setDateButtonText(date: newDate)
+        }
+        
+        dateChooserAlert.addAction(dateChosen)
+        
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
+        dateChooserAlert.view.addConstraint(height)
+        self.present(dateChooserAlert, animated: true, completion: nil)
+    }
+}
+
+// MARK: Private Implementation
+
+extension AddRecordViewController {
     
     func formattedDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -56,23 +77,15 @@ class AddRecordViewController: UITableViewController {
     func setDateButtonText(date: Date) {
         dateButton.setTitle(formattedDate(date: date), for: .normal)
     }
+    
+}
 
-    // let's redo this, maybe with a xib?
-    @IBAction func dateButtonTapped(_ sender: Any) {
-        let datePicker = UIDatePicker()
-        let dateChooserAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
-        dateChooserAlert.view.addSubview(datePicker)
-        
-        // this doesn't work yet:
-        let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
-            let newDate = datePicker.date
-            self.setDateButtonText(date: newDate)
-        }
-        
-        dateChooserAlert.addAction(dateChosen)
-        
-        let height: NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
-        dateChooserAlert.view.addConstraint(height)
-        self.present(dateChooserAlert, animated: true, completion: nil)
+// MARK: Table View Methods
+
+extension AddRecordViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 }

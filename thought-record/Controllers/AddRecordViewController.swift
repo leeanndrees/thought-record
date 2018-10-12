@@ -40,19 +40,19 @@ class AddRecordViewController: UITableViewController {
 
     @IBAction func dateButtonTapped(_ sender: Any) {
         let datePicker = UIDatePicker()
-        let dateChooserAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
-        dateChooserAlert.view.addSubview(datePicker)
+        let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
+        datePickerAlert.view.addSubview(datePicker)
         
         let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
             let newDate = datePicker.date
             self.setDateButtonText(date: newDate)
         }
         
-        dateChooserAlert.addAction(dateChosen)
+        datePickerAlert.addAction(dateChosen)
         
-        let height: NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
-        dateChooserAlert.view.addConstraint(height)
-        self.present(dateChooserAlert, animated: true, completion: nil)
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: datePickerAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
+        datePickerAlert.view.addConstraint(height)
+        self.present(datePickerAlert, animated: true, completion: nil)
     }
 }
 

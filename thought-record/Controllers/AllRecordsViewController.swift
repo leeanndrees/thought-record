@@ -77,8 +77,7 @@ extension AllRecordsViewController {
     func deleteAlert(indexPath: IndexPath) {
         let alert = UIAlertController(title: "Are you sure?", message: "For real?", preferredStyle: .alert)
         let actionYes = UIAlertAction(title: "Yes", style: .destructive, handler: { (action) -> Void in
-            self.records.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+            self.swipeToDelete(indexPath: indexPath)
         }
         )
         let actionNo = UIAlertAction(title: "Nevermind", style: .default, handler: nil)

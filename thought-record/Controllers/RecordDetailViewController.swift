@@ -85,3 +85,13 @@ extension RecordDetailViewController {
     }
     
 }
+
+// MARK: Table View Methods
+
+extension RecordDetailViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}

@@ -48,7 +48,7 @@ class AddRecordViewController: UITableViewController {
 
 extension AddRecordViewController {
     
-    func formattedDate(date: Date) -> String {
+    private func formattedDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
@@ -58,15 +58,15 @@ extension AddRecordViewController {
         return dateFormatter.string(from: formattedToday!)
     }
     
-    func getCurrentDate() -> Date {
+    private func getCurrentDate() -> Date {
         return Date()
     }
     
-    func setDateButtonText(date: Date) {
+    private func setDateButtonText(date: Date) {
         dateButton.setTitle(formattedDate(date: date), for: .normal)
     }
     
-    func showDatePickerActionSheet() {
+    private func showDatePickerActionSheet() {
         let datePicker = UIDatePicker()
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)
@@ -82,6 +82,7 @@ extension AddRecordViewController {
         datePickerAlert.view.addConstraint(height)
         self.present(datePickerAlert, animated: true, completion: nil)
     }
+    
 }
 
 

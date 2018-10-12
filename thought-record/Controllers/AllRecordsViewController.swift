@@ -74,7 +74,7 @@ extension AllRecordsViewController {
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
     }
     
-    func deleteAlert(indexPath: IndexPath) {
+    func deletionAlert(indexPath: IndexPath) {
         let alert = UIAlertController(title: "Are you sure?", message: "For real?", preferredStyle: .alert)
         let actionYes = UIAlertAction(title: "Yes", style: .destructive, handler: { (action) -> Void in
             self.deleteRecord(indexPath: indexPath)
@@ -89,7 +89,7 @@ extension AllRecordsViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deleteAlert(indexPath: indexPath)
+            deletionAlert(indexPath: indexPath)
         }
     }
 }

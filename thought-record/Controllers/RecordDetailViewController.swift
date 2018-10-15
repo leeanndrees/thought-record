@@ -52,7 +52,8 @@ extension RecordDetailViewController {
     private func feelingsArrayToString(array: [Feeling]) -> String {
         var feelingNames: [String] = []
         for feeling in array {
-            feelingNames.append(feeling.name)
+            let feelingString = "\(feeling.name) (\(feeling.rating))"
+            feelingNames.append(feelingString)
         }
         let feelingListString = feelingNames.joined(separator: ", ")
         return feelingListString

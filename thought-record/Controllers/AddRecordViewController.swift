@@ -9,6 +9,11 @@
 import UIKit
 import ToneAnalyzer
 
+protocol AddRecordViewControllerDelegate: class {
+    func addEventDidCancel(_ controller: AddRecordViewController)
+    func addEventSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord)
+}
+
 class AddRecordViewController: UITableViewController {
 
     // MARK: Outlets
@@ -17,6 +22,11 @@ class AddRecordViewController: UITableViewController {
     @IBOutlet weak var sliderLabel1: UILabel!
     @IBOutlet weak var sliderLabel2: UILabel!
     @IBOutlet weak var sliderLabel3: UILabel!
+    
+    // MARK: Properties
+    
+    var newRecord: ThoughtRecord?
+    weak var delegate: AddRecordViewControllerDelegate?
     
     // MARK: Lifecycle Methods
     
@@ -41,6 +51,13 @@ class AddRecordViewController: UITableViewController {
 
     @IBAction func dateButtonTapped(_ sender: Any) {
         showDatePickerActionSheet()
+    }
+    
+    @IBAction func save() {
+        let newDate = formattedDate(date: Date())
+        let newThought = "omg 😬"
+        
+        newRecord = ThoughtRecord(date: newDate, thought: newThought, situation: "", feelingsStart: [FeelingDatabase().feelings[0]], unhelpfulThoughts: "", factsSupporting: "", factsAgainst: "", balancedPerspective: "", feelingsEnd: [FeelingDatabase().feelings[0]], tags: [TagDatabase().tags[0]])
     }
         
 }

@@ -394,7 +394,11 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Add New" id="C2n-9q-ycb"/>
                     <navigationItem key="navigationItem" title="Add Record" largeTitleDisplayMode="never" id="UJg-1g-3hd">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="OV4-2B-j2F"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="OV4-2B-j2F">
+                            <connections>
+                                <action selector="save" destination="0Ai-rA-ogZ" id="8pj-SM-AlM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

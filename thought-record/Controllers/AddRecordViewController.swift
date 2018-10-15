@@ -76,6 +76,10 @@ class AddRecordViewController: UITableViewController {
     @IBAction func save() {
         let newDate = formattedDate(date: Date())
         
+        let newFeeling1 = Feeling(name: beforeFeeling1Field.text!, rating: Int(beforeFeeling1Slider!.value))
+        
+        let newTag = Tag(name: tagsField.text!, useCount: 1)
+        
         guard let newThought = thoughtField.text,
             let newSituation = situationField.text,
             let newUnhelpfulThoughts = unhelpfulThoughtsView.text,
@@ -84,7 +88,7 @@ class AddRecordViewController: UITableViewController {
             let newBalancedPerspective = balancedPerspectiveView.text else { return }
         
         
-        newRecord = ThoughtRecord(date: newDate, thought: newThought, situation: newSituation, feelingsStart: [FeelingDatabase().feelings[0]], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [FeelingDatabase().feelings[0]], tags: [TagDatabase().tags[0]])
+        newRecord = ThoughtRecord(date: newDate, thought: newThought, situation: newSituation, feelingsStart: [newFeeling1], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeeling1], tags: [newTag])
     
         delegate?.addEventSave(self, didFinishAdding: newRecord!)
     }

@@ -75,9 +75,16 @@ class AddRecordViewController: UITableViewController {
     
     @IBAction func save() {
         let newDate = formattedDate(date: Date())
-        let newThought = "omg 😬"
         
-        newRecord = ThoughtRecord(date: newDate, thought: newThought, situation: "", feelingsStart: [FeelingDatabase().feelings[0]], unhelpfulThoughts: "", factsSupporting: "", factsAgainst: "", balancedPerspective: "", feelingsEnd: [FeelingDatabase().feelings[0]], tags: [TagDatabase().tags[0]])
+        guard let newThought = thoughtField.text,
+            let newSituation = situationField.text,
+            let newUnhelpfulThoughts = unhelpfulThoughtsView.text,
+            let newFactsSupporting = factsSupportingView.text,
+            let newFactsAgainst = factsAgainstView.text,
+            let newBalancedPerspective = balancedPerspectiveView.text else { return }
+        
+        
+        newRecord = ThoughtRecord(date: newDate, thought: newThought, situation: newSituation, feelingsStart: [FeelingDatabase().feelings[0]], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [FeelingDatabase().feelings[0]], tags: [TagDatabase().tags[0]])
     
         delegate?.addEventSave(self, didFinishAdding: newRecord!)
     }

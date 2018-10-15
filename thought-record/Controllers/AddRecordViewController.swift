@@ -23,6 +23,7 @@ class AddRecordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDateButtonText(date: Date())
+        checkTone()
     }
     
     // MARK: Actions
@@ -87,6 +88,24 @@ extension AddRecordViewController {
 }
 
 // MARK: API Methods
+
+extension AddRecordViewController {
+    
+    func checkTone() {
+        let text = "YAY THIS WORKS"
+        
+//        toneAnalyzer.tone(toneContent: ToneContent.text(text)) { (response) in
+//            print(response)
+//        }
+        
+        toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
+            print(error)
+        }) { (response) in
+            print(response)
+        }
+    }
+    
+}
 
 
 // MARK: Table View Methods

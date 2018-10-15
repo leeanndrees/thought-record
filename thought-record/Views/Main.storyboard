@@ -410,7 +410,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiL-9f-VOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1191.2" y="623.83808095952031"/>
+            <point key="canvasLocation" x="-1282" y="811"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Fi9-sQ-Whg">
@@ -471,7 +471,7 @@
                     <navigationItem key="navigationItem" title="All Thought Records" id="HjW-Lq-AJa">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="CIe-tR-Gg7">
                             <connections>
-                                <segue destination="0Ai-rA-ogZ" kind="show" id="rjH-l4-ADB"/>
+                                <segue destination="0Ai-rA-ogZ" kind="show" identifier="AddRecord" id="rjH-l4-ADB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

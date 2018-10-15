@@ -138,6 +138,30 @@ extension AddRecordViewController {
 
 // MARK: API Methods
 
+extension AddRecordViewController {
+    
+    func checkTone() {
+        let text = "I'm so happy this finally works! :D"
+        
+        toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
+            print(error)
+        }) { (response) in
+            print(response)
+            
+            if response.documentTone.tones != nil {
+                if let toneName = response.documentTone.tones?[0].toneName {
+                    print(toneName)
+                } else {
+                    print("no suggestion")
+                }
+            }
+            
+            //print(response.documentTone.tones?[0].toneName ?? "no suggestion")
+        }
+    }
+    
+}
+
 
 // MARK: Table View Methods
 

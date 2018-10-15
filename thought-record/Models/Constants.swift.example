@@ -1,0 +1,16 @@
+//
+//  Constants.swift
+//  thought-record
+//
+//  Created by DetroitLabs on 10/15/18.
+//  Copyright © 2018 DetroitLabs. All rights reserved.
+//
+
+import Foundation
+import ToneAnalyzer
+
+let toneAnalyzer = ToneAnalyzer(
+    username: "your-username",
+    password: "your-password",
+    version: "your-version-date"
+)

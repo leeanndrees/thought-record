@@ -23,6 +23,26 @@ class AddRecordViewController: UITableViewController {
     @IBOutlet weak var sliderLabel2: UILabel!
     @IBOutlet weak var sliderLabel3: UILabel!
     
+    @IBOutlet weak var thoughtField: UITextField!
+    @IBOutlet weak var situationField: UITextField!
+    @IBOutlet weak var unhelpfulThoughtsView: UITextView!
+    
+    @IBOutlet weak var beforeFeeling1Field: UITextField!
+    @IBOutlet weak var beforeFeeling1Slider: UISlider!
+    @IBOutlet weak var beforeFeeling2Field: UITextField!
+    @IBOutlet weak var beforeFeeling2Slider: UISlider!
+    @IBOutlet weak var beforeFeeling3Field: UITextField!
+    @IBOutlet weak var beforeFeeling3Slider: UISlider!
+    
+    @IBOutlet weak var factsSupportingView: UITextView!
+    @IBOutlet weak var factsAgainstView: UITextView!
+    @IBOutlet weak var balancedPerspectiveView: UITextView!
+    
+    @IBOutlet weak var afterFeeling1Field: UITextField!
+    @IBOutlet weak var afterFeeling1Slider: UISlider!
+    
+    @IBOutlet weak var tagsField: UITextField!
+    
     // MARK: Properties
     
     var newRecord: ThoughtRecord?

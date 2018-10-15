@@ -1,0 +1,891 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0ED5129AE198A0068C1E87E2BB826D1B /* ToneChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233F53F185DBBA9B34EB0508888916D /* ToneChatInput.swift */; };
+		0F28E8DE2096E860BEFF5F7D002C21DB /* ToneChatScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957E64BC562DD73F1C3D399526ADA31 /* ToneChatScore.swift */; };
+		14F6BF60D0A769ABD0ED5FFD4AF02596 /* ToneAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1223AB8102D86D0B5F8E346019D82F /* ToneAnalysis.swift */; };
+		1B8465E7B0287595AD002148465D73D1 /* SentenceAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BB0C9A6CA077E93D90EC12E261E9A5 /* SentenceAnalysis.swift */; };
+		1F63B06D64F5F186E83062F4742EDA24 /* IBMWatsonRestKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7C4C1F0C91CEAFC090927410CC46A93 /* IBMWatsonRestKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3707DA0E749DC58AB1D3D3B5129EB8A4 /* UtteranceAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F47DA495AAF711F2EDD403F68DECA8 /* UtteranceAnalysis.swift */; };
+		386459DEA7425C882185F67F458C1093 /* ToneCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FF8373F550E11F02972D3D5E2DD0 /* ToneCategory.swift */; };
+		3F0145EEC12929810D27B67032B7411B /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9942EB5A844EBD66A769F477B3282 /* MultipartFormData.swift */; };
+		40CCC055A3783ADD7A29FDD434C6D927 /* IBMWatsonToneAnalyzerV3-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB650CDB7528111097A8437274A2AA8 /* IBMWatsonToneAnalyzerV3-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44CCDB7917818F70FF774DC543581DFB /* Pods-thought-record-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3290E77F63DC1E35F83C5CCDA328A /* Pods-thought-record-dummy.m */; };
+		4E7897F983FC0131C87DC17A762C41B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		502E8B680545EBB1CFA2A71EAA475CBB /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2752D1A1FFDA35308296A00A340618 /* RestKit.framework */; };
+		570627B9F465F1607EEBC89D551E1C4C /* ToneContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA13A9714BFE89523B80D6D8122D96C /* ToneContent.swift */; };
+		8230283DE680A41CE42EE5F9DE7616BC /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11F7B33E6E2018BFF4DBF79DFF77FA /* JSON.swift */; };
+		8F54E22D10C3E4E5474DCE91F713EB72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		A08AED780DE0068D27D175AC33829D46 /* IBMWatsonToneAnalyzerV3-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5909E8DB15EB7BAEF5E918E40A64E14 /* IBMWatsonToneAnalyzerV3-dummy.m */; };
+		ABCC716DA321EB9509EEDC962B2133A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		ACFF6D376F24E30906B0093468F22910 /* Utterance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D301C7B1669E490E9A460003AD97E7F /* Utterance.swift */; };
+		AF2CF1F9138F27FBFBB2EBF6E047F322 /* ToneScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC13FE9E0E7C2894C61563A83AB9C3 /* ToneScore.swift */; };
+		B9AE3B0B36CF0BDD66CF7CC25D927C6E /* ToneAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6C5C601C999F58EB9EBC9442E4034 /* ToneAnalyzer.swift */; };
+		C1A4464087E7FED955D13271648A6C39 /* RestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62946059EBFB04C4623C4C670A8CF18 /* RestError.swift */; };
+		C54C73F92071175B33C7F48B48FC4A20 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D2628EC66453A5FEECA6F5F8ABC3E /* CodableExtensions.swift */; };
+		C6D8E9067F8CB01B83ECC3AFA131E687 /* IBMWatsonRestKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC20DC85172211BB3128C323AA1404 /* IBMWatsonRestKit-dummy.m */; };
+		C883C75E948960A8D4AD59A904FDC30B /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A7640C814E0770AF32B84E14B414C /* Authentication.swift */; };
+		CA40BDEEB887661954A481689FFAE9BA /* Pods-thought-record-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E6E63EEF6A7B29461F4CD99DA8A01F1 /* Pods-thought-record-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1B47695D6616EDF9F5D6E459E3DF5F3 /* ToneInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D53768E69F04DF543FFF7029F2427D /* ToneInput.swift */; };
+		F1505BD124244E7149A8F2353D0FC7CE /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091EA1F57ABBF8F9450D46A545C54C76 /* RestRequest.swift */; };
+		F2D9260D8328FEF6C2A8044ABE5BCB34 /* UtteranceAnalyses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD11D2BE628986FC921C9AA52BB5 /* UtteranceAnalyses.swift */; };
+		F3B4AA49489554446A105A469970CAA9 /* RestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8FCBBBBDE017B77A29EB5212887CC8 /* RestUtilities.swift */; };
+		F7C26CDC9EA5BCE57EB2036BA990B275 /* DocumentAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0356F1E2256505B6AD9A2AFA88515C15 /* DocumentAnalysis.swift */; };
+		FF60A0160C46A7FB3D9391F8229602D1 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5318EE92AF662ADF6E7F69C0510A767 /* Shared.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08A8961B613803247692C5A8FDD2F655 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10FD8A8B5C2640636E85C92309974E87;
+			remoteInfo = IBMWatsonToneAnalyzerV3;
+		};
+		5441F485D06E1C69504209F6FA68A729 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B94B338D15244DD7A41C814F802D4492;
+			remoteInfo = IBMWatsonRestKit;
+		};
+		792949835298ADB1021FFDA7DC2C2586 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B94B338D15244DD7A41C814F802D4492;
+			remoteInfo = IBMWatsonRestKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0356F1E2256505B6AD9A2AFA88515C15 /* DocumentAnalysis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocumentAnalysis.swift; path = Source/ToneAnalyzerV3/Models/DocumentAnalysis.swift; sourceTree = "<group>"; };
+		0406BD11D2BE628986FC921C9AA52BB5 /* UtteranceAnalyses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UtteranceAnalyses.swift; path = Source/ToneAnalyzerV3/Models/UtteranceAnalyses.swift; sourceTree = "<group>"; };
+		091EA1F57ABBF8F9450D46A545C54C76 /* RestRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestRequest.swift; path = Sources/RestKit/RestRequest.swift; sourceTree = "<group>"; };
+		0E8FCBBBBDE017B77A29EB5212887CC8 /* RestUtilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestUtilities.swift; path = Sources/RestKit/RestUtilities.swift; sourceTree = "<group>"; };
+		0FB650CDB7528111097A8437274A2AA8 /* IBMWatsonToneAnalyzerV3-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonToneAnalyzerV3-umbrella.h"; sourceTree = "<group>"; };
+		10C09C4C7691A4A2354D5311E3451146 /* RestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RestKit.framework; path = IBMWatsonRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		157F29C5716F865AC6F94D8C4FF565A7 /* IBMWatsonToneAnalyzerV3.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IBMWatsonToneAnalyzerV3.xcconfig; sourceTree = "<group>"; };
+		17C327D692A18485A40430173EBEE906 /* IBMWatsonRestKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IBMWatsonRestKit.xcconfig; sourceTree = "<group>"; };
+		1C2752D1A1FFDA35308296A00A340618 /* RestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A999B40DDC70A0121AAE1AE45C1FE2D /* IBMWatsonToneAnalyzerV3-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonToneAnalyzerV3-prefix.pch"; sourceTree = "<group>"; };
+		2E6E63EEF6A7B29461F4CD99DA8A01F1 /* Pods-thought-record-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-thought-record-umbrella.h"; sourceTree = "<group>"; };
+		32FC20DC85172211BB3128C323AA1404 /* IBMWatsonRestKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IBMWatsonRestKit-dummy.m"; sourceTree = "<group>"; };
+		33F47DA495AAF711F2EDD403F68DECA8 /* UtteranceAnalysis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UtteranceAnalysis.swift; path = Source/ToneAnalyzerV3/Models/UtteranceAnalysis.swift; sourceTree = "<group>"; };
+		376D2628EC66453A5FEECA6F5F8ABC3E /* CodableExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodableExtensions.swift; path = Sources/RestKit/CodableExtensions.swift; sourceTree = "<group>"; };
+		3957E64BC562DD73F1C3D399526ADA31 /* ToneChatScore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneChatScore.swift; path = Source/ToneAnalyzerV3/Models/ToneChatScore.swift; sourceTree = "<group>"; };
+		3FA13A9714BFE89523B80D6D8122D96C /* ToneContent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneContent.swift; path = Source/ToneAnalyzerV3/Models/ToneContent.swift; sourceTree = "<group>"; };
+		4A1223AB8102D86D0B5F8E346019D82F /* ToneAnalysis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneAnalysis.swift; path = Source/ToneAnalyzerV3/Models/ToneAnalysis.swift; sourceTree = "<group>"; };
+		501F262DDDB68F737A5BD41E78E24E86 /* Pods_thought_record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_thought_record.framework; path = "Pods-thought-record.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		564F176C60831A1A49B5930D03430D45 /* Pods-thought-record-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thought-record-frameworks.sh"; sourceTree = "<group>"; };
+		5BDC13FE9E0E7C2894C61563A83AB9C3 /* ToneScore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneScore.swift; path = Source/ToneAnalyzerV3/Models/ToneScore.swift; sourceTree = "<group>"; };
+		5C38C829549AA36811616956A74DBF60 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CB3290E77F63DC1E35F83C5CCDA328A /* Pods-thought-record-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-thought-record-dummy.m"; sourceTree = "<group>"; };
+		6D301C7B1669E490E9A460003AD97E7F /* Utterance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utterance.swift; path = Source/ToneAnalyzerV3/Models/Utterance.swift; sourceTree = "<group>"; };
+		704A7640C814E0770AF32B84E14B414C /* Authentication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Authentication.swift; path = Sources/RestKit/Authentication.swift; sourceTree = "<group>"; };
+		7233F53F185DBBA9B34EB0508888916D /* ToneChatInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneChatInput.swift; path = Source/ToneAnalyzerV3/Models/ToneChatInput.swift; sourceTree = "<group>"; };
+		78D53768E69F04DF543FFF7029F2427D /* ToneInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneInput.swift; path = Source/ToneAnalyzerV3/Models/ToneInput.swift; sourceTree = "<group>"; };
+		7E11F7B33E6E2018BFF4DBF79DFF77FA /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/RestKit/JSON.swift; sourceTree = "<group>"; };
+		86D90E20DA6B282E7B325AB52C52A719 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91B0FF8373F550E11F02972D3D5E2DD0 /* ToneCategory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneCategory.swift; path = Source/ToneAnalyzerV3/Models/ToneCategory.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1BB0C9A6CA077E93D90EC12E261E9A5 /* SentenceAnalysis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SentenceAnalysis.swift; path = Source/ToneAnalyzerV3/Models/SentenceAnalysis.swift; sourceTree = "<group>"; };
+		A7929F4ED182E539316BFC9AF46A9BD8 /* Pods-thought-record-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thought-record-resources.sh"; sourceTree = "<group>"; };
+		A9B1830149AA787D84DBC0B45575ADDB /* Pods-thought-record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thought-record.debug.xcconfig"; sourceTree = "<group>"; };
+		B5318EE92AF662ADF6E7F69C0510A767 /* Shared.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Shared.swift; path = Source/SupportingFiles/Shared.swift; sourceTree = "<group>"; };
+		B62946059EBFB04C4623C4C670A8CF18 /* RestError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestError.swift; path = Sources/RestKit/RestError.swift; sourceTree = "<group>"; };
+		B79BB9E6A296E250571D18A85A73B4A7 /* Pods-thought-record.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-thought-record.modulemap"; sourceTree = "<group>"; };
+		BA8D6731CCA585EA56DDB3DA87AD98BB /* Pods-thought-record.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thought-record.release.xcconfig"; sourceTree = "<group>"; };
+		C05766EA8E3225B39027DEAF0D07ABA7 /* Pods-thought-record-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-thought-record-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C5C9942EB5A844EBD66A769F477B3282 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Sources/RestKit/MultipartFormData.swift; sourceTree = "<group>"; };
+		C6DA77EAEEB9498DA08C2CDCDD0D4D83 /* Pods-thought-record-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-thought-record-acknowledgements.plist"; sourceTree = "<group>"; };
+		CA0BD291BA4BBBF56688D39B249D2879 /* IBMWatsonRestKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonRestKit-prefix.pch"; sourceTree = "<group>"; };
+		D0B27F576D89E138D6F702E462C81E49 /* IBMWatsonToneAnalyzerV3.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IBMWatsonToneAnalyzerV3.modulemap; sourceTree = "<group>"; };
+		D546B2678BC88C5C39B7D8B3E9037266 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5909E8DB15EB7BAEF5E918E40A64E14 /* IBMWatsonToneAnalyzerV3-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IBMWatsonToneAnalyzerV3-dummy.m"; sourceTree = "<group>"; };
+		DE230D46590F18D612A53B4B959F840E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E2DB51A9165E8BAAC6B97F076A0F663C /* IBMWatsonRestKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IBMWatsonRestKit.modulemap; sourceTree = "<group>"; };
+		E4E6C5C601C999F58EB9EBC9442E4034 /* ToneAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToneAnalyzer.swift; path = Source/ToneAnalyzerV3/ToneAnalyzer.swift; sourceTree = "<group>"; };
+		F071E4DBD3A53BA8C64CF55FCD911A8F /* ToneAnalyzer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ToneAnalyzer.framework; path = IBMWatsonToneAnalyzerV3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7C4C1F0C91CEAFC090927410CC46A93 /* IBMWatsonRestKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonRestKit-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E62807C969391B6EA26067807E0C12E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABCC716DA321EB9509EEDC962B2133A2 /* Foundation.framework in Frameworks */,
+				502E8B680545EBB1CFA2A71EAA475CBB /* RestKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2A20BDBD765546FAC15674C8C9A9951 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F54E22D10C3E4E5474DCE91F713EB72 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF3B5044A35F1AD38DD6E2B0DD7E4244 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E7897F983FC0131C87DC17A762C41B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		055DCF0AA4E506655D79CA814BD5372F /* IBMWatsonRestKit */ = {
+			isa = PBXGroup;
+			children = (
+				704A7640C814E0770AF32B84E14B414C /* Authentication.swift */,
+				376D2628EC66453A5FEECA6F5F8ABC3E /* CodableExtensions.swift */,
+				7E11F7B33E6E2018BFF4DBF79DFF77FA /* JSON.swift */,
+				C5C9942EB5A844EBD66A769F477B3282 /* MultipartFormData.swift */,
+				B62946059EBFB04C4623C4C670A8CF18 /* RestError.swift */,
+				091EA1F57ABBF8F9450D46A545C54C76 /* RestRequest.swift */,
+				0E8FCBBBBDE017B77A29EB5212887CC8 /* RestUtilities.swift */,
+				C2629E686CE0741B9DCBE2D67B5850E1 /* Support Files */,
+			);
+			name = IBMWatsonRestKit;
+			path = IBMWatsonRestKit;
+			sourceTree = "<group>";
+		};
+		25CFB6F2C6CF41AE73EBF1CFD0A3DE7A /* Pods-thought-record */ = {
+			isa = PBXGroup;
+			children = (
+				D546B2678BC88C5C39B7D8B3E9037266 /* Info.plist */,
+				B79BB9E6A296E250571D18A85A73B4A7 /* Pods-thought-record.modulemap */,
+				C05766EA8E3225B39027DEAF0D07ABA7 /* Pods-thought-record-acknowledgements.markdown */,
+				C6DA77EAEEB9498DA08C2CDCDD0D4D83 /* Pods-thought-record-acknowledgements.plist */,
+				6CB3290E77F63DC1E35F83C5CCDA328A /* Pods-thought-record-dummy.m */,
+				564F176C60831A1A49B5930D03430D45 /* Pods-thought-record-frameworks.sh */,
+				A7929F4ED182E539316BFC9AF46A9BD8 /* Pods-thought-record-resources.sh */,
+				2E6E63EEF6A7B29461F4CD99DA8A01F1 /* Pods-thought-record-umbrella.h */,
+				A9B1830149AA787D84DBC0B45575ADDB /* Pods-thought-record.debug.xcconfig */,
+				BA8D6731CCA585EA56DDB3DA87AD98BB /* Pods-thought-record.release.xcconfig */,
+			);
+			name = "Pods-thought-record";
+			path = "Target Support Files/Pods-thought-record";
+			sourceTree = "<group>";
+		};
+		42DA5C5C87F83862FD84F042C7BF4F46 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0B27F576D89E138D6F702E462C81E49 /* IBMWatsonToneAnalyzerV3.modulemap */,
+				157F29C5716F865AC6F94D8C4FF565A7 /* IBMWatsonToneAnalyzerV3.xcconfig */,
+				D5909E8DB15EB7BAEF5E918E40A64E14 /* IBMWatsonToneAnalyzerV3-dummy.m */,
+				2A999B40DDC70A0121AAE1AE45C1FE2D /* IBMWatsonToneAnalyzerV3-prefix.pch */,
+				0FB650CDB7528111097A8437274A2AA8 /* IBMWatsonToneAnalyzerV3-umbrella.h */,
+				86D90E20DA6B282E7B325AB52C52A719 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IBMWatsonToneAnalyzerV3";
+			sourceTree = "<group>";
+		};
+		49D3E8E69BBF3C82E6B9A7BF3C1C6DF9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DE230D46590F18D612A53B4B959F840E /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				A5711CD249B57C3EE3689B79CF7118DA /* Frameworks */,
+				DA3DF1AF93689971773B685EB0364B1C /* Pods */,
+				8FF5453BFDB3CEFF455BF4DC2EA0731F /* Products */,
+				B8A1A290CE11713C64428AB7A7A131B0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8FF5453BFDB3CEFF455BF4DC2EA0731F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				501F262DDDB68F737A5BD41E78E24E86 /* Pods_thought_record.framework */,
+				10C09C4C7691A4A2354D5311E3451146 /* RestKit.framework */,
+				F071E4DBD3A53BA8C64CF55FCD911A8F /* ToneAnalyzer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BDD83FFAA6EE0298680FF3B81841A57 /* IBMWatsonToneAnalyzerV3 */ = {
+			isa = PBXGroup;
+			children = (
+				0356F1E2256505B6AD9A2AFA88515C15 /* DocumentAnalysis.swift */,
+				A1BB0C9A6CA077E93D90EC12E261E9A5 /* SentenceAnalysis.swift */,
+				B5318EE92AF662ADF6E7F69C0510A767 /* Shared.swift */,
+				4A1223AB8102D86D0B5F8E346019D82F /* ToneAnalysis.swift */,
+				E4E6C5C601C999F58EB9EBC9442E4034 /* ToneAnalyzer.swift */,
+				91B0FF8373F550E11F02972D3D5E2DD0 /* ToneCategory.swift */,
+				7233F53F185DBBA9B34EB0508888916D /* ToneChatInput.swift */,
+				3957E64BC562DD73F1C3D399526ADA31 /* ToneChatScore.swift */,
+				3FA13A9714BFE89523B80D6D8122D96C /* ToneContent.swift */,
+				78D53768E69F04DF543FFF7029F2427D /* ToneInput.swift */,
+				5BDC13FE9E0E7C2894C61563A83AB9C3 /* ToneScore.swift */,
+				6D301C7B1669E490E9A460003AD97E7F /* Utterance.swift */,
+				0406BD11D2BE628986FC921C9AA52BB5 /* UtteranceAnalyses.swift */,
+				33F47DA495AAF711F2EDD403F68DECA8 /* UtteranceAnalysis.swift */,
+				42DA5C5C87F83862FD84F042C7BF4F46 /* Support Files */,
+			);
+			name = IBMWatsonToneAnalyzerV3;
+			path = IBMWatsonToneAnalyzerV3;
+			sourceTree = "<group>";
+		};
+		A5711CD249B57C3EE3689B79CF7118DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C2752D1A1FFDA35308296A00A340618 /* RestKit.framework */,
+				49D3E8E69BBF3C82E6B9A7BF3C1C6DF9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8A1A290CE11713C64428AB7A7A131B0 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				25CFB6F2C6CF41AE73EBF1CFD0A3DE7A /* Pods-thought-record */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C2629E686CE0741B9DCBE2D67B5850E1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2DB51A9165E8BAAC6B97F076A0F663C /* IBMWatsonRestKit.modulemap */,
+				17C327D692A18485A40430173EBEE906 /* IBMWatsonRestKit.xcconfig */,
+				32FC20DC85172211BB3128C323AA1404 /* IBMWatsonRestKit-dummy.m */,
+				CA0BD291BA4BBBF56688D39B249D2879 /* IBMWatsonRestKit-prefix.pch */,
+				F7C4C1F0C91CEAFC090927410CC46A93 /* IBMWatsonRestKit-umbrella.h */,
+				5C38C829549AA36811616956A74DBF60 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IBMWatsonRestKit";
+			sourceTree = "<group>";
+		};
+		DA3DF1AF93689971773B685EB0364B1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				055DCF0AA4E506655D79CA814BD5372F /* IBMWatsonRestKit */,
+				9BDD83FFAA6EE0298680FF3B81841A57 /* IBMWatsonToneAnalyzerV3 */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1159CF941A95E0A1FA9EDAF38F165AB9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CCC055A3783ADD7A29FDD434C6D927 /* IBMWatsonToneAnalyzerV3-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59EAE186532E157028DC10D99FE06C29 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F63B06D64F5F186E83062F4742EDA24 /* IBMWatsonRestKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60B3936BB2A9E3AA225AD950A2216DE7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA40BDEEB887661954A481689FFAE9BA /* Pods-thought-record-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		10FD8A8B5C2640636E85C92309974E87 /* IBMWatsonToneAnalyzerV3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAC77724594A45D8418EEE03CFE4B10E /* Build configuration list for PBXNativeTarget "IBMWatsonToneAnalyzerV3" */;
+			buildPhases = (
+				1159CF941A95E0A1FA9EDAF38F165AB9 /* Headers */,
+				692574E2F9C99960DCDFE7D45CFD4FAC /* Sources */,
+				4E62807C969391B6EA26067807E0C12E /* Frameworks */,
+				1CF336B7CB0B217F755375AA367DFD88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86D50DA1D4CD8C11F9E2945AF7BA7B28 /* PBXTargetDependency */,
+			);
+			name = IBMWatsonToneAnalyzerV3;
+			productName = IBMWatsonToneAnalyzerV3;
+			productReference = F071E4DBD3A53BA8C64CF55FCD911A8F /* ToneAnalyzer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B90DDEC6D2D01BF105B7D5A52095EBDC /* Pods-thought-record */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1ADE7A212BEC204F65C935C4D2D7060 /* Build configuration list for PBXNativeTarget "Pods-thought-record" */;
+			buildPhases = (
+				60B3936BB2A9E3AA225AD950A2216DE7 /* Headers */,
+				738E8D376E95AA3D6DBAD9576B4E631D /* Sources */,
+				B2A20BDBD765546FAC15674C8C9A9951 /* Frameworks */,
+				980D8CD9DFF45907C840A0493308AC49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31B679E37813ECF2D937B8E9774F3B0F /* PBXTargetDependency */,
+				1E9E0CFF06242A4318A556FECE790711 /* PBXTargetDependency */,
+			);
+			name = "Pods-thought-record";
+			productName = "Pods-thought-record";
+			productReference = 501F262DDDB68F737A5BD41E78E24E86 /* Pods_thought_record.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B94B338D15244DD7A41C814F802D4492 /* IBMWatsonRestKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6AA8381D24674335E79045721B4D022 /* Build configuration list for PBXNativeTarget "IBMWatsonRestKit" */;
+			buildPhases = (
+				59EAE186532E157028DC10D99FE06C29 /* Headers */,
+				3F27CE6EF31BB8D0A9F7AFFE2E6D233A /* Sources */,
+				EF3B5044A35F1AD38DD6E2B0DD7E4244 /* Frameworks */,
+				A31A7935BE5FEF8EA7447CDBB48E5BB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IBMWatsonRestKit;
+			productName = IBMWatsonRestKit;
+			productReference = 10C09C4C7691A4A2354D5311E3451146 /* RestKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 8FF5453BFDB3CEFF455BF4DC2EA0731F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B94B338D15244DD7A41C814F802D4492 /* IBMWatsonRestKit */,
+				10FD8A8B5C2640636E85C92309974E87 /* IBMWatsonToneAnalyzerV3 */,
+				B90DDEC6D2D01BF105B7D5A52095EBDC /* Pods-thought-record */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CF336B7CB0B217F755375AA367DFD88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		980D8CD9DFF45907C840A0493308AC49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A31A7935BE5FEF8EA7447CDBB48E5BB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F27CE6EF31BB8D0A9F7AFFE2E6D233A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C883C75E948960A8D4AD59A904FDC30B /* Authentication.swift in Sources */,
+				C54C73F92071175B33C7F48B48FC4A20 /* CodableExtensions.swift in Sources */,
+				C6D8E9067F8CB01B83ECC3AFA131E687 /* IBMWatsonRestKit-dummy.m in Sources */,
+				8230283DE680A41CE42EE5F9DE7616BC /* JSON.swift in Sources */,
+				3F0145EEC12929810D27B67032B7411B /* MultipartFormData.swift in Sources */,
+				C1A4464087E7FED955D13271648A6C39 /* RestError.swift in Sources */,
+				F1505BD124244E7149A8F2353D0FC7CE /* RestRequest.swift in Sources */,
+				F3B4AA49489554446A105A469970CAA9 /* RestUtilities.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		692574E2F9C99960DCDFE7D45CFD4FAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7C26CDC9EA5BCE57EB2036BA990B275 /* DocumentAnalysis.swift in Sources */,
+				A08AED780DE0068D27D175AC33829D46 /* IBMWatsonToneAnalyzerV3-dummy.m in Sources */,
+				1B8465E7B0287595AD002148465D73D1 /* SentenceAnalysis.swift in Sources */,
+				FF60A0160C46A7FB3D9391F8229602D1 /* Shared.swift in Sources */,
+				14F6BF60D0A769ABD0ED5FFD4AF02596 /* ToneAnalysis.swift in Sources */,
+				B9AE3B0B36CF0BDD66CF7CC25D927C6E /* ToneAnalyzer.swift in Sources */,
+				386459DEA7425C882185F67F458C1093 /* ToneCategory.swift in Sources */,
+				0ED5129AE198A0068C1E87E2BB826D1B /* ToneChatInput.swift in Sources */,
+				0F28E8DE2096E860BEFF5F7D002C21DB /* ToneChatScore.swift in Sources */,
+				570627B9F465F1607EEBC89D551E1C4C /* ToneContent.swift in Sources */,
+				D1B47695D6616EDF9F5D6E459E3DF5F3 /* ToneInput.swift in Sources */,
+				AF2CF1F9138F27FBFBB2EBF6E047F322 /* ToneScore.swift in Sources */,
+				ACFF6D376F24E30906B0093468F22910 /* Utterance.swift in Sources */,
+				F2D9260D8328FEF6C2A8044ABE5BCB34 /* UtteranceAnalyses.swift in Sources */,
+				3707DA0E749DC58AB1D3D3B5129EB8A4 /* UtteranceAnalysis.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		738E8D376E95AA3D6DBAD9576B4E631D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44CCDB7917818F70FF774DC543581DFB /* Pods-thought-record-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E9E0CFF06242A4318A556FECE790711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonToneAnalyzerV3;
+			target = 10FD8A8B5C2640636E85C92309974E87 /* IBMWatsonToneAnalyzerV3 */;
+			targetProxy = 08A8961B613803247692C5A8FDD2F655 /* PBXContainerItemProxy */;
+		};
+		31B679E37813ECF2D937B8E9774F3B0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonRestKit;
+			target = B94B338D15244DD7A41C814F802D4492 /* IBMWatsonRestKit */;
+			targetProxy = 5441F485D06E1C69504209F6FA68A729 /* PBXContainerItemProxy */;
+		};
+		86D50DA1D4CD8C11F9E2945AF7BA7B28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonRestKit;
+			target = B94B338D15244DD7A41C814F802D4492 /* IBMWatsonRestKit */;
+			targetProxy = 792949835298ADB1021FFDA7DC2C2586 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11716BCB9962BB40F459340951192E05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17C327D692A18485A40430173EBEE906 /* IBMWatsonRestKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonRestKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit.modulemap";
+				PRODUCT_MODULE_NAME = RestKit;
+				PRODUCT_NAME = RestKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1EB6C10C31EC62408B563125DBB519D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17C327D692A18485A40430173EBEE906 /* IBMWatsonRestKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonRestKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit.modulemap";
+				PRODUCT_MODULE_NAME = RestKit;
+				PRODUCT_NAME = RestKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		22A7940945A3A9E192BFF67605369B6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9B1830149AA787D84DBC0B45575ADDB /* Pods-thought-record.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-thought-record/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-thought-record/Pods-thought-record.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		40B45BB3CF3EE4476259302A7FAAD78F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		5C745E6FA21A92F9AA6801FCF658EE19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 157F29C5716F865AC6F94D8C4FF565A7 /* IBMWatsonToneAnalyzerV3.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonToneAnalyzerV3/IBMWatsonToneAnalyzerV3-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonToneAnalyzerV3/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonToneAnalyzerV3/IBMWatsonToneAnalyzerV3.modulemap";
+				PRODUCT_MODULE_NAME = ToneAnalyzer;
+				PRODUCT_NAME = ToneAnalyzer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7D6F1519BC2AFECFD6251E487C1F03C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA8D6731CCA585EA56DDB3DA87AD98BB /* Pods-thought-record.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-thought-record/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-thought-record/Pods-thought-record.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		82957AD3E346DA5158D7831F4BAA851B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 157F29C5716F865AC6F94D8C4FF565A7 /* IBMWatsonToneAnalyzerV3.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonToneAnalyzerV3/IBMWatsonToneAnalyzerV3-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonToneAnalyzerV3/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonToneAnalyzerV3/IBMWatsonToneAnalyzerV3.modulemap";
+				PRODUCT_MODULE_NAME = ToneAnalyzer;
+				PRODUCT_NAME = ToneAnalyzer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		85ED3013A635C27F8B7FAF51362B108C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85ED3013A635C27F8B7FAF51362B108C /* Debug */,
+				40B45BB3CF3EE4476259302A7FAAD78F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1ADE7A212BEC204F65C935C4D2D7060 /* Build configuration list for PBXNativeTarget "Pods-thought-record" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22A7940945A3A9E192BFF67605369B6E /* Debug */,
+				7D6F1519BC2AFECFD6251E487C1F03C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6AA8381D24674335E79045721B4D022 /* Build configuration list for PBXNativeTarget "IBMWatsonRestKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EB6C10C31EC62408B563125DBB519D8 /* Debug */,
+				11716BCB9962BB40F459340951192E05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAC77724594A45D8418EEE03CFE4B10E /* Build configuration list for PBXNativeTarget "IBMWatsonToneAnalyzerV3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82957AD3E346DA5158D7831F4BAA851B /* Debug */,
+				5C745E6FA21A92F9AA6801FCF658EE19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,20 @@
+PODS:
+  - IBMWatsonRestKit (1.2.0)
+  - IBMWatsonToneAnalyzerV3 (0.35.0):
+    - IBMWatsonRestKit (= 1.2.0)
+
+DEPENDENCIES:
+  - IBMWatsonToneAnalyzerV3 (~> 0.35.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - IBMWatsonRestKit
+    - IBMWatsonToneAnalyzerV3
+
+SPEC CHECKSUMS:
+  IBMWatsonRestKit: b05aa0aa912724accbf6ed9475654602886f0782
+  IBMWatsonToneAnalyzerV3: ae69d5375b34e3fb08f52848b6a6d30754d296a2
+
+PODFILE CHECKSUM: a2d541ab586b9e956ab84b7fe5fd226d62ae4ca3
+
+COCOAPODS: 1.5.3

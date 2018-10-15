@@ -118,5 +118,9 @@ extension AllRecordsViewController {
             guard let detailViewController = segue.destination as? RecordDetailViewController else { return }
             detailViewController.recordToShow = records[selectedRecordIndex]
         }
+        else if segue.identifier == SegueIdentifier.add.rawValue {
+            guard let addViewController = segue.destination as? AddRecordViewController else { return }
+            addViewController.delegate = self
+        }
     }
 }

@@ -58,6 +58,8 @@ class AddRecordViewController: UITableViewController {
         let newThought = "omg 😬"
         
         newRecord = ThoughtRecord(date: newDate, thought: newThought, situation: "", feelingsStart: [FeelingDatabase().feelings[0]], unhelpfulThoughts: "", factsSupporting: "", factsAgainst: "", balancedPerspective: "", feelingsEnd: [FeelingDatabase().feelings[0]], tags: [TagDatabase().tags[0]])
+    
+        delegate?.addEventSave(self, didFinishAdding: newRecord!)
     }
         
 }

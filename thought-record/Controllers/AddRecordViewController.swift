@@ -23,7 +23,6 @@ class AddRecordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDateButtonText(date: Date())
-        checkTone()
     }
     
     // MARK: Actions

@@ -85,14 +85,24 @@ class AddRecordViewController: UITableViewController {
 
 extension AddRecordViewController {
     
-    private func formattedDate(date: Date) -> String {
+    private func formattedFullDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
-        let todayString = dateFormatter.string(from: date)
-        let formattedToday = dateFormatter.date(from: todayString)
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
         
-        return dateFormatter.string(from: formattedToday!)
+        return dateFormatter.string(from: formattedDate!)
+    }
+    
+    private func formattedShortDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        
+        return dateFormatter.string(from: formattedDate!)
     }
     
     private func getCurrentDate() -> Date {
@@ -100,7 +110,7 @@ extension AddRecordViewController {
     }
     
     private func setDateButtonText(date: Date) {
-        dateButton.setTitle(formattedDate(date: date), for: .normal)
+        dateButton.setTitle(formattedFullDate(date: date), for: .normal)
     }
     
     private func showDatePickerActionSheet() {
@@ -143,7 +153,7 @@ extension AddRecordViewController {
         if let dateOfEntry = dateButton.titleLabel?.text {
             newDate = dateOfEntry
         } else {
-            newDate = formattedDate(date: Date())
+            newDate = formattedShortDate(date: Date())
         }
         return newDate
     }

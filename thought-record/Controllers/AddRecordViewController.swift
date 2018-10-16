@@ -9,14 +9,39 @@
 import UIKit
 import ToneAnalyzer
 
+protocol AddRecordViewControllerDelegate: class {
+    func addEventDidCancel(_ controller: AddRecordViewController)
+    func addEventSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord)
+}
+
 class AddRecordViewController: UITableViewController {
 
     // MARK: Outlets
     
     @IBOutlet weak var dateButton: UIButton!
-    @IBOutlet weak var sliderLabel1: UILabel!
-    @IBOutlet weak var sliderLabel2: UILabel!
-    @IBOutlet weak var sliderLabel3: UILabel!
+    
+    @IBOutlet weak var thoughtField: UITextField!
+    @IBOutlet weak var situationField: UITextField!
+    @IBOutlet weak var unhelpfulThoughtsView: UITextView!
+    
+    @IBOutlet weak var beforeFeelingField: UITextField!
+    @IBOutlet weak var beforeFeelingSlider: UISlider!
+    @IBOutlet weak var beforeFeelingRatingLabel: UILabel!
+    
+    @IBOutlet weak var factsSupportingView: UITextView!
+    @IBOutlet weak var factsAgainstView: UITextView!
+    @IBOutlet weak var balancedPerspectiveView: UITextView!
+    
+    @IBOutlet weak var afterFeelingField: UITextField!
+    @IBOutlet weak var afterFeelingSlider: UISlider!
+    @IBOutlet weak var afterFeelingRatingLabel: UILabel!
+    
+    @IBOutlet weak var tagsField: UITextField!
+    
+    // MARK: Properties
+    
+    var newRecord: ThoughtRecord?
+    weak var delegate: AddRecordViewControllerDelegate?
     
     // MARK: Lifecycle Methods
     
@@ -28,19 +53,17 @@ class AddRecordViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        sliderLabel1.text = String(Int(sender.value))
-    }
-    
-    @IBAction func sliderValue2Changed(_ sender: UISlider) {
-        sliderLabel2.text = String(Int(sender.value))
-    }
-    
-    @IBAction func sliderValue3Changed(_ sender: UISlider) {
-        sliderLabel3.text = String(Int(sender.value))
+        beforeFeelingRatingLabel.text = String(Int(sender.value))
     }
 
     @IBAction func dateButtonTapped(_ sender: Any) {
         showDatePickerActionSheet()
+    }
+    
+    @IBAction func save() {
+        guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
+    
+        delegate?.addEventSave(self, didFinishAdding: newRecord)
     }
         
 }
@@ -49,14 +72,24 @@ class AddRecordViewController: UITableViewController {
 
 extension AddRecordViewController {
     
-    private func formattedDate(date: Date) -> String {
+    private func formattedFullDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
-        let todayString = dateFormatter.string(from: date)
-        let formattedToday = dateFormatter.date(from: todayString)
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
         
-        return dateFormatter.string(from: formattedToday!)
+        return dateFormatter.string(from: formattedDate!)
+    }
+    
+    private func formattedShortDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        
+        return dateFormatter.string(from: formattedDate!)
     }
     
     private func getCurrentDate() -> Date {
@@ -64,7 +97,7 @@ extension AddRecordViewController {
     }
     
     private func setDateButtonText(date: Date) {
-        dateButton.setTitle(formattedDate(date: date), for: .normal)
+        dateButton.setTitle(formattedFullDate(date: date), for: .normal)
     }
     
     private func showDatePickerActionSheet() {
@@ -82,6 +115,36 @@ extension AddRecordViewController {
         let height: NSLayoutConstraint = NSLayoutConstraint(item: datePickerAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
         datePickerAlert.view.addConstraint(height)
         self.present(datePickerAlert, animated: true, completion: nil)
+    }
+    
+    private func createNewRecord() -> ThoughtRecord? {
+        let newFeelingBefore = Feeling(name: beforeFeelingField.text!, rating: Int(beforeFeelingSlider!.value))
+        
+        let newFeelingAfter = Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
+        
+        let newTag = Tag(name: tagsField.text!, useCount: 1)
+        
+        guard let newThought = thoughtField.text,
+            let newSituation = situationField.text,
+            let newUnhelpfulThoughts = unhelpfulThoughtsView.text,
+            let newFactsSupporting = factsSupportingView.text,
+            let newFactsAgainst = factsAgainstView.text,
+            let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
+        
+        
+        newRecord = ThoughtRecord(date: createNewRecordDate(), thought: newThought, situation: newSituation, feelingsStart: [newFeelingBefore], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeelingAfter], tags: [newTag])
+        
+        return newRecord
+    }
+    
+    private func createNewRecordDate() -> String {
+        var newDate: String
+        if let dateOfEntry = dateButton.titleLabel?.text {
+            newDate = dateOfEntry
+        } else {
+            newDate = formattedShortDate(date: Date())
+        }
+        return newDate
     }
     
 }

@@ -10,4 +10,5 @@ import Foundation
 
 enum SegueIdentifier: String {
     case detail = "ShowDetail"
+    case add = "AddRecord"
 }

@@ -74,13 +74,12 @@ class AddRecordViewController: UITableViewController {
     }
     
     @IBAction func save() {
-        var newDate: String
-        if let dateOfEntry = dateButton.titleLabel?.text {
-            newDate = dateOfEntry
-        } else {
-            newDate = formattedDate(date: Date())
-        }
-        
+        newRecord = createNewRecord()
+    
+        delegate?.addEventSave(self, didFinishAdding: newRecord!)
+    }
+    
+    func createNewRecord() -> ThoughtRecord? {
         let newFeeling1 = Feeling(name: beforeFeeling1Field.text!, rating: Int(beforeFeeling1Slider!.value))
         
         let newTag = Tag(name: tagsField.text!, useCount: 1)
@@ -90,16 +89,12 @@ class AddRecordViewController: UITableViewController {
             let newUnhelpfulThoughts = unhelpfulThoughtsView.text,
             let newFactsSupporting = factsSupportingView.text,
             let newFactsAgainst = factsAgainstView.text,
-            let newBalancedPerspective = balancedPerspectiveView.text else { return }
+            let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
         
         
-        newRecord = ThoughtRecord(date: newDate, thought: newThought, situation: newSituation, feelingsStart: [newFeeling1], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeeling1], tags: [newTag])
-    
-        delegate?.addEventSave(self, didFinishAdding: newRecord!)
-    }
-    
-    func createNewRecord() {
+        newRecord = ThoughtRecord(date: createNewRecordDate(), thought: newThought, situation: newSituation, feelingsStart: [newFeeling1], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeeling1], tags: [newTag])
         
+        return newRecord
     }
     
     func createNewRecordDate() -> String {

@@ -305,8 +305,9 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1667"/>
                     <connections>
-                        <outlet property="afterFeeling1Field" destination="QBK-RG-Uai" id="bvr-OV-l0b"/>
-                        <outlet property="afterFeeling1Slider" destination="fGe-H3-3uQ" id="PE4-Ur-FpU"/>
+                        <outlet property="afterFeelingField" destination="QBK-RG-Uai" id="8hC-Uf-fVk"/>
+                        <outlet property="afterFeelingRatingLabel" destination="dEh-am-TqO" id="GQ9-PX-sei"/>
+                        <outlet property="afterFeelingSlider" destination="fGe-H3-3uQ" id="aFh-mI-GCl"/>
                         <outlet property="balancedPerspectiveView" destination="RpS-d7-KLe" id="DG4-QX-KaR"/>
                         <outlet property="beforeFeelingField" destination="LjI-5L-hCT" id="Hbs-eL-E29"/>
                         <outlet property="beforeFeelingRatingLabel" destination="c2E-27-xa8" id="gcr-Dz-PCB"/>

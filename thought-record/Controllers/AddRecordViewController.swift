@@ -32,8 +32,9 @@ class AddRecordViewController: UITableViewController {
     @IBOutlet weak var factsAgainstView: UITextView!
     @IBOutlet weak var balancedPerspectiveView: UITextView!
     
-    @IBOutlet weak var afterFeeling1Field: UITextField!
-    @IBOutlet weak var afterFeeling1Slider: UISlider!
+    @IBOutlet weak var afterFeelingField: UITextField!
+    @IBOutlet weak var afterFeelingSlider: UISlider!
+    @IBOutlet weak var afterFeelingRatingLabel: UILabel!
     
     @IBOutlet weak var tagsField: UITextField!
     

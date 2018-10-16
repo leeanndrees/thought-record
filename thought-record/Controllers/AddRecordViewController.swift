@@ -20,8 +20,6 @@ class AddRecordViewController: UITableViewController {
     
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var sliderLabel1: UILabel!
-    @IBOutlet weak var sliderLabel2: UILabel!
-    @IBOutlet weak var sliderLabel3: UILabel!
     
     @IBOutlet weak var thoughtField: UITextField!
     @IBOutlet weak var situationField: UITextField!
@@ -29,10 +27,6 @@ class AddRecordViewController: UITableViewController {
     
     @IBOutlet weak var beforeFeeling1Field: UITextField!
     @IBOutlet weak var beforeFeeling1Slider: UISlider!
-    @IBOutlet weak var beforeFeeling2Field: UITextField!
-    @IBOutlet weak var beforeFeeling2Slider: UISlider!
-    @IBOutlet weak var beforeFeeling3Field: UITextField!
-    @IBOutlet weak var beforeFeeling3Slider: UISlider!
     
     @IBOutlet weak var factsSupportingView: UITextView!
     @IBOutlet weak var factsAgainstView: UITextView!
@@ -59,14 +53,6 @@ class AddRecordViewController: UITableViewController {
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         sliderLabel1.text = String(Int(sender.value))
-    }
-    
-    @IBAction func sliderValue2Changed(_ sender: UISlider) {
-        sliderLabel2.text = String(Int(sender.value))
-    }
-    
-    @IBAction func sliderValue3Changed(_ sender: UISlider) {
-        sliderLabel3.text = String(Int(sender.value))
     }
 
     @IBAction func dateButtonTapped(_ sender: Any) {

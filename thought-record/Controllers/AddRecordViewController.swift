@@ -74,7 +74,12 @@ class AddRecordViewController: UITableViewController {
     }
     
     @IBAction func save() {
-        let newDate = formattedDate(date: Date())
+        var newDate: String
+        if let dateOfEntry = dateButton.titleLabel?.text {
+            newDate = dateOfEntry
+        } else {
+            newDate = formattedDate(date: Date())
+        }
         
         let newFeeling1 = Feeling(name: beforeFeeling1Field.text!, rating: Int(beforeFeeling1Slider!.value))
         

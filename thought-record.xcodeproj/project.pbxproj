@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E76B5B36914940203B1F85D /* Pods_thought_record.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90ABD5CEBD5D4067793359BF /* Pods_thought_record.framework */; };
 		432208992174D5720080FCFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432208982174D5720080FCFD /* Constants.swift */; };
+		4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */; };
 		434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B1216E328A000CD1B6 /* AppDelegate.swift */; };
 		434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B3216E328A000CD1B6 /* ViewController.swift */; };
 		434C05B9216E328B000CD1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434C05B8216E328B000CD1B6 /* Assets.xcassets */; };
@@ -22,12 +23,13 @@
 		434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E5216E4F1C000CD1B6 /* Tag.swift */; };
 		43657701216E51E100F54479 /* TemporaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657700216E51E100F54479 /* TemporaryData.swift */; };
 		43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657702216E85C000F54479 /* RecordDetailViewController.swift */; };
-		43657705216F892400F54479 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657704216F892400F54479 /* AddRecordViewController.swift */; };
+		43657705216F892400F54479 /* AddRecordViewController-old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657704216F892400F54479 /* AddRecordViewController-old.swift */; };
 		4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365778E216FDEC400F54479 /* SegueIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		432208982174D5720080FCFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 		434C05AE216E328A000CD1B6 /* thought-record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thought-record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		434C05B1216E328A000CD1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		434C05B3216E328A000CD1B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +45,7 @@
 		434C05E5216E4F1C000CD1B6 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		43657700216E51E100F54479 /* TemporaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryData.swift; sourceTree = "<group>"; };
 		43657702216E85C000F54479 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
-		43657704216F892400F54479 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
+		43657704216F892400F54479 /* AddRecordViewController-old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRecordViewController-old.swift"; sourceTree = "<group>"; };
 		4365778E216FDEC400F54479 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		8EC6EB5D8E4D2EADE2B7DDBE /* Pods-thought-record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thought-record.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thought-record/Pods-thought-record.debug.xcconfig"; sourceTree = "<group>"; };
 		90ABD5CEBD5D4067793359BF /* Pods_thought_record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thought_record.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,7 +125,8 @@
 				434C05DB216E4A49000CD1B6 /* HomeViewController.swift */,
 				434C05DF216E4A8C000CD1B6 /* AllRecordsViewController.swift */,
 				43657702216E85C000F54479 /* RecordDetailViewController.swift */,
-				43657704216F892400F54479 /* AddRecordViewController.swift */,
+				43657704216F892400F54479 /* AddRecordViewController-old.swift */,
+				4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -270,12 +273,13 @@
 				434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */,
 				434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */,
 				43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */,
-				43657705216F892400F54479 /* AddRecordViewController.swift in Sources */,
+				43657705216F892400F54479 /* AddRecordViewController-old.swift in Sources */,
 				4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */,
 				434C05D6216E48A9000CD1B6 /* TabBarViewController.swift in Sources */,
 				434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */,
 				432208992174D5720080FCFD /* Constants.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,
+				4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */,
 				434C05E0216E4A8C000CD1B6 /* AllRecordsViewController.swift in Sources */,
 				434C05E2216E4D91000CD1B6 /* ThoughtRecord.swift in Sources */,
 				43657701216E51E100F54479 /* TemporaryData.swift in Sources */,

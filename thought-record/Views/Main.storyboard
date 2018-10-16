@@ -13,7 +13,7 @@
         <!--Add Record-->
         <scene sceneID="fZ7-F3-rwJ">
             <objects>
-                <tableViewController id="0Ai-rA-ogZ" customClass="AddRecordViewController" customModule="thought_record" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="0Ai-rA-ogZ" customClass="AddRecordViewControllerOld" customModule="thought_record" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="D0b-zE-Fdy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -731,7 +731,7 @@
         <!--Test-->
         <scene sceneID="La1-HG-Bhc">
             <objects>
-                <viewController id="wOg-JH-a4l" sceneMemberID="viewController">
+                <viewController id="wOg-JH-a4l" customClass="AddRecordViewController" customModule="thought_record" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a3i-uO-x76">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1567"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -997,6 +997,22 @@
                     <tabBarItem key="tabBarItem" title="Test" springLoaded="YES" id="otS-Ox-rjW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1567"/>
+                    <connections>
+                        <outlet property="afterFeelingField" destination="y8k-E2-oQV" id="QsE-Bf-4iB"/>
+                        <outlet property="afterFeelingRatingLabel" destination="B0w-cC-dUs" id="L15-QQ-ZdK"/>
+                        <outlet property="afterFeelingSlider" destination="waL-Nx-j7R" id="hlf-E4-O52"/>
+                        <outlet property="balancedPerspectiveView" destination="c3V-MN-eQv" id="JGt-B6-Q0u"/>
+                        <outlet property="beforeFeelingField" destination="3Pk-42-YSX" id="DCp-Zb-QFH"/>
+                        <outlet property="beforeFeelingRatingLabel" destination="HfJ-t2-OR7" id="IQu-mT-kx4"/>
+                        <outlet property="beforeFeelingSlider" destination="Z1I-Ue-EYr" id="otJ-pb-hFc"/>
+                        <outlet property="dateButton" destination="rDt-Ij-o9b" id="C8s-Ja-yD8"/>
+                        <outlet property="factsAgainstView" destination="blL-hs-9y2" id="9SZ-1r-99g"/>
+                        <outlet property="factsSupportingView" destination="2Ro-5I-Cap" id="Xa2-22-jc6"/>
+                        <outlet property="situationField" destination="Zed-vL-AWl" id="jSm-SM-A8u"/>
+                        <outlet property="tagsField" destination="vQE-nn-CxE" id="FX6-dg-vaO"/>
+                        <outlet property="thoughtField" destination="UtU-oa-8Aa" id="Cwj-9i-62C"/>
+                        <outlet property="unhelpfulThoughtsView" destination="Yif-ja-KwI" id="Nx1-Ys-qbD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGR-jP-ksn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

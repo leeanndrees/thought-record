@@ -97,11 +97,11 @@ extension AllRecordsViewController {
 // MARK: - AddRecordViewControllerDelegate Methods
 
 extension AllRecordsViewController: AddRecordViewControllerDelegate {
-    func addEventDidCancel(_ controller: AddRecordViewController) {
+    func addEventDidCancel(_ controller: AddRecordViewControllerOld) {
         navigationController?.popViewController(animated: true)
     }
     
-    func addEventSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord) {
+    func addEventSave(_ controller: AddRecordViewControllerOld, didFinishAdding item: ThoughtRecord) {
         records.append(item)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
@@ -119,7 +119,7 @@ extension AllRecordsViewController {
             detailViewController.recordToShow = records[selectedRecordIndex]
         }
         else if segue.identifier == SegueIdentifier.add.rawValue {
-            guard let addViewController = segue.destination as? AddRecordViewController else { return }
+            guard let addViewController = segue.destination as? AddRecordViewControllerOld else { return }
             addViewController.delegate = self
         }
     }

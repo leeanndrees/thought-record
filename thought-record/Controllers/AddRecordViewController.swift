@@ -74,37 +74,9 @@ class AddRecordViewController: UITableViewController {
     }
     
     @IBAction func save() {
-        newRecord = createNewRecord()
+        guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
     
-        delegate?.addEventSave(self, didFinishAdding: newRecord!)
-    }
-    
-    func createNewRecord() -> ThoughtRecord? {
-        let newFeeling1 = Feeling(name: beforeFeeling1Field.text!, rating: Int(beforeFeeling1Slider!.value))
-        
-        let newTag = Tag(name: tagsField.text!, useCount: 1)
-        
-        guard let newThought = thoughtField.text,
-            let newSituation = situationField.text,
-            let newUnhelpfulThoughts = unhelpfulThoughtsView.text,
-            let newFactsSupporting = factsSupportingView.text,
-            let newFactsAgainst = factsAgainstView.text,
-            let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
-        
-        
-        newRecord = ThoughtRecord(date: createNewRecordDate(), thought: newThought, situation: newSituation, feelingsStart: [newFeeling1], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeeling1], tags: [newTag])
-        
-        return newRecord
-    }
-    
-    func createNewRecordDate() -> String {
-        var newDate: String
-        if let dateOfEntry = dateButton.titleLabel?.text {
-            newDate = dateOfEntry
-        } else {
-            newDate = formattedDate(date: Date())
-        }
-        return newDate
+        delegate?.addEventSave(self, didFinishAdding: newRecord)
     }
         
 }
@@ -146,6 +118,34 @@ extension AddRecordViewController {
         let height: NSLayoutConstraint = NSLayoutConstraint(item: datePickerAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
         datePickerAlert.view.addConstraint(height)
         self.present(datePickerAlert, animated: true, completion: nil)
+    }
+    
+    private func createNewRecord() -> ThoughtRecord? {
+        let newFeeling1 = Feeling(name: beforeFeeling1Field.text!, rating: Int(beforeFeeling1Slider!.value))
+        
+        let newTag = Tag(name: tagsField.text!, useCount: 1)
+        
+        guard let newThought = thoughtField.text,
+            let newSituation = situationField.text,
+            let newUnhelpfulThoughts = unhelpfulThoughtsView.text,
+            let newFactsSupporting = factsSupportingView.text,
+            let newFactsAgainst = factsAgainstView.text,
+            let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
+        
+        
+        newRecord = ThoughtRecord(date: createNewRecordDate(), thought: newThought, situation: newSituation, feelingsStart: [newFeeling1], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeeling1], tags: [newTag])
+        
+        return newRecord
+    }
+    
+    private func createNewRecordDate() -> String {
+        var newDate: String
+        if let dateOfEntry = dateButton.titleLabel?.text {
+            newDate = dateOfEntry
+        } else {
+            newDate = formattedDate(date: Date())
+        }
+        return newDate
     }
     
 }

@@ -19,14 +19,14 @@ class AddRecordViewController: UITableViewController {
     // MARK: Outlets
     
     @IBOutlet weak var dateButton: UIButton!
-    @IBOutlet weak var sliderLabel1: UILabel!
     
     @IBOutlet weak var thoughtField: UITextField!
     @IBOutlet weak var situationField: UITextField!
     @IBOutlet weak var unhelpfulThoughtsView: UITextView!
     
-    @IBOutlet weak var beforeFeeling1Field: UITextField!
-    @IBOutlet weak var beforeFeeling1Slider: UISlider!
+    @IBOutlet weak var beforeFeelingField: UITextField!
+    @IBOutlet weak var beforeFeelingSlider: UISlider!
+    @IBOutlet weak var beforeFeelingRatingLabel: UILabel!
     
     @IBOutlet weak var factsSupportingView: UITextView!
     @IBOutlet weak var factsAgainstView: UITextView!
@@ -52,7 +52,7 @@ class AddRecordViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        sliderLabel1.text = String(Int(sender.value))
+        beforeFeelingRatingLabel.text = String(Int(sender.value))
     }
 
     @IBAction func dateButtonTapped(_ sender: Any) {
@@ -117,7 +117,7 @@ extension AddRecordViewController {
     }
     
     private func createNewRecord() -> ThoughtRecord? {
-        let newFeeling1 = Feeling(name: beforeFeeling1Field.text!, rating: Int(beforeFeeling1Slider!.value))
+        let newFeeling1 = Feeling(name: beforeFeelingField.text!, rating: Int(beforeFeelingSlider!.value))
         
         let newTag = Tag(name: tagsField.text!, useCount: 1)
         

@@ -97,6 +97,20 @@ class AddRecordViewController: UITableViewController {
     
         delegate?.addEventSave(self, didFinishAdding: newRecord!)
     }
+    
+    func createNewRecord() {
+        
+    }
+    
+    func createNewRecordDate() -> String {
+        var newDate: String
+        if let dateOfEntry = dateButton.titleLabel?.text {
+            newDate = dateOfEntry
+        } else {
+            newDate = formattedDate(date: Date())
+        }
+        return newDate
+    }
         
 }
 

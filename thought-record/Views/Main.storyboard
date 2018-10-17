@@ -417,11 +417,11 @@
             <objects>
                 <viewController id="wOg-JH-a4l" customClass="AddRecordViewController" customModule="thought_record" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a3i-uO-x76">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1267"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1867"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjV-LP-0NQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1110"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1710"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tSY-hK-70R">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1371.5"/>
@@ -700,7 +700,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <size key="freeformSize" width="375" height="1267"/>
+                    <size key="freeformSize" width="375" height="1867"/>
                     <connections>
                         <outlet property="afterFeelingField" destination="y8k-E2-oQV" id="QsE-Bf-4iB"/>
                         <outlet property="afterFeelingRatingLabel" destination="B0w-cC-dUs" id="L15-QQ-ZdK"/>

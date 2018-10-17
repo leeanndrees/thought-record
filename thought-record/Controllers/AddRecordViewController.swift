@@ -158,8 +158,9 @@ extension AddRecordViewController {
 extension AddRecordViewController {
     
     func generateToneString() -> String {
-        let thoughtText = thoughtField.text
-        let unhelpfulThoughtsText = unhelpfulThoughtsView.text
+        let thoughtText = thoughtField.text!
+        let unhelpfulThoughtsText = unhelpfulThoughtsView.text!
+        
         let toneString = "\(thoughtText) \(unhelpfulThoughtsText)"
         print(toneString)
         return toneString

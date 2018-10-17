@@ -14,6 +14,7 @@
 		43473F1821778B440067F97C /* ExpandedTones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1721778B440067F97C /* ExpandedTones.swift */; };
 		43473F1C2177AE260067F97C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1B2177AE260067F97C /* Settings.swift */; };
 		43473F202177AFF20067F97C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1F2177AFF20067F97C /* SettingsViewController.swift */; };
+		43473F222177C6840067F97C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43473F212177C6840067F97C /* Colors.xcassets */; };
 		434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B1216E328A000CD1B6 /* AppDelegate.swift */; };
 		434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B3216E328A000CD1B6 /* ViewController.swift */; };
 		434C05B9216E328B000CD1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434C05B8216E328B000CD1B6 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		43473F1721778B440067F97C /* ExpandedTones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTones.swift; sourceTree = "<group>"; };
 		43473F1B2177AE260067F97C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43473F1F2177AFF20067F97C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		43473F212177C6840067F97C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		434C05AE216E328A000CD1B6 /* thought-record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thought-record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		434C05B1216E328A000CD1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		434C05B3216E328A000CD1B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				434C05C6216E3CF6000CD1B6 /* Controllers */,
 				434C05B1216E328A000CD1B6 /* AppDelegate.swift */,
 				434C05B8216E328B000CD1B6 /* Assets.xcassets */,
+				43473F212177C6840067F97C /* Colors.xcassets */,
 				434C05BD216E328B000CD1B6 /* Info.plist */,
 			);
 			path = "thought-record";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				434C05DA216E49A1000CD1B6 /* Main.storyboard in Resources */,
+				43473F222177C6840067F97C /* Colors.xcassets in Resources */,
 				434C05BC216E328B000CD1B6 /* LaunchScreen.storyboard in Resources */,
 				434C05B9216E328B000CD1B6 /* Assets.xcassets in Resources */,
 			);

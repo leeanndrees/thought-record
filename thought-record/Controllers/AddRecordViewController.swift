@@ -42,7 +42,7 @@ class AddRecordViewController: UIViewController {
     
     var newRecord: ThoughtRecord?
     weak var delegate: AddRecordViewControllerDelegate?
-    var toneName = ""
+    var toneID = ""
     
     // MARK: Lifecycle Methods
 
@@ -170,20 +170,16 @@ extension AddRecordViewController {
         toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
             print(error)
         }) { (response) in
-            //print(response)
             DispatchQueue.main.async {
-                self.toneName = self.getToneName(from: response)
-                self.populateSuggestionField(with: self.toneName)
+                self.toneID = self.getToneID(from: response)
+                self.populateSuggestionField(with: self.toneID)
             }
-            
-            
-            //print(response.documentTone.tones?[0].toneName ?? "no suggestion")
         }
     }
     
-    func getToneName(from analysis: ToneAnalysis) -> String {
-        if let toneName = analysis.documentTone.tones?[0].toneName {
-            return toneName
+    func getToneID(from analysis: ToneAnalysis) -> String {
+        if let toneID = analysis.documentTone.tones?[0].toneID {
+            return toneID
         }
         else {
             return "no suggestion"

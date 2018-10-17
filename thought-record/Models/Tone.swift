@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+enum Tone: String {
+    case anger = "anger"
+    case fear = "fear"
+    case joy = "joy"
+    case sadness = "sadness"
+    case analytical = "analytical"
+    case confident = "confident"
+    case tentative = "tentative"
+}

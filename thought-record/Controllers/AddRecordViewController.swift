@@ -172,7 +172,7 @@ extension AddRecordViewController {
         }) { (response) in
             DispatchQueue.main.async {
                 self.toneID = self.getToneID(from: response)
-                self.populateSuggestionField(with: self.toneID)
+                self.populateSuggestionField(with: self.getExpandedFeelingName(from: self.toneID))
             }
         }
     }
@@ -183,6 +183,21 @@ extension AddRecordViewController {
         }
         else {
             return "no suggestion"
+        }
+    }
+    
+    func getExpandedFeelingName(from toneID: String) -> String {
+        let expandedTones = ExpandedTones()
+        
+        switch toneID {
+        case Tone.anger.rawValue: return expandedTones.angerTones.randomElement() ?? "angry"
+        case Tone.fear.rawValue: return expandedTones.fearTones.randomElement() ?? "afraid"
+        case Tone.joy.rawValue: return expandedTones.joyTones.randomElement() ?? "joyful"
+        case Tone.sadness.rawValue: return expandedTones.sadnessTones.randomElement() ?? "sad"
+        case Tone.analytical.rawValue: return expandedTones.analyticalTones.randomElement() ?? "analytical"
+        case Tone.confident.rawValue: return expandedTones.confidentTones.randomElement() ?? "confident"
+        case Tone.tentative.rawValue: return expandedTones.tentativeTones.randomElement() ?? "tentative"
+        default: return "sorry, no suggestion"
         }
     }
     

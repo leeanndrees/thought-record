@@ -10,7 +10,7 @@ import Foundation
 
 class ThoughtRecord: Codable {
     
-    var date: String
+    var date: Date
     var thought: String
     var situation: String
     
@@ -23,7 +23,7 @@ class ThoughtRecord: Codable {
     
     var tags: [Tag]
     
-    init(date: String, thought: String, situation: String, feelingsStart: [Feeling], unhelpfulThoughts: String, factsSupporting: String, factsAgainst:String, balancedPerspective: String, feelingsEnd: [Feeling], tags: [Tag]) {
+    init(date: Date, thought: String, situation: String, feelingsStart: [Feeling], unhelpfulThoughts: String, factsSupporting: String, factsAgainst:String, balancedPerspective: String, feelingsEnd: [Feeling], tags: [Tag]) {
         self.date = date
         self.thought = thought
         self.situation = situation

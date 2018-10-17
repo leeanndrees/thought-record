@@ -417,11 +417,11 @@
             <objects>
                 <viewController id="wOg-JH-a4l" customClass="AddRecordViewController" customModule="thought_record" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a3i-uO-x76">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1567"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1267"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjV-LP-0NQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1410"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1110"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tSY-hK-70R">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1333.5"/>
@@ -449,6 +449,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDt-Ij-o9b">
                                                         <rect key="frame" x="0.0" y="28.5" width="33" height="30"/>
                                                         <state key="normal" title="Date"/>
+                                                        <connections>
+                                                            <action selector="dateButtonTapped:" destination="wOg-JH-a4l" eventType="touchUpInside" id="zj5-DX-h7H"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thought:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXB-SU-cwu">
                                                         <rect key="frame" x="0.0" y="66.5" width="69.5" height="20.5"/>
@@ -524,6 +527,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="kbf-jm-Ncn"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="sliderValueChanged:" destination="wOg-JH-a4l" eventType="valueChanged" id="bLl-JU-m8O"/>
+                                                                </connections>
                                                             </slider>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfJ-t2-OR7">
                                                                 <rect key="frame" x="304.5" y="0.0" width="10.5" height="30"/>
@@ -687,7 +693,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <size key="freeformSize" width="375" height="1567"/>
+                    <size key="freeformSize" width="375" height="1267"/>
                     <connections>
                         <outlet property="afterFeelingField" destination="y8k-E2-oQV" id="QsE-Bf-4iB"/>
                         <outlet property="afterFeelingRatingLabel" destination="B0w-cC-dUs" id="L15-QQ-ZdK"/>

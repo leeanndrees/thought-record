@@ -26,6 +26,7 @@ class AddRecordViewController: UIViewController {
     @IBOutlet weak var beforeFeelingField: UITextField!
     @IBOutlet weak var beforeFeelingSlider: UISlider!
     @IBOutlet weak var beforeFeelingRatingLabel: UILabel!
+    @IBOutlet weak var suggestButton: UIButton!
     
     @IBOutlet weak var factsSupportingView: UITextView!
     @IBOutlet weak var factsAgainstView: UITextView!
@@ -45,10 +46,11 @@ class AddRecordViewController: UIViewController {
     var toneID = ""
     
     // MARK: Lifecycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDateButtonText(date: Date())
+        showOrHideSuggestButton()
     }
 
     // MARK: Actions
@@ -150,6 +152,16 @@ extension AddRecordViewController {
             newDate = formattedShortDate(date: Date())
         }
         return newDate
+    }
+    
+    func showOrHideSuggestButton() {
+        print(userSettings.allowTextAnalysis)
+        if userSettings.allowTextAnalysis == false {
+            suggestButton.isHidden = true
+        }
+        else {
+            suggestButton.isHidden = false
+        }
     }
     
 }

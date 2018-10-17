@@ -725,6 +725,7 @@
                         <outlet property="factsAgainstView" destination="blL-hs-9y2" id="9SZ-1r-99g"/>
                         <outlet property="factsSupportingView" destination="2Ro-5I-Cap" id="Xa2-22-jc6"/>
                         <outlet property="situationField" destination="Zed-vL-AWl" id="jSm-SM-A8u"/>
+                        <outlet property="suggestButton" destination="L8X-AP-baI" id="Xsp-XU-J9W"/>
                         <outlet property="tagsField" destination="vQE-nn-CxE" id="FX6-dg-vaO"/>
                         <outlet property="thoughtField" destination="UtU-oa-8Aa" id="Cwj-9i-62C"/>
                         <outlet property="unhelpfulThoughtsView" destination="Yif-ja-KwI" id="Nx1-Ys-qbD"/>
@@ -732,7 +733,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGR-jP-ksn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952.8" y="1212.1439280359821"/>
+            <point key="canvasLocation" x="1828" y="1485"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Q9Z-AI-qZu">

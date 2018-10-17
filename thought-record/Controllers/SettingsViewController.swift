@@ -11,7 +11,6 @@ import UIKit
 class SettingsViewController: UITableViewController {
     
     let settingOptions = ["Allow Text Analysis"]
-    var userSettingForAnalysis: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,7 @@ class SettingsViewController: UITableViewController {
     }
     
     @IBAction func analysisSettingSwitchChanged(_ sender: UISwitch) {
-        userSettingForAnalysis = sender.isOn
+        userSettings.allowTextAnalysis = sender.isOn
     }
     
 

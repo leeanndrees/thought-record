@@ -424,7 +424,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="1110"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tSY-hK-70R">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1333.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1371.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UMu-OP-Tat" userLabel="Title Stack View">
                                                 <rect key="frame" x="30" y="30" width="315" height="31.5"/>
@@ -484,7 +484,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6ek-Kf-cuR" userLabel="Initial Feeling Stack View">
-                                                <rect key="frame" x="30" y="287" width="315" height="251.5"/>
+                                                <rect key="frame" x="30" y="287" width="315" height="289.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2l-Nj-jsf">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="20.5"/>
@@ -539,10 +539,17 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8X-AP-baI">
+                                                        <rect key="frame" x="0.0" y="259.5" width="315" height="30"/>
+                                                        <state key="normal" title="Suggest"/>
+                                                        <connections>
+                                                            <action selector="suggestButtonTapped:" destination="wOg-JH-a4l" eventType="touchUpInside" id="sC6-KR-FEx"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uR1-QZ-eXP" userLabel="Facts Stack View">
-                                                <rect key="frame" x="30" y="568.5" width="315" height="349.5"/>
+                                                <rect key="frame" x="30" y="606.5" width="315" height="349.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-aY-GlZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="20.5"/>
@@ -583,7 +590,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pml-mk-82t" userLabel="Unpacking Stack View">
-                                                <rect key="frame" x="30" y="948" width="315" height="305"/>
+                                                <rect key="frame" x="30" y="986" width="315" height="305"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unpacking The Thought" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnA-fe-LzJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="20.5"/>
@@ -650,7 +657,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Rlw-e4-awI">
-                                                <rect key="frame" x="30" y="1283" width="315" height="20.5"/>
+                                                <rect key="frame" x="30" y="1321" width="315" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-qD-gLd">
                                                         <rect key="frame" x="120" y="0.0" width="75.5" height="20.5"/>

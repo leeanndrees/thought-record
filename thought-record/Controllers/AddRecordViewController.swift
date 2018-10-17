@@ -60,6 +60,10 @@ class AddRecordViewController: UIViewController {
         showDatePickerActionSheet()
     }
     
+    @IBAction func suggestButtonTapped(_ sender: UIButton) {
+        checkTone(of: generateToneString())
+    }
+    
     @IBAction func save() {
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
@@ -153,9 +157,15 @@ extension AddRecordViewController {
 
 extension AddRecordViewController {
     
-    func checkTone() {
-        let text = "I'm so happy this finally works! :D"
-        
+    func generateToneString() -> String {
+        let thoughtText = thoughtField.text
+        let unhelpfulThoughtsText = unhelpfulThoughtsView.text
+        let toneString = "\(thoughtText) \(unhelpfulThoughtsText)"
+        print(toneString)
+        return toneString
+    }
+    
+    func checkTone(of text: String) {
         toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
             print(error)
         }) { (response) in

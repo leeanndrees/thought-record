@@ -14,6 +14,7 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        useLargeTitles()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,6 +41,10 @@ class SettingsViewController: UITableViewController {
         cell.textLabel?.text = settingOptions[indexPath.row]
 
         return cell
+    }
+    
+    func useLargeTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     /*

@@ -12,6 +12,8 @@
 		4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */; };
 		43473F16217789FA0067F97C /* Tone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F15217789FA0067F97C /* Tone.swift */; };
 		43473F1821778B440067F97C /* ExpandedTones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1721778B440067F97C /* ExpandedTones.swift */; };
+		43473F1C2177AE260067F97C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1B2177AE260067F97C /* Settings.swift */; };
+		43473F202177AFF20067F97C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1F2177AFF20067F97C /* SettingsViewController.swift */; };
 		434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B1216E328A000CD1B6 /* AppDelegate.swift */; };
 		434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B3216E328A000CD1B6 /* ViewController.swift */; };
 		434C05B9216E328B000CD1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434C05B8216E328B000CD1B6 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 		43473F15217789FA0067F97C /* Tone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tone.swift; sourceTree = "<group>"; };
 		43473F1721778B440067F97C /* ExpandedTones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTones.swift; sourceTree = "<group>"; };
+		43473F1B2177AE260067F97C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		43473F1F2177AFF20067F97C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		434C05AE216E328A000CD1B6 /* thought-record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thought-record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		434C05B1216E328A000CD1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		434C05B3216E328A000CD1B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,14 +104,15 @@
 		434C05C3216E3CDA000CD1B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				434C05E1216E4D91000CD1B6 /* ThoughtRecord.swift */,
-				434C05E3216E4DD7000CD1B6 /* Feeling.swift */,
-				434C05E5216E4F1C000CD1B6 /* Tag.swift */,
-				43657700216E51E100F54479 /* TemporaryData.swift */,
-				4365778E216FDEC400F54479 /* SegueIdentifier.swift */,
-				43473F15217789FA0067F97C /* Tone.swift */,
 				432208982174D5720080FCFD /* Constants.swift */,
 				43473F1721778B440067F97C /* ExpandedTones.swift */,
+				434C05E3216E4DD7000CD1B6 /* Feeling.swift */,
+				4365778E216FDEC400F54479 /* SegueIdentifier.swift */,
+				43473F1B2177AE260067F97C /* Settings.swift */,
+				434C05E5216E4F1C000CD1B6 /* Tag.swift */,
+				43657700216E51E100F54479 /* TemporaryData.swift */,
+				434C05E1216E4D91000CD1B6 /* ThoughtRecord.swift */,
+				43473F15217789FA0067F97C /* Tone.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				434C05DF216E4A8C000CD1B6 /* AllRecordsViewController.swift */,
 				43657702216E85C000F54479 /* RecordDetailViewController.swift */,
 				4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */,
+				43473F1F2177AFF20067F97C /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -283,7 +289,9 @@
 				43473F1821778B440067F97C /* ExpandedTones.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,
 				4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */,
+				43473F1C2177AE260067F97C /* Settings.swift in Sources */,
 				434C05E0216E4A8C000CD1B6 /* AllRecordsViewController.swift in Sources */,
+				43473F202177AFF20067F97C /* SettingsViewController.swift in Sources */,
 				434C05E2216E4D91000CD1B6 /* ThoughtRecord.swift in Sources */,
 				43473F16217789FA0067F97C /* Tone.swift in Sources */,
 				43657701216E51E100F54479 /* TemporaryData.swift in Sources */,

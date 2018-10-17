@@ -10,4 +10,10 @@ import Foundation
 
 class Settings: Codable {
     var allowTextAnalysis: Bool
+    
+    init (allowTextAnalysis: Bool) {
+        self.allowTextAnalysis = allowTextAnalysis
+    }
 }
+
+let userSettings = Settings(allowTextAnalysis: false)

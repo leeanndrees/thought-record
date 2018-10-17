@@ -649,6 +649,7 @@
                                                             </textField>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="waL-Nx-j7R">
                                                                 <rect key="frame" x="174.5" y="0.0" width="124" height="31"/>
+                                                                <color key="tintColor" name="BrightMagenta"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="zmv-7u-Fjc"/>
                                                                 </constraints>

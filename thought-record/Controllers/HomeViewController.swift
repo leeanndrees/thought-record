@@ -45,7 +45,7 @@ extension HomeViewController {
     }
     
     private func updateTimeLabel() {
-        if let lastTime = lastRecord?.date {
+        if let lastTime = lastRecord?.longDate {
             timeLabel.text = "Your last check-in was on \(lastTime)."
         } else {
             timeLabel.text = "Nice to see you again!"

@@ -33,7 +33,7 @@ class TagDatabase {
 class ThoughtRecordDatabase {
     
     var thoughts = [
-        ThoughtRecord(date: "October 10",
+        ThoughtRecord(date: Date(),
                       thought: "I'm never going to finish my capstone! It's too much.",
                       situation: "Working on capstone",
                       feelingsStart: [FeelingDatabase().feelings[1], FeelingDatabase().feelings[3]],
@@ -44,7 +44,7 @@ class ThoughtRecordDatabase {
                       feelingsEnd: [FeelingDatabase().feelings[0]],
                       tags: [TagDatabase().tags[0]]
     ),
-        ThoughtRecord(date: "October 9",
+        ThoughtRecord(date: Date(),
                       thought: "I'm out sick so I'm going to forget everything I ever learned about coding",
                       situation: "home sick from work",
                       feelingsStart: [FeelingDatabase().feelings[0]],

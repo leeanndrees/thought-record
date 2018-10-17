@@ -44,6 +44,7 @@ class AddRecordViewController: UIViewController {
     var newRecord: ThoughtRecord?
     weak var delegate: AddRecordViewControllerDelegate?
     var toneID = ""
+    var userChosenDate = Date()
     
     // MARK: Lifecycle Methods
     
@@ -115,6 +116,7 @@ extension AddRecordViewController {
         let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
             let newDate = datePicker.date
             self.setDateButtonText(date: newDate)
+            self.userChosenDate = newDate
         }
         
         datePickerAlert.addAction(dateChosen)
@@ -139,19 +141,9 @@ extension AddRecordViewController {
             let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
         
         
-        newRecord = ThoughtRecord(date: createNewRecordDate(), thought: newThought, situation: newSituation, feelingsStart: [newFeelingBefore], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeelingAfter], tags: [newTag])
+        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [newFeelingBefore], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeelingAfter], tags: [newTag])
         
         return newRecord
-    }
-    
-    private func createNewRecordDate() -> String {
-        var newDate: String
-        if let dateOfEntry = dateButton.titleLabel?.text {
-            newDate = dateOfEntry
-        } else {
-            newDate = formattedShortDate(date: Date())
-        }
-        return newDate
     }
     
     func showOrHideSuggestButton() {

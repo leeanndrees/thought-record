@@ -45,6 +45,7 @@ class AddRecordViewController: UIViewController {
     weak var delegate: AddRecordViewControllerDelegate?
     var toneID = ""
     var userChosenDate = Date()
+    let database = TagDatabase()
     
     // MARK: Lifecycle Methods
     
@@ -149,7 +150,6 @@ extension AddRecordViewController {
     }
     
     func showOrHideSuggestButton() {
-        print(userSettings.allowTextAnalysis)
         if userSettings.allowTextAnalysis == false {
             suggestButton.isHidden = true
         }
@@ -228,25 +228,21 @@ extension AddRecordViewController {
     }
     
     func checkTagExistence(tagNames: [String]) {
-        let database = TagDatabase()
-        var existingTagNames = [""]
+        var existingTagNames: [String] = []
         
         for tag in database.tags {
             existingTagNames.append(tag.name)
         }
+        print(existingTagNames)
         
         for name in tagNames {
             if existingTagNames.contains(name) {
-                let existingTag = database.tags.filter { $0.name == name }[0]
-                existingTag.updateUseCount()
-                print(existingTag.name)
-                print(existingTag.useCount)
+                let existingTag = database.tags.filter { $0.name == name }
+                //existingTag.updateUseCount()
             }
             else {
                 let newTag = Tag(name: name, useCount: 1)
                 database.tags.append(newTag)
-                print(newTag.name)
-                print(newTag.useCount)
             }
         }
     }

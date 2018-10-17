@@ -42,6 +42,7 @@ class AddRecordViewController: UIViewController {
     
     var newRecord: ThoughtRecord?
     weak var delegate: AddRecordViewControllerDelegate?
+    var toneName = ""
     
     // MARK: Lifecycle Methods
 
@@ -62,6 +63,7 @@ class AddRecordViewController: UIViewController {
     
     @IBAction func suggestButtonTapped(_ sender: UIButton) {
         checkTone(of: generateToneString())
+        populateSuggestionField()
     }
     
     @IBAction func save() {
@@ -166,21 +168,29 @@ extension AddRecordViewController {
         return toneString
     }
     
-    func checkTone(of text: String) {
+    func checkTone(of text: String)  {
         toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
             print(error)
         }) { (response) in
-            print(response)
-            
-            if response.documentTone.tones != nil {
-                if let toneName = response.documentTone.tones?[0].toneName {
-                    print(toneName)
-                } else {
-                    print("no suggestion")
-                }
-            }
+            //print(response)
+            self.toneName = self.getToneName(from: response)
             
             //print(response.documentTone.tones?[0].toneName ?? "no suggestion")
+        }
+    }
+    
+    func getToneName(from analysis: ToneAnalysis) -> String {
+        if let toneName = analysis.documentTone.tones?[0].toneName {
+            return toneName
+        }
+        else {
+            return "no suggestion"
+        }
+    }
+    
+    func populateSuggestionField() {
+        if toneName != "" {
+            beforeFeelingField.text = toneName
         }
     }
     

@@ -71,6 +71,8 @@ class AddRecordViewController: UIViewController {
     @IBAction func save() {
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
+        checkTagExistence(tagNames: splitTagInput())
+        
         delegate?.addRecordSave(self, didFinishAdding: newRecord)
     }
 
@@ -208,5 +210,46 @@ extension AddRecordViewController {
     func populateSuggestionField(with text: String) {
             beforeFeelingField.text = text
     }
+}
+
+// MARK: Tagging
+
+extension AddRecordViewController {
     
+    func splitTagInput() -> [String] {
+        let tagInput = tagsField.text!
+        let allTagsAdded = tagInput.split(separator: ",")
+        var tagsTrimmed: [String] = []
+        for tag in allTagsAdded {
+            let trimmed = tag.trimmingCharacters(in: .whitespaces)
+            tagsTrimmed.append(trimmed)
+        }
+        return tagsTrimmed
+    }
+    
+    func checkTagExistence(tagNames: [String]) {
+        let database = TagDatabase()
+        var existingTagNames = [""]
+        
+        for tag in database.tags {
+            existingTagNames.append(tag.name)
+        }
+        
+        for name in tagNames {
+            if existingTagNames.contains(name) {
+                let existingTag = database.tags.filter { $0.name == name }[0]
+                existingTag.updateUseCount()
+                print(existingTag.name)
+                print(existingTag.useCount)
+            }
+            else {
+                let newTag = Tag(name: name, useCount: 1)
+                database.tags.append(newTag)
+                print(newTag.name)
+                print(newTag.useCount)
+            }
+        }
+    }
+    
+
 }

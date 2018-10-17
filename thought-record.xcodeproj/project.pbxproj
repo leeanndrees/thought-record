@@ -15,6 +15,7 @@
 		43473F1C2177AE260067F97C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1B2177AE260067F97C /* Settings.swift */; };
 		43473F202177AFF20067F97C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1F2177AFF20067F97C /* SettingsViewController.swift */; };
 		43473F222177C6840067F97C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43473F212177C6840067F97C /* Colors.xcassets */; };
+		43473F242177E1150067F97C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F232177E1150067F97C /* CustomTextField.swift */; };
 		434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B1216E328A000CD1B6 /* AppDelegate.swift */; };
 		434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B3216E328A000CD1B6 /* ViewController.swift */; };
 		434C05B9216E328B000CD1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434C05B8216E328B000CD1B6 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		43473F1B2177AE260067F97C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43473F1F2177AFF20067F97C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43473F212177C6840067F97C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		43473F232177E1150067F97C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		434C05AE216E328A000CD1B6 /* thought-record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thought-record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		434C05B1216E328A000CD1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		434C05B3216E328A000CD1B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				432208982174D5720080FCFD /* Constants.swift */,
+				43473F232177E1150067F97C /* CustomTextField.swift */,
 				43473F1721778B440067F97C /* ExpandedTones.swift */,
 				434C05E3216E4DD7000CD1B6 /* Feeling.swift */,
 				4365778E216FDEC400F54479 /* SegueIdentifier.swift */,
@@ -291,6 +294,7 @@
 				434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */,
 				432208992174D5720080FCFD /* Constants.swift in Sources */,
 				43473F1821778B440067F97C /* ExpandedTones.swift in Sources */,
+				43473F242177E1150067F97C /* CustomTextField.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,
 				4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */,
 				43473F1C2177AE260067F97C /* Settings.swift in Sources */,

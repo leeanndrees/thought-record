@@ -36,4 +36,23 @@ class ThoughtRecord: Codable {
         self.tags = tags
     }
     
+    var shortDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        
+        return dateFormatter.string(from: formattedDate!)
+    }
+    
+    var longDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        
+        return dateFormatter.string(from: formattedDate!)
+    }
 }

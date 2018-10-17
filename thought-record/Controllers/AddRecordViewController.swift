@@ -44,7 +44,6 @@ class AddRecordViewController: UIViewController {
     var newRecord: ThoughtRecord?
     weak var delegate: AddRecordViewControllerDelegate?
     var toneID = ""
-    var userChoseNewDate = false
     var userChosenDate = Date()
     
     // MARK: Lifecycle Methods
@@ -117,7 +116,6 @@ extension AddRecordViewController {
         let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
             let newDate = datePicker.date
             self.setDateButtonText(date: newDate)
-            self.userChoseNewDate = true
             self.userChosenDate = newDate
         }
         
@@ -147,23 +145,6 @@ extension AddRecordViewController {
         
         return newRecord
     }
-    
-//    private func createNewRecordDate() -> Date {
-//        var newDate: Date
-////        if let dateOfEntry = dateButton.titleLabel?.text {
-////            newDate = dateOfEntry
-////        } else {
-////            newDate = formattedShortDate(date: Date())
-////        }
-//
-//        if userChoseNewDate {
-//            newDate = userChosenDate
-//        }
-//        else {
-//            newDate = Date()
-//        }
-//        return newDate
-//    }
     
     func showOrHideSuggestButton() {
         print(userSettings.allowTextAnalysis)

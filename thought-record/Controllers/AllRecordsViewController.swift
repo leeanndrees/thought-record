@@ -35,7 +35,7 @@ extension AllRecordsViewController {
     
     func setCellTitle(recordAtPath: ThoughtRecord) -> String {
         let title = recordAtPath.thought
-        let date = recordAtPath.date
+        let date = recordAtPath.shortDate
         return "\(date): \(title)"
     }
     

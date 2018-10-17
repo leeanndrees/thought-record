@@ -2,7 +2,7 @@
 //  AddRecordViewController.swift
 //  thought-record
 //
-//  Created by DetroitLabs on 10/11/18.
+//  Created by DetroitLabs on 10/16/18.
 //  Copyright © 2018 DetroitLabs. All rights reserved.
 //
 
@@ -10,18 +10,17 @@ import UIKit
 import ToneAnalyzer
 
 protocol AddRecordViewControllerDelegate: class {
-    func addEventDidCancel(_ controller: AddRecordViewController)
-    func addEventSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord)
+    func addRecordDidCancel(_ controller: AddRecordViewController)
+    func addRecordSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord)
 }
 
-class AddRecordViewController: UITableViewController {
-
+class AddRecordViewController: UIViewController {
+    
     // MARK: Outlets
-    
     @IBOutlet weak var dateButton: UIButton!
-    
     @IBOutlet weak var thoughtField: UITextField!
     @IBOutlet weak var situationField: UITextField!
+    
     @IBOutlet weak var unhelpfulThoughtsView: UITextView!
     
     @IBOutlet weak var beforeFeelingField: UITextField!
@@ -30,6 +29,7 @@ class AddRecordViewController: UITableViewController {
     
     @IBOutlet weak var factsSupportingView: UITextView!
     @IBOutlet weak var factsAgainstView: UITextView!
+    
     @IBOutlet weak var balancedPerspectiveView: UITextView!
     
     @IBOutlet weak var afterFeelingField: UITextField!
@@ -44,28 +44,28 @@ class AddRecordViewController: UITableViewController {
     weak var delegate: AddRecordViewControllerDelegate?
     
     // MARK: Lifecycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setDateButtonText(date: Date())
     }
-    
+
     // MARK: Actions
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         beforeFeelingRatingLabel.text = String(Int(sender.value))
     }
-
+    
     @IBAction func dateButtonTapped(_ sender: Any) {
         showDatePickerActionSheet()
     }
     
     @IBAction func save() {
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
-    
-        delegate?.addEventSave(self, didFinishAdding: newRecord)
-    }
         
+        delegate?.addRecordSave(self, didFinishAdding: newRecord)
+    }
+
 }
 
 // MARK: Private Implementation
@@ -171,17 +171,6 @@ extension AddRecordViewController {
             
             //print(response.documentTone.tones?[0].toneName ?? "no suggestion")
         }
-    }
-    
-}
-
-
-// MARK: Table View Methods
-
-extension AddRecordViewController {
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

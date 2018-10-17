@@ -97,11 +97,11 @@ extension AllRecordsViewController {
 // MARK: - AddRecordViewControllerDelegate Methods
 
 extension AllRecordsViewController: AddRecordViewControllerDelegate {
-    func addEventDidCancel(_ controller: AddRecordViewController) {
+    func addRecordDidCancel(_ controller: AddRecordViewController) {
         navigationController?.popViewController(animated: true)
     }
     
-    func addEventSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord) {
+    func addRecordSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord) {
         records.append(item)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)

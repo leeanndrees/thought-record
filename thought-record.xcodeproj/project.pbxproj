@@ -10,6 +10,8 @@
 		1E76B5B36914940203B1F85D /* Pods_thought_record.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90ABD5CEBD5D4067793359BF /* Pods_thought_record.framework */; };
 		432208992174D5720080FCFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432208982174D5720080FCFD /* Constants.swift */; };
 		4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */; };
+		43473F16217789FA0067F97C /* Tone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F15217789FA0067F97C /* Tone.swift */; };
+		43473F1821778B440067F97C /* ExpandedTones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1721778B440067F97C /* ExpandedTones.swift */; };
 		434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B1216E328A000CD1B6 /* AppDelegate.swift */; };
 		434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B3216E328A000CD1B6 /* ViewController.swift */; };
 		434C05B9216E328B000CD1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434C05B8216E328B000CD1B6 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		432208982174D5720080FCFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
+		43473F15217789FA0067F97C /* Tone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tone.swift; sourceTree = "<group>"; };
+		43473F1721778B440067F97C /* ExpandedTones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTones.swift; sourceTree = "<group>"; };
 		434C05AE216E328A000CD1B6 /* thought-record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thought-record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		434C05B1216E328A000CD1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		434C05B3216E328A000CD1B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +105,9 @@
 				434C05E5216E4F1C000CD1B6 /* Tag.swift */,
 				43657700216E51E100F54479 /* TemporaryData.swift */,
 				4365778E216FDEC400F54479 /* SegueIdentifier.swift */,
+				43473F15217789FA0067F97C /* Tone.swift */,
 				432208982174D5720080FCFD /* Constants.swift */,
+				43473F1721778B440067F97C /* ExpandedTones.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,10 +280,12 @@
 				434C05D6216E48A9000CD1B6 /* TabBarViewController.swift in Sources */,
 				434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */,
 				432208992174D5720080FCFD /* Constants.swift in Sources */,
+				43473F1821778B440067F97C /* ExpandedTones.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,
 				4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */,
 				434C05E0216E4A8C000CD1B6 /* AllRecordsViewController.swift in Sources */,
 				434C05E2216E4D91000CD1B6 /* ThoughtRecord.swift in Sources */,
+				43473F16217789FA0067F97C /* Tone.swift in Sources */,
 				43657701216E51E100F54479 /* TemporaryData.swift in Sources */,
 				434C05DC216E4A49000CD1B6 /* HomeViewController.swift in Sources */,
 			);

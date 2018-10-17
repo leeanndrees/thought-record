@@ -42,6 +42,7 @@ class AddRecordViewController: UIViewController {
     
     var newRecord: ThoughtRecord?
     weak var delegate: AddRecordViewControllerDelegate?
+    var toneID = ""
     
     // MARK: Lifecycle Methods
 
@@ -58,6 +59,10 @@ class AddRecordViewController: UIViewController {
     
     @IBAction func dateButtonTapped(_ sender: Any) {
         showDatePickerActionSheet()
+    }
+    
+    @IBAction func suggestButtonTapped(_ sender: UIButton) {
+        checkTone(of: generateToneString())
     }
     
     @IBAction func save() {
@@ -153,24 +158,51 @@ extension AddRecordViewController {
 
 extension AddRecordViewController {
     
-    func checkTone() {
-        let text = "I'm so happy this finally works! :D"
+    func generateToneString() -> String {
+        let thoughtText = thoughtField.text!
+        let unhelpfulThoughtsText = unhelpfulThoughtsView.text!
         
+        let toneString = "\(thoughtText) \(unhelpfulThoughtsText)"
+        return toneString
+    }
+    
+    func checkTone(of text: String)  {
         toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
             print(error)
         }) { (response) in
-            print(response)
-            
-            if response.documentTone.tones != nil {
-                if let toneName = response.documentTone.tones?[0].toneName {
-                    print(toneName)
-                } else {
-                    print("no suggestion")
-                }
+            DispatchQueue.main.async {
+                self.toneID = self.getToneID(from: response)
+                self.populateSuggestionField(with: self.getExpandedFeelingName(from: self.toneID))
             }
-            
-            //print(response.documentTone.tones?[0].toneName ?? "no suggestion")
         }
+    }
+    
+    func getToneID(from analysis: ToneAnalysis) -> String {
+        if let toneID = analysis.documentTone.tones?[0].toneID {
+            return toneID
+        }
+        else {
+            return "no suggestion"
+        }
+    }
+    
+    func getExpandedFeelingName(from toneID: String) -> String {
+        let expandedTones = ExpandedTones()
+        
+        switch toneID {
+        case Tone.anger.rawValue: return expandedTones.angerTones.randomElement() ?? "angry"
+        case Tone.fear.rawValue: return expandedTones.fearTones.randomElement() ?? "afraid"
+        case Tone.joy.rawValue: return expandedTones.joyTones.randomElement() ?? "joyful"
+        case Tone.sadness.rawValue: return expandedTones.sadnessTones.randomElement() ?? "sad"
+        case Tone.analytical.rawValue: return expandedTones.analyticalTones.randomElement() ?? "analytical"
+        case Tone.confident.rawValue: return expandedTones.confidentTones.randomElement() ?? "confident"
+        case Tone.tentative.rawValue: return expandedTones.tentativeTones.randomElement() ?? "tentative"
+        default: return "sorry, no suggestion"
+        }
+    }
+    
+    func populateSuggestionField(with text: String) {
+            beforeFeelingField.text = text
     }
     
 }

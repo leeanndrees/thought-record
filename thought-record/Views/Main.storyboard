@@ -445,7 +445,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Thought Record" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJO-za-IPE">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="31.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="DarkPurple"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -456,12 +456,14 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Thought:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce8-k2-MXn">
                                                         <rect key="frame" x="0.0" y="0.0" width="108" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="AlmostBlack"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDt-Ij-o9b">
                                                         <rect key="frame" x="0.0" y="28.5" width="33" height="30"/>
-                                                        <state key="normal" title="Date"/>
+                                                        <state key="normal" title="Date">
+                                                            <color key="titleColor" name="AlmostBlack"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="dateButtonTapped:" destination="wOg-JH-a4l" eventType="touchUpInside" id="zj5-DX-h7H"/>
                                                         </connections>
@@ -502,7 +504,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2l-Nj-jsf">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="AlmostBlack"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unhelpful Thoughts/Images:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAW-jc-apC">
@@ -537,6 +539,7 @@
                                                             </textField>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z1I-Ue-EYr">
                                                                 <rect key="frame" x="174.5" y="0.0" width="124" height="31"/>
+                                                                <color key="tintColor" name="BrightMagenta"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="kbf-jm-Ncn"/>
                                                                 </constraints>
@@ -554,7 +557,10 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8X-AP-baI">
                                                         <rect key="frame" x="0.0" y="259.5" width="315" height="30"/>
-                                                        <state key="normal" title="Suggest"/>
+                                                        <color key="backgroundColor" name="DarkPurple"/>
+                                                        <state key="normal" title="Suggest">
+                                                            <color key="titleColor" name="AlmostWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="suggestButtonTapped:" destination="wOg-JH-a4l" eventType="touchUpInside" id="sC6-KR-FEx"/>
                                                         </connections>
@@ -694,7 +700,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="AlmostWhite"/>
                         <constraints>
                             <constraint firstItem="tSY-hK-70R" firstAttribute="width" secondItem="ROo-aw-rc7" secondAttribute="width" id="GMO-Ue-RDt"/>
                             <constraint firstItem="CjV-LP-0NQ" firstAttribute="top" secondItem="ROo-aw-rc7" secondAttribute="top" id="KOq-qp-DRd"/>
@@ -795,8 +801,14 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AlmostBlack">
+            <color red="0.0078431372549019607" green="0.094117647058823528" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AlmostWhite">
             <color red="0.96862745098039216" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrightMagenta">
+            <color red="0.64313725490196083" green="0.011764705882352941" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DarkPurple">
             <color red="0.25882352941176473" green="0.011764705882352941" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

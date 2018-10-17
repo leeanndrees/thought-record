@@ -12,9 +12,9 @@ struct ExpandedTones {
     
     var angerTones = ["frustrated", "annoyed", "angry"]
     var fearTones = ["concerned", "alarmed", "afraid"]
-    var joyTones = ["happy", "joyful"]
-    var sadnessTones = ["sad"]
-    var analyticalTones = ["analytical", "rational"]
+    var joyTones = ["happy", "joyful", "content"]
+    var sadnessTones = ["sad", "gloomy", "glum"]
+    var analyticalTones = ["analytical", "thoughtful"]
     var confidentTones = ["confident", "strong", "sure"]
     var tentativeTones = ["uncertain", "confused", "tentative"]
     

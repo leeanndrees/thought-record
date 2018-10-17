@@ -70,7 +70,7 @@ extension RecordDetailViewController {
     
     private func displayRecordData() {
         if let record = recordToShow {
-            dateLabel.text = "Date: \(record.date)"
+            dateLabel.text = "Date: \(record.longDate)"
             thoughtLabel.text = "Thought: \(record.thought)"
             situationLabel.text = "Situation: \(record.situation)"
             feelingsStartLabel.text = "Feelings at time: \(feelingsArrayToString(array: record.feelingsStart))"

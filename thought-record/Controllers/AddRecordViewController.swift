@@ -10,8 +10,8 @@ import UIKit
 import ToneAnalyzer
 
 protocol AddRecordViewControllerDelegate: class {
-    func addEventDidCancel(_ controller: AddRecordViewController)
-    func addEventSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord)
+    func addRecordDidCancel(_ controller: AddRecordViewController)
+    func addRecordSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord)
 }
 
 class AddRecordViewController: UIViewController {
@@ -63,7 +63,7 @@ class AddRecordViewController: UIViewController {
     @IBAction func save() {
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
-        delegate?.addEventSave(self, didFinishAdding: newRecord)
+        delegate?.addRecordSave(self, didFinishAdding: newRecord)
     }
 
 }

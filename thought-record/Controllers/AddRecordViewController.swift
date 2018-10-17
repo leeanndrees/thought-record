@@ -63,7 +63,6 @@ class AddRecordViewController: UIViewController {
     
     @IBAction func suggestButtonTapped(_ sender: UIButton) {
         checkTone(of: generateToneString())
-        populateSuggestionField()
     }
     
     @IBAction func save() {
@@ -164,7 +163,6 @@ extension AddRecordViewController {
         let unhelpfulThoughtsText = unhelpfulThoughtsView.text!
         
         let toneString = "\(thoughtText) \(unhelpfulThoughtsText)"
-        print(toneString)
         return toneString
     }
     
@@ -173,7 +171,11 @@ extension AddRecordViewController {
             print(error)
         }) { (response) in
             //print(response)
-            self.toneName = self.getToneName(from: response)
+            DispatchQueue.main.async {
+                self.toneName = self.getToneName(from: response)
+                self.populateSuggestionField(with: self.toneName)
+            }
+            
             
             //print(response.documentTone.tones?[0].toneName ?? "no suggestion")
         }
@@ -188,10 +190,8 @@ extension AddRecordViewController {
         }
     }
     
-    func populateSuggestionField() {
-        if toneName != "" {
-            beforeFeelingField.text = toneName
-        }
+    func populateSuggestionField(with text: String) {
+            beforeFeelingField.text = text
     }
     
 }

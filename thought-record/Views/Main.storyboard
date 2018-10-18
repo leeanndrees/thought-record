@@ -1297,6 +1297,14 @@
                     <connections>
                         <outletCollection property="viewModeViews" destination="TY5-fM-EfH" collectionClass="NSMutableArray" id="k2A-h2-Tll"/>
                         <outletCollection property="editModeViews" destination="x7H-b8-xj3" collectionClass="NSMutableArray" id="fYq-yg-Eoc"/>
+                        <outletCollection property="viewModeViews" destination="kUR-8o-qnR" collectionClass="NSMutableArray" id="mly-ud-q6i"/>
+                        <outletCollection property="viewModeViews" destination="Hkr-X0-jkL" collectionClass="NSMutableArray" id="TDc-aH-Oi7"/>
+                        <outletCollection property="viewModeViews" destination="Uk2-n7-I45" collectionClass="NSMutableArray" id="zL6-yw-3H4"/>
+                        <outletCollection property="editModeViews" destination="LJb-fa-1Sv" collectionClass="NSMutableArray" id="MYT-bj-veD"/>
+                        <outletCollection property="editModeViews" destination="SqQ-Ff-PjU" collectionClass="NSMutableArray" id="glG-AI-5pE"/>
+                        <outletCollection property="editModeViews" destination="x7H-b8-xj3" collectionClass="NSMutableArray" id="QV1-iO-oNU"/>
+                        <outletCollection property="editModeViews" destination="zrh-cU-qKB" collectionClass="NSMutableArray" id="KPD-ds-cuV"/>
+                        <outletCollection property="viewModeViews" destination="TY5-fM-EfH" collectionClass="NSMutableArray" id="aIK-FU-voz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubQ-DT-4zS" userLabel="First Responder" sceneMemberID="firstResponder"/>

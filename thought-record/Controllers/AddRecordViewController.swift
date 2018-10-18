@@ -55,6 +55,11 @@ class AddRecordViewController: UIViewController {
         setDateButtonText(date: Date())
         showOrHideSuggestButton()
         dateButton.contentHorizontalAlignment = .left
+        
+        let experimentTag = database.tags[0]
+        experimentTag.useCount += 1
+        experimentTag.useCount += 1
+        experimentTag.updateUseCount()
     }
 
     // MARK: Actions
@@ -240,7 +245,7 @@ extension AddRecordViewController {
         for name in tagNames {
             if existingTagNames.contains(name) {
                 let existingTag = database.tags.filter { $0.name == name }[0]
-                existingTag.updateUseCount()
+                existingTag.useCount += 1
                 print("existing: \(existingTag.name) \(existingTag.useCount)")
             }
             else {

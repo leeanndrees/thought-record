@@ -10,7 +10,17 @@ import Foundation
 
 class Tag: Codable {
     var name: String
-    var useCount: Int
+    var useCount: Int {
+        willSet(newUseCount) {
+            print("About to set useCount to \(newUseCount)")
+        }
+        didSet {
+            if useCount > oldValue  {
+                print("Added \(useCount - oldValue) to useCount")
+            }
+        }
+    }
+
     
     init(name: String, useCount: Int) {
         self.name = name

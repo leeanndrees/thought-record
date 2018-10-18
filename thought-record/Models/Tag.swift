@@ -18,6 +18,6 @@ class Tag: Codable {
     }
     
     func updateUseCount() {
-        self.useCount = self.useCount + 1
+        self.useCount += 1
     }
 }

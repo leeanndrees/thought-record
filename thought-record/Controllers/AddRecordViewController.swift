@@ -53,6 +53,7 @@ class AddRecordViewController: UIViewController {
         thoughtField.becomeFirstResponder()
         setDateButtonText(date: Date())
         showOrHideSuggestButton()
+        dateButton.contentHorizontalAlignment = .left
     }
 
     // MARK: Actions

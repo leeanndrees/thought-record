@@ -503,6 +503,7 @@
                                                     <constraint firstItem="Zed-vL-AWl" firstAttribute="leading" secondItem="6Qh-sS-kRY" secondAttribute="leading" id="Z7w-Yk-btY"/>
                                                     <constraint firstItem="rDt-Ij-o9b" firstAttribute="leading" secondItem="6Qh-sS-kRY" secondAttribute="leading" id="b1J-eU-GPR"/>
                                                     <constraint firstAttribute="trailing" secondItem="rDt-Ij-o9b" secondAttribute="trailing" id="b52-YV-Xrl"/>
+                                                    <constraint firstItem="rDt-Ij-o9b" firstAttribute="width" secondItem="6Qh-sS-kRY" secondAttribute="width" id="gA2-5Z-bRw"/>
                                                     <constraint firstAttribute="trailing" secondItem="UtU-oa-8Aa" secondAttribute="trailing" id="mcv-L8-weM"/>
                                                 </constraints>
                                             </stackView>

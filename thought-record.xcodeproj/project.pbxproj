@@ -26,6 +26,7 @@
 		434C05E2216E4D91000CD1B6 /* ThoughtRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E1216E4D91000CD1B6 /* ThoughtRecord.swift */; };
 		434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E3216E4DD7000CD1B6 /* Feeling.swift */; };
 		434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E5216E4F1C000CD1B6 /* Tag.swift */; };
+		4355964721791CD900B44BE5 /* NewRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4355964621791CD900B44BE5 /* NewRecordDetailViewController.swift */; };
 		43657701216E51E100F54479 /* TemporaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657700216E51E100F54479 /* TemporaryData.swift */; };
 		43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657702216E85C000F54479 /* RecordDetailViewController.swift */; };
 		4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365778E216FDEC400F54479 /* SegueIdentifier.swift */; };
@@ -52,6 +53,7 @@
 		434C05E1216E4D91000CD1B6 /* ThoughtRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtRecord.swift; sourceTree = "<group>"; };
 		434C05E3216E4DD7000CD1B6 /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
 		434C05E5216E4F1C000CD1B6 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		4355964621791CD900B44BE5 /* NewRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordDetailViewController.swift; sourceTree = "<group>"; };
 		43657700216E51E100F54479 /* TemporaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryData.swift; sourceTree = "<group>"; };
 		43657702216E85C000F54479 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		4365778E216FDEC400F54479 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				43657702216E85C000F54479 /* RecordDetailViewController.swift */,
 				4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */,
 				43473F1F2177AFF20067F97C /* SettingsViewController.swift */,
+				4355964621791CD900B44BE5 /* NewRecordDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				434C05D6216E48A9000CD1B6 /* TabBarViewController.swift in Sources */,
 				434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */,
 				432208992174D5720080FCFD /* Constants.swift in Sources */,
+				4355964721791CD900B44BE5 /* NewRecordDetailViewController.swift in Sources */,
 				43473F1821778B440067F97C /* ExpandedTones.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,
 				4335BD4F2176860B00DA24CC /* AddRecordViewController.swift in Sources */,

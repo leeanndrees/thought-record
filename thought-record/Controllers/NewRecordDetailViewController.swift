@@ -10,15 +10,33 @@ import UIKit
 
 class NewRecordDetailViewController: UIViewController {
 
+    // MARK: Outlets
+    
+    @IBOutlet var viewModeViews: [UIStackView]!
+    @IBOutlet var editModeViews: [UIStackView]!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        editModeViews.forEach { (view) in
+            view.isHidden = true
+        }
 
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func editButtonTap(_ sender: Any) {
+        viewModeViews.forEach { (view) in
+            view.isHidden = true
+        }
+        editModeViews.forEach { (view) in
+            view.isHidden = false
+        }
+    }
+    
  
+    
     
 
     /*

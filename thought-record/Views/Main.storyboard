@@ -825,7 +825,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="2398"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uET-9F-QIi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2190"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="t3w-v4-Ore" userLabel="Title Stack View">
                                                 <rect key="frame" x="30" y="30" width="315" height="31.5"/>
@@ -1238,8 +1238,18 @@
                                                 </subviews>
                                                 <viewLayoutGuide key="safeArea" id="0sA-Mc-lnx"/>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xt6-bK-ys0">
+                                                <rect key="frame" x="30" y="2079.5" width="315" height="30"/>
+                                                <color key="backgroundColor" name="DarkPurple"/>
+                                                <state key="normal" title="Edit">
+                                                    <color key="titleColor" name="AlmostWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editButtonTap:" destination="JiI-iD-lEI" eventType="touchUpInside" id="Zb4-4h-QJ5"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fal-j1-s4r">
-                                                <rect key="frame" x="30" y="2079.5" width="315" height="20.5"/>
+                                                <rect key="frame" x="30" y="2139.5" width="315" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-W7-req">
                                                         <rect key="frame" x="120" y="0.0" width="75.5" height="20.5"/>
@@ -1284,6 +1294,10 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2467"/>
+                    <connections>
+                        <outletCollection property="viewModeViews" destination="TY5-fM-EfH" collectionClass="NSMutableArray" id="k2A-h2-Tll"/>
+                        <outletCollection property="editModeViews" destination="x7H-b8-xj3" collectionClass="NSMutableArray" id="fYq-yg-Eoc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubQ-DT-4zS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

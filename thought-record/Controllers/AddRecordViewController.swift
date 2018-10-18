@@ -55,11 +55,6 @@ class AddRecordViewController: UIViewController {
         setDateButtonText(date: Date())
         showOrHideSuggestButton()
         dateButton.contentHorizontalAlignment = .left
-        
-        let experimentTag = database.tags[0]
-        experimentTag.useCount += 1
-        experimentTag.useCount += 1
-        experimentTag.updateUseCount()
     }
 
     // MARK: Actions
@@ -141,7 +136,7 @@ extension AddRecordViewController {
         
         let newFeelingAfter = Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
         
-        let newTag = Tag(name: tagsField.text!, useCount: 1)
+        let newTag = Tag(name: tagsField.text!)
         
         guard let newThought = thoughtField.text,
             let newSituation = situationField.text,
@@ -236,21 +231,22 @@ extension AddRecordViewController {
     
     func checkTagExistence(tagNames: [String]) {
         var existingTagNames: [String] = []
+        print(tagNames)
         
         for tag in database.tags {
             existingTagNames.append(tag.name)
         }
-        print(existingTagNames)
         
         for name in tagNames {
             if existingTagNames.contains(name) {
-                let existingTag = database.tags.filter { $0.name == name }[0]
-                existingTag.useCount += 1
-                print("existing: \(existingTag.name) \(existingTag.useCount)")
+                return
             }
             else {
-                let newTag = Tag(name: name, useCount: 1)
+                let newTag = Tag(name: name)
                 database.tags.append(newTag)
+                for tag in database.tags {
+                    print(tag.name)
+                }
             }
         }
     }

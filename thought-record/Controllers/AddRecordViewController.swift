@@ -237,8 +237,9 @@ extension AddRecordViewController {
         
         for name in tagNames {
             if existingTagNames.contains(name) {
-                let existingTag = database.tags.filter { $0.name == name }
-                //existingTag.updateUseCount()
+                let existingTag = database.tags.filter { $0.name == name }[0]
+                existingTag.updateUseCount()
+                print("existing: \(existingTag.name) \(existingTag.useCount)")
             }
             else {
                 let newTag = Tag(name: name, useCount: 1)

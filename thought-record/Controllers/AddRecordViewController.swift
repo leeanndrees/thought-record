@@ -45,6 +45,7 @@ class AddRecordViewController: UIViewController {
     weak var delegate: AddRecordViewControllerDelegate?
     var toneID = ""
     var userChosenDate = Date()
+    let database = TagDatabase()
     
     // MARK: Lifecycle Methods
     
@@ -72,6 +73,8 @@ class AddRecordViewController: UIViewController {
     
     @IBAction func save() {
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
+        
+        checkTagExistence(tagNames: splitTagInput())
         
         delegate?.addRecordSave(self, didFinishAdding: newRecord)
     }
@@ -133,7 +136,7 @@ extension AddRecordViewController {
         
         let newFeelingAfter = Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
         
-        let newTag = Tag(name: tagsField.text!, useCount: 1)
+        let newTag = Tag(name: tagsField.text!)
         
         guard let newThought = thoughtField.text,
             let newSituation = situationField.text,
@@ -149,7 +152,6 @@ extension AddRecordViewController {
     }
     
     func showOrHideSuggestButton() {
-        print(userSettings.allowTextAnalysis)
         if userSettings.allowTextAnalysis == false {
             suggestButton.isHidden = true
         }
@@ -210,5 +212,44 @@ extension AddRecordViewController {
     func populateSuggestionField(with text: String) {
             beforeFeelingField.text = text
     }
+}
+
+// MARK: Tagging
+
+extension AddRecordViewController {
     
+    func splitTagInput() -> [String] {
+        let tagInput = tagsField.text!
+        let allTagsAdded = tagInput.split(separator: ",")
+        var tagsTrimmed: [String] = []
+        for tag in allTagsAdded {
+            let trimmed = tag.trimmingCharacters(in: .whitespaces)
+            tagsTrimmed.append(trimmed)
+        }
+        return tagsTrimmed
+    }
+    
+    func checkTagExistence(tagNames: [String]) {
+        var existingTagNames: [String] = []
+        print(tagNames)
+        
+        for tag in database.tags {
+            existingTagNames.append(tag.name)
+        }
+        
+        for name in tagNames {
+            if existingTagNames.contains(name) {
+                return
+            }
+            else {
+                let newTag = Tag(name: name)
+                database.tags.append(newTag)
+                for tag in database.tags {
+                    print(tag.name)
+                }
+            }
+        }
+    }
+    
+
 }

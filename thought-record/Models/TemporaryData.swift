@@ -22,12 +22,11 @@ class FeelingDatabase {
 class TagDatabase {
     
     var tags = [
-        Tag(name: "work", useCount: 0),
-        Tag(name: "weather: cloudy", useCount: 0),
-        Tag(name: "friends", useCount: 0),
-        Tag(name: "activity level: low", useCount: 0),
-        Tag(name: "mindful minutes: none", useCount: 0)
+        Tag(name: "work"),
+        Tag(name: "friends"),
+        Tag(name: "weather: cloudy")
     ]
+    
 }
 
 class ThoughtRecordDatabase {

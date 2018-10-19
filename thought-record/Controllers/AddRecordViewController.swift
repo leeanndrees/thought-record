@@ -72,6 +72,7 @@ class AddRecordViewController: UIViewController {
     }
     
     @IBAction func save() {
+        // our else condition should maybe show an error instead of doing nothing
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
         checkTagExistence(tagNames: splitTagInput())

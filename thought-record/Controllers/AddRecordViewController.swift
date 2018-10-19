@@ -121,13 +121,13 @@ extension AddRecordViewController {
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)
         
-        let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
+        let dateAction = UIAlertAction(title: "Done", style: .default) { action in
             let newDate = self.datePicker.date
             self.setDateButtonText(date: newDate)
             self.userChosenDate = newDate
         }
         
-        datePickerAlert.addAction(dateChosen)
+        datePickerAlert.addAction(dateAction)
         
         let height: NSLayoutConstraint = NSLayoutConstraint(item: datePickerAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
         datePickerAlert.view.addConstraint(height)

@@ -143,9 +143,18 @@ extension AddRecordViewController {
         return Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
     }
     
-    private func createNewRecord() -> ThoughtRecord? {
+    private func generateTags() -> [Tag] {
+        let tagInputArray = splitTagInput()
+        var newTags: [Tag] = []
         
-        let newTag = Tag(name: tagsField.text!)
+        for name in tagInputArray {
+            newTags.append(Tag(name: name))
+        }
+        
+        return newTags
+    }
+    
+    private func createNewRecord() -> ThoughtRecord? {
         
         guard let newThought = thoughtField.text,
             let newSituation = situationField.text,
@@ -154,7 +163,7 @@ extension AddRecordViewController {
             let newFactsAgainst = factsAgainstView.text,
             let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
         
-        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [createBeforeFeeling()], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [createAfterFeeling()], tags: [newTag])
+        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [createBeforeFeeling()], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [createAfterFeeling()], tags: [generateTags()])
         
         return newRecord
     }

@@ -169,12 +169,7 @@ extension AddRecordViewController {
     }
     
     private func showOrHideSuggestButton() {
-        if userSettings.allowTextAnalysis == false {
-            suggestButton.isHidden = true
-        }
-        else {
-            suggestButton.isHidden = false
-        }
+        suggestButton.isHidden = !userSettings.allowTextAnalysis
     }
     
 }

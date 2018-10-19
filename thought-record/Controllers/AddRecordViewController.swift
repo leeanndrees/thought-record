@@ -90,6 +90,7 @@ extension AddRecordViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
+        /// are these steps in this order necessary?
         let dateString = dateFormatter.string(from: date)
         let formattedDate = dateFormatter.date(from: dateString)
         
@@ -106,6 +107,7 @@ extension AddRecordViewController {
         return dateFormatter.string(from: formattedDate!)
     }
     
+    /// this reads easier to me than Date(), but it's basically just that. Is there a way to alias functions?
     private func getCurrentDate() -> Date {
         return Date()
     }

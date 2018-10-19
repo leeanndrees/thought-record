@@ -17,6 +17,7 @@ protocol AddRecordViewControllerDelegate: class {
 class AddRecordViewController: UIViewController {
     
     // MARK: Outlets
+    
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var thoughtField: UITextField!
     @IBOutlet weak var situationField: UITextField!
@@ -145,13 +146,12 @@ extension AddRecordViewController {
             let newFactsAgainst = factsAgainstView.text,
             let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
         
-        
         newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [newFeelingBefore], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeelingAfter], tags: [newTag])
         
         return newRecord
     }
     
-    func showOrHideSuggestButton() {
+    private func showOrHideSuggestButton() {
         if userSettings.allowTextAnalysis == false {
             suggestButton.isHidden = true
         }
@@ -166,7 +166,7 @@ extension AddRecordViewController {
 
 extension AddRecordViewController {
     
-    func generateToneString() -> String {
+    private func generateToneString() -> String {
         let thoughtText = thoughtField.text!
         let unhelpfulThoughtsText = unhelpfulThoughtsView.text!
         
@@ -174,7 +174,7 @@ extension AddRecordViewController {
         return toneString
     }
     
-    func checkTone(of text: String)  {
+    private func checkTone(of text: String)  {
         toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
             print(error)
         }) { (response) in
@@ -185,7 +185,7 @@ extension AddRecordViewController {
         }
     }
     
-    func getToneID(from analysis: ToneAnalysis) -> String {
+    private func getToneID(from analysis: ToneAnalysis) -> String {
         if let toneID = analysis.documentTone.tones?[0].toneID {
             return toneID
         }
@@ -194,7 +194,7 @@ extension AddRecordViewController {
         }
     }
     
-    func getExpandedFeelingName(from toneID: String) -> String {
+    private func getExpandedFeelingName(from toneID: String) -> String {
         let expandedTones = ExpandedTones()
         
         switch toneID {
@@ -209,7 +209,7 @@ extension AddRecordViewController {
         }
     }
     
-    func populateSuggestionField(with text: String) {
+    private func populateSuggestionField(with text: String) {
             beforeFeelingField.text = text
     }
 }
@@ -218,7 +218,7 @@ extension AddRecordViewController {
 
 extension AddRecordViewController {
     
-    func splitTagInput() -> [String] {
+    private func splitTagInput() -> [String] {
         let tagInput = tagsField.text!
         let allTagsAdded = tagInput.split(separator: ",")
         var tagsTrimmed: [String] = []
@@ -229,7 +229,7 @@ extension AddRecordViewController {
         return tagsTrimmed
     }
     
-    func checkTagExistence(tagNames: [String]) {
+    private func checkTagExistence(tagNames: [String]) {
         var existingTagNames: [String] = []
         print(tagNames)
         

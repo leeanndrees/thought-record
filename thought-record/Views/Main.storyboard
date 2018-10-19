@@ -1295,6 +1295,16 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2467"/>
                     <connections>
+                        <outlet property="afterFeelingLabel" destination="zER-DQ-G5h" id="bLf-bP-Bqa"/>
+                        <outlet property="balancedPerspectiveLabel" destination="8Xm-a2-3BP" id="z57-5T-Kon"/>
+                        <outlet property="beforeFeelingLabel" destination="gWC-q3-vXh" id="5dr-9u-k2a"/>
+                        <outlet property="dateLabel" destination="ied-mR-O3R" id="mfq-Fl-NBQ"/>
+                        <outlet property="factsAgainstLabel" destination="aG3-tP-0r6" id="KVX-WM-rTa"/>
+                        <outlet property="factsSupportingLabel" destination="ikQ-pW-i72" id="EZJ-dZ-jAP"/>
+                        <outlet property="situationLabel" destination="YIK-m5-reu" id="NL5-k2-D1a"/>
+                        <outlet property="tagsLabel" destination="OH3-Zm-3yS" id="A3j-4S-mbd"/>
+                        <outlet property="thoughtSummaryLabel" destination="V2s-DU-zGT" id="5zw-Ix-fmd"/>
+                        <outlet property="unhelpfulThoughtsLabel" destination="6rE-Yp-kY9" id="0bW-gb-5NL"/>
                         <outletCollection property="viewModeViews" destination="TY5-fM-EfH" collectionClass="NSMutableArray" id="k2A-h2-Tll"/>
                         <outletCollection property="editModeViews" destination="x7H-b8-xj3" collectionClass="NSMutableArray" id="fYq-yg-Eoc"/>
                         <outletCollection property="viewModeViews" destination="kUR-8o-qnR" collectionClass="NSMutableArray" id="mly-ud-q6i"/>

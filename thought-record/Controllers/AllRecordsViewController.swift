@@ -75,14 +75,14 @@ extension AllRecordsViewController {
     }
     
     func deletionAlert(indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Are you sure?", message: "For real?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete Record?", message: nil, preferredStyle: .alert)
         let actionYes = UIAlertAction(title: "Yes", style: .destructive, handler: { (action) -> Void in
             self.deleteRecord(indexPath: indexPath)
         }
         )
-        let actionNo = UIAlertAction(title: "Nevermind", style: .default, handler: nil)
-        alert.addAction(actionYes)
+        let actionNo = UIAlertAction(title: "No", style: .default, handler: nil)
         alert.addAction(actionNo)
+        alert.addAction(actionYes)
         
         present(alert, animated: true)
     }

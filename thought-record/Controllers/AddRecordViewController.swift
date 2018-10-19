@@ -117,6 +117,7 @@ extension AddRecordViewController {
         dateButton.setTitle(formattedFullDate(date: date), for: .normal)
     }
     
+    /// this method needs breaking up (or at least renaming) but how
     private func showDatePickerActionSheet() {
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)

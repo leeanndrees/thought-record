@@ -130,12 +130,12 @@
 		434C05C6216E3CF6000CD1B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				434C05D5216E48A9000CD1B6 /* TabBarViewController.swift */,
-				434C05DB216E4A49000CD1B6 /* HomeViewController.swift */,
-				434C05DF216E4A8C000CD1B6 /* AllRecordsViewController.swift */,
-				43657702216E85C000F54479 /* RecordDetailViewController.swift */,
 				4335BD4E2176860B00DA24CC /* AddRecordViewController.swift */,
+				434C05DF216E4A8C000CD1B6 /* AllRecordsViewController.swift */,
+				434C05DB216E4A49000CD1B6 /* HomeViewController.swift */,
+				43657702216E85C000F54479 /* RecordDetailViewController.swift */,
 				43473F1F2177AFF20067F97C /* SettingsViewController.swift */,
+				434C05D5216E48A9000CD1B6 /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

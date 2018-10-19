@@ -178,6 +178,7 @@ extension AddRecordViewController {
 
 extension AddRecordViewController {
     
+    /// not sure how to fix these force unwraps
     private func generateToneString() -> String {
         let thoughtText = thoughtField.text!
         let unhelpfulThoughtsText = unhelpfulThoughtsView.text!

@@ -32,13 +32,15 @@ class RecordDetailViewController: UIViewController {
     @IBOutlet weak var afterFeelingLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     
+    // MARK: Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideEditViews()
         displayThoughtRecordData()
-        
-        // Do any additional setup after loading the view.
     }
+    
+    // MARK: Actions
     
     @IBAction func editButtonTap(_ sender: Any) {
         viewModeViews.forEach { (view) in
@@ -48,6 +50,11 @@ class RecordDetailViewController: UIViewController {
             view.isHidden = false
         }
     }
+}
+
+// MARK: Private Implementation
+
+extension RecordDetailViewController {
     
     private func hideEditViews() {
         editModeViews.forEach { (view) in
@@ -74,7 +81,7 @@ class RecordDetailViewController: UIViewController {
         return tagListString
     }
     
-    func displayThoughtRecordData() {
+    private func displayThoughtRecordData() {
         if let record = recordToShow {
             dateLabel.text = record.longDate
             thoughtSummaryLabel.text = record.thought
@@ -90,19 +97,5 @@ class RecordDetailViewController: UIViewController {
             return
         }
     }
-    
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

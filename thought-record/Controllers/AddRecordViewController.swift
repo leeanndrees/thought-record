@@ -47,6 +47,7 @@ class AddRecordViewController: UIViewController {
     var toneID = ""
     var userChosenDate = Date()
     let database = TagDatabase()
+    let datePicker = UIDatePicker()
     
     // MARK: Lifecycle Methods
     
@@ -117,12 +118,11 @@ extension AddRecordViewController {
     }
     
     private func showDatePickerActionSheet() {
-        let datePicker = UIDatePicker()
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)
         
         let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
-            let newDate = datePicker.date
+            let newDate = self.datePicker.date
             self.setDateButtonText(date: newDate)
             self.userChosenDate = newDate
         }

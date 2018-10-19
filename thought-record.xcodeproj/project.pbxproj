@@ -16,7 +16,6 @@
 		43473F202177AFF20067F97C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1F2177AFF20067F97C /* SettingsViewController.swift */; };
 		43473F222177C6840067F97C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43473F212177C6840067F97C /* Colors.xcassets */; };
 		434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B1216E328A000CD1B6 /* AppDelegate.swift */; };
-		434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05B3216E328A000CD1B6 /* ViewController.swift */; };
 		434C05B9216E328B000CD1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434C05B8216E328B000CD1B6 /* Assets.xcassets */; };
 		434C05BC216E328B000CD1B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434C05BA216E328B000CD1B6 /* LaunchScreen.storyboard */; };
 		434C05D6216E48A9000CD1B6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05D5216E48A9000CD1B6 /* TabBarViewController.swift */; };
@@ -41,7 +40,6 @@
 		43473F212177C6840067F97C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		434C05AE216E328A000CD1B6 /* thought-record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thought-record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		434C05B1216E328A000CD1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		434C05B3216E328A000CD1B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		434C05B8216E328B000CD1B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		434C05BB216E328B000CD1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		434C05BD216E328B000CD1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 		434C05C6216E3CF6000CD1B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				434C05B3216E328A000CD1B6 /* ViewController.swift */,
 				434C05D5216E48A9000CD1B6 /* TabBarViewController.swift */,
 				434C05DB216E4A49000CD1B6 /* HomeViewController.swift */,
 				434C05DF216E4A8C000CD1B6 /* AllRecordsViewController.swift */,
@@ -284,7 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */,
-				434C05B4216E328A000CD1B6 /* ViewController.swift in Sources */,
 				43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */,
 				4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */,
 				434C05D6216E48A9000CD1B6 /* TabBarViewController.swift in Sources */,

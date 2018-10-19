@@ -74,16 +74,16 @@ class RecordDetailViewController: UIViewController {
     
     func displayThoughtRecordData() {
         if let record = recordToShow {
-            dateLabel.text = "Date: \(record.longDate)"
-            thoughtSummaryLabel.text = "Thought: \(record.thought)"
-            situationLabel.text = "Situation: \(record.situation)"
-            beforeFeelingLabel.text = "Feelings at time: \(feelingsArrayToString(array: record.feelingsStart))"
-            unhelpfulThoughtsLabel.text = "Unhelpful Thoughts: \(record.unhelpfulThoughts)"
-            factsSupportingLabel.text = "Facts Supporting Unhelpful Thoughts: \(record.factsSupporting)"
-            factsAgainstLabel.text = "Facts Opposing Unhelpful Thoughts: \(record.factsAgainst)"
-            balancedPerspectiveLabel.text = "More Balanced Perspective: \(record.balancedPerspective)"
-            afterFeelingLabel.text = "Feelings After Unpacking: \(feelingsArrayToString(array: record.feelingsEnd))"
-            tagsLabel.text = "Tags: \(tagArrayToString(array: record.tags))"
+            dateLabel.text = record.longDate
+            thoughtSummaryLabel.text = record.thought
+            situationLabel.text = record.situation
+            beforeFeelingLabel.text = feelingsArrayToString(array: record.feelingsStart)
+            unhelpfulThoughtsLabel.text = record.unhelpfulThoughts
+            factsSupportingLabel.text = record.factsSupporting
+            factsAgainstLabel.text = record.factsAgainst
+            balancedPerspectiveLabel.text = record.balancedPerspective
+            afterFeelingLabel.text = feelingsArrayToString(array: record.feelingsEnd)
+            tagsLabel.text = tagArrayToString(array: record.tags)
         } else {
             return
         }

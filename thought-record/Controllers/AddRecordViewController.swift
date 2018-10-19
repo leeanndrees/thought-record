@@ -17,6 +17,7 @@ protocol AddRecordViewControllerDelegate: class {
 class AddRecordViewController: UIViewController {
     
     // MARK: Outlets
+    
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var thoughtField: UITextField!
     @IBOutlet weak var situationField: UITextField!
@@ -46,6 +47,7 @@ class AddRecordViewController: UIViewController {
     var toneID = ""
     var userChosenDate = Date()
     let database = TagDatabase()
+    let datePicker = UIDatePicker()
     
     // MARK: Lifecycle Methods
     
@@ -54,7 +56,6 @@ class AddRecordViewController: UIViewController {
         thoughtField.becomeFirstResponder()
         setDateButtonText(date: Date())
         showOrHideSuggestButton()
-        dateButton.contentHorizontalAlignment = .left
     }
 
     // MARK: Actions
@@ -72,6 +73,7 @@ class AddRecordViewController: UIViewController {
     }
     
     @IBAction func save() {
+        // our else condition should maybe show an error instead of doing nothing
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
         checkTagExistence(tagNames: splitTagInput())
@@ -89,6 +91,7 @@ extension AddRecordViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
+        /// are these steps in this order necessary?
         let dateString = dateFormatter.string(from: date)
         let formattedDate = dateFormatter.date(from: dateString)
         
@@ -105,6 +108,7 @@ extension AddRecordViewController {
         return dateFormatter.string(from: formattedDate!)
     }
     
+    /// this reads easier to me than Date(), but it's basically just that. Is there a way to alias functions?
     private func getCurrentDate() -> Date {
         return Date()
     }
@@ -113,30 +117,44 @@ extension AddRecordViewController {
         dateButton.setTitle(formattedFullDate(date: date), for: .normal)
     }
     
+    /// this method needs breaking up (or at least renaming) but how
     private func showDatePickerActionSheet() {
-        let datePicker = UIDatePicker()
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)
         
-        let dateChosen = UIAlertAction(title: "Done", style: .default) { action in
-            let newDate = datePicker.date
+        let dateAction = UIAlertAction(title: "Done", style: .default) { action in
+            let newDate = self.datePicker.date
             self.setDateButtonText(date: newDate)
             self.userChosenDate = newDate
         }
         
-        datePickerAlert.addAction(dateChosen)
+        datePickerAlert.addAction(dateAction)
         
         let height: NSLayoutConstraint = NSLayoutConstraint(item: datePickerAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.1, constant: 300)
         datePickerAlert.view.addConstraint(height)
         self.present(datePickerAlert, animated: true, completion: nil)
     }
     
+    private func createBeforeFeeling() -> Feeling {
+        return Feeling(name: beforeFeelingField.text!, rating: Int(beforeFeelingSlider!.value))
+    }
+    
+    private func createAfterFeeling() -> Feeling {
+        return Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
+    }
+    
+    private func generateTags() -> [Tag] {
+        let tagInputArray = splitTagInput()
+        var newTags: [Tag] = []
+        
+        for name in tagInputArray {
+            newTags.append(Tag(name: name))
+        }
+        
+        return newTags
+    }
+    
     private func createNewRecord() -> ThoughtRecord? {
-        let newFeelingBefore = Feeling(name: beforeFeelingField.text!, rating: Int(beforeFeelingSlider!.value))
-        
-        let newFeelingAfter = Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
-        
-        let newTag = Tag(name: tagsField.text!)
         
         guard let newThought = thoughtField.text,
             let newSituation = situationField.text,
@@ -145,19 +163,13 @@ extension AddRecordViewController {
             let newFactsAgainst = factsAgainstView.text,
             let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
         
-        
-        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [newFeelingBefore], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeelingAfter], tags: [newTag])
+        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [createBeforeFeeling()], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [createAfterFeeling()], tags: generateTags())
         
         return newRecord
     }
     
-    func showOrHideSuggestButton() {
-        if userSettings.allowTextAnalysis == false {
-            suggestButton.isHidden = true
-        }
-        else {
-            suggestButton.isHidden = false
-        }
+    private func showOrHideSuggestButton() {
+        suggestButton.isHidden = !userSettings.allowTextAnalysis
     }
     
 }
@@ -166,7 +178,8 @@ extension AddRecordViewController {
 
 extension AddRecordViewController {
     
-    func generateToneString() -> String {
+    /// not sure how to fix these force unwraps
+    private func generateToneString() -> String {
         let thoughtText = thoughtField.text!
         let unhelpfulThoughtsText = unhelpfulThoughtsView.text!
         
@@ -174,7 +187,7 @@ extension AddRecordViewController {
         return toneString
     }
     
-    func checkTone(of text: String)  {
+    private func checkTone(of text: String)  {
         toneAnalyzer.tone(toneContent: ToneContent.text(text), sentences: false, tones: nil, contentLanguage: nil, acceptLanguage: nil, headers: nil, failure: { (error) in
             print(error)
         }) { (response) in
@@ -185,7 +198,7 @@ extension AddRecordViewController {
         }
     }
     
-    func getToneID(from analysis: ToneAnalysis) -> String {
+    private func getToneID(from analysis: ToneAnalysis) -> String {
         if let toneID = analysis.documentTone.tones?[0].toneID {
             return toneID
         }
@@ -194,7 +207,7 @@ extension AddRecordViewController {
         }
     }
     
-    func getExpandedFeelingName(from toneID: String) -> String {
+    private func getExpandedFeelingName(from toneID: String) -> String {
         let expandedTones = ExpandedTones()
         
         switch toneID {
@@ -209,7 +222,7 @@ extension AddRecordViewController {
         }
     }
     
-    func populateSuggestionField(with text: String) {
+    private func populateSuggestionField(with text: String) {
             beforeFeelingField.text = text
     }
 }
@@ -218,7 +231,7 @@ extension AddRecordViewController {
 
 extension AddRecordViewController {
     
-    func splitTagInput() -> [String] {
+    private func splitTagInput() -> [String] {
         let tagInput = tagsField.text!
         let allTagsAdded = tagInput.split(separator: ",")
         var tagsTrimmed: [String] = []
@@ -229,7 +242,7 @@ extension AddRecordViewController {
         return tagsTrimmed
     }
     
-    func checkTagExistence(tagNames: [String]) {
+    private func checkTagExistence(tagNames: [String]) {
         var existingTagNames: [String] = []
         print(tagNames)
         

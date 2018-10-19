@@ -17,7 +17,7 @@ class SettingsViewController: UITableViewController {
         useLargeTitles()
     }
 
-    // MARK: - Table view data source
+    // MARK: Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -35,13 +35,20 @@ class SettingsViewController: UITableViewController {
         return cell
     }
     
-    func useLargeTitles() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
+    // MARK: Actions
     
     @IBAction func analysisSettingSwitchChanged(_ sender: UISwitch) {
         userSettings.allowTextAnalysis = sender.isOn
     }
-    
 
+}
+
+// MARK: Private Implementation
+
+extension SettingsViewController {
+    
+    private func useLargeTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
 }

@@ -1,14 +1,14 @@
 //
-//  RecordDetailViewController.swift
+//  NewRecordDetailViewController.swift
 //  thought-record
 //
-//  Created by DetroitLabs on 10/10/18.
+//  Created by DetroitLabs on 10/18/18.
 //  Copyright © 2018 DetroitLabs. All rights reserved.
 //
 
 import UIKit
 
-class RecordDetailViewController: UITableViewController {
+class RecordDetailViewController: UIViewController {
     
     // MARK: Properties
     
@@ -16,38 +16,42 @@ class RecordDetailViewController: UITableViewController {
     
     // MARK: Outlets
     
+    /// View Collections:
+    @IBOutlet var viewModeViews: [UIStackView]!
+    @IBOutlet var editModeViews: [UIStackView]!
+    
+    /// Labels:
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var thoughtLabel: UILabel!
+    @IBOutlet weak var thoughtSummaryLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
-    @IBOutlet weak var feelingsStartLabel: UILabel!
     @IBOutlet weak var unhelpfulThoughtsLabel: UILabel!
+    @IBOutlet weak var beforeFeelingLabel: UILabel!
     @IBOutlet weak var factsSupportingLabel: UILabel!
     @IBOutlet weak var factsAgainstLabel: UILabel!
     @IBOutlet weak var balancedPerspectiveLabel: UILabel!
-    @IBOutlet weak var feelingsEndLabel: UILabel!
+    @IBOutlet weak var afterFeelingLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
-    
-    // MARK: Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayRecordData()
+        
+        editModeViews.forEach { (view) in
+            view.isHidden = true
+        }
+        
+        displayThoughtRecordData()
+        
+        // Do any additional setup after loading the view.
     }
     
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-
-}
-
-// MARK: Private Implementation
-
-extension RecordDetailViewController {
+    @IBAction func editButtonTap(_ sender: Any) {
+        viewModeViews.forEach { (view) in
+            view.isHidden = true
+        }
+        editModeViews.forEach { (view) in
+            view.isHidden = false
+        }
+    }
     
     private func feelingsArrayToString(array: [Feeling]) -> String {
         var feelingNames: [String] = []
@@ -68,31 +72,35 @@ extension RecordDetailViewController {
         return tagListString
     }
     
-    private func displayRecordData() {
+    func displayThoughtRecordData() {
         if let record = recordToShow {
-            dateLabel.text = "Date: \(record.longDate)"
-            thoughtLabel.text = "Thought: \(record.thought)"
-            situationLabel.text = "Situation: \(record.situation)"
-            feelingsStartLabel.text = "Feelings at time: \(feelingsArrayToString(array: record.feelingsStart))"
-            unhelpfulThoughtsLabel.text = "Unhelpful Thoughts: \(record.unhelpfulThoughts)"
-            factsSupportingLabel.text = "Facts Supporting Unhelpful Thoughts: \(record.factsSupporting)"
-            factsAgainstLabel.text = "Facts Opposing Unhelpful Thoughts: \(record.factsAgainst)"
-            balancedPerspectiveLabel.text = "More Balanced Perspective: \(record.balancedPerspective)"
-            feelingsEndLabel.text = "Feelings After Unpacking: \(feelingsArrayToString(array: record.feelingsEnd))"
-            tagsLabel.text = "Tags: \(tagArrayToString(array: record.tags))"
+            dateLabel.text = record.longDate
+            thoughtSummaryLabel.text = record.thought
+            situationLabel.text = record.situation
+            beforeFeelingLabel.text = feelingsArrayToString(array: record.feelingsStart)
+            unhelpfulThoughtsLabel.text = record.unhelpfulThoughts
+            factsSupportingLabel.text = record.factsSupporting
+            factsAgainstLabel.text = record.factsAgainst
+            balancedPerspectiveLabel.text = record.balancedPerspective
+            afterFeelingLabel.text = feelingsArrayToString(array: record.feelingsEnd)
+            tagsLabel.text = tagArrayToString(array: record.tags)
         } else {
             return
         }
     }
     
-}
-
-// MARK: Table View Methods
-
-extension RecordDetailViewController {
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }

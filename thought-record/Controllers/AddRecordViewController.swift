@@ -163,7 +163,7 @@ extension AddRecordViewController {
             let newFactsAgainst = factsAgainstView.text,
             let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
         
-        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [createBeforeFeeling()], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [createAfterFeeling()], tags: [generateTags()])
+        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [createBeforeFeeling()], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [createAfterFeeling()], tags: generateTags())
         
         return newRecord
     }

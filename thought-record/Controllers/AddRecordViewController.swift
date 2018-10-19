@@ -135,10 +135,15 @@ extension AddRecordViewController {
         self.present(datePickerAlert, animated: true, completion: nil)
     }
     
+    private func createBeforeFeeling() -> Feeling {
+        return Feeling(name: beforeFeelingField.text!, rating: Int(beforeFeelingSlider!.value))
+    }
+    
+    private func createAfterFeeling() -> Feeling {
+        return Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
+    }
+    
     private func createNewRecord() -> ThoughtRecord? {
-        let newFeelingBefore = Feeling(name: beforeFeelingField.text!, rating: Int(beforeFeelingSlider!.value))
-        
-        let newFeelingAfter = Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
         
         let newTag = Tag(name: tagsField.text!)
         
@@ -149,7 +154,7 @@ extension AddRecordViewController {
             let newFactsAgainst = factsAgainstView.text,
             let newBalancedPerspective = balancedPerspectiveView.text else { return nil }
         
-        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [newFeelingBefore], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [newFeelingAfter], tags: [newTag])
+        newRecord = ThoughtRecord(date: userChosenDate, thought: newThought, situation: newSituation, feelingsStart: [createBeforeFeeling()], unhelpfulThoughts: newUnhelpfulThoughts, factsSupporting: newFactsSupporting, factsAgainst: newFactsAgainst, balancedPerspective: newBalancedPerspective, feelingsEnd: [createAfterFeeling()], tags: [newTag])
         
         return newRecord
     }

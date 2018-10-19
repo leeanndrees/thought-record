@@ -34,11 +34,7 @@ class RecordDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        editModeViews.forEach { (view) in
-            view.isHidden = true
-        }
-        
+        hideEditViews()
         displayThoughtRecordData()
         
         // Do any additional setup after loading the view.
@@ -50,6 +46,12 @@ class RecordDetailViewController: UIViewController {
         }
         editModeViews.forEach { (view) in
             view.isHidden = false
+        }
+    }
+    
+    private func hideEditViews() {
+        editModeViews.forEach { (view) in
+            view.isHidden = true
         }
     }
     

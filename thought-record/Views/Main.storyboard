@@ -996,7 +996,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="IQm-gp-Vwq">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Hax-9I-U41">
                             <connections>
-                                <action selector="editButtonTap:" destination="JiI-iD-lEI" id="5zT-Th-eB4"/>
+                                <action selector="editButtonTap:" destination="JiI-iD-lEI" id="7Qh-Ey-P9c"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

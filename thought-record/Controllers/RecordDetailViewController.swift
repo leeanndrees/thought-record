@@ -29,6 +29,10 @@ class RecordDetailViewController: UIViewController {
     let database = TagDatabase()
     let datePicker = UIDatePicker()
     
+    /// bar buttons:
+    let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: nil)
+    let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)
+    
     // MARK: Outlets
     
     /// View Collections:
@@ -68,11 +72,15 @@ class RecordDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hide(views: editModeViews)
-        displayThoughtRecordData()
-        print(currentMode ?? "no mode set")
         
-        if currentMode == Mode.add || currentMode == Mode.edit {
+        if currentMode == Mode.view {
+            hide(views: editModeViews)
+            displayThoughtRecordData()
+            self.navigationItem.rightBarButtonItem = editButton
+        }
+        
+        if currentMode == Mode.add {
+            hide(views: editModeViews)
             thoughtSummaryField.becomeFirstResponder()
             setDateButtonText(date: Date())
             showOrHideSuggestButton()
@@ -90,7 +98,7 @@ class RecordDetailViewController: UIViewController {
         
         displayEditModeData()
         
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: nil)
+    self.navigationItem.rightBarButtonItem = saveButton
     }
     
     

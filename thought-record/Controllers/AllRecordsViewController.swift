@@ -22,6 +22,10 @@ class AllRecordsViewController: UITableViewController {
         getRecords()
         useLargeTitles()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
 
 // MARK: Private Implementation

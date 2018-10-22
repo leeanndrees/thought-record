@@ -117,7 +117,7 @@ extension RecordDetailViewController {
         
         displayEditModeData()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
     }
     
     @objc func test() {
@@ -131,6 +131,20 @@ extension RecordDetailViewController {
         checkTagExistence(tagNames: splitTagInput())
         
         delegate?.addRecordSave(self, didFinishAdding: newRecord)
+    }
+    
+    @objc func saveEdited() {
+        guard let recordToUpdate = recordToShow else { return }
+        recordToUpdate.thought = thoughtSummaryField.text!
+        recordToUpdate.situation = situationField.text!
+        recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!
+        recordToUpdate.factsSupporting = factsSupportingView.text!
+        recordToUpdate.factsAgainst = factsContradictingView.text!
+        recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
+        
+        hide(views: editModeViews)
+        show(views: viewModeViews)
+        displayThoughtRecordData()
     }
     
     private func show(views: [UIView]) {

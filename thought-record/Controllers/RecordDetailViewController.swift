@@ -42,9 +42,11 @@ class RecordDetailViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func editButtonTap(_ sender: Any) {
+    @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
         show(views: editModeViews)
         hide(views: viewModeViews)
+        
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
     }
     
 }
@@ -53,16 +55,9 @@ class RecordDetailViewController: UIViewController {
 
 extension RecordDetailViewController {
     
-    private func hideEditViews() {
-        editModeViews.forEach { (view) in
-            view.isHidden = true
-        }
-    }
-    
     private func show(views: [UIView]) {
         views.forEach { (view) in
             view.isHidden = false
-            print("show method called")
         }
     }
     

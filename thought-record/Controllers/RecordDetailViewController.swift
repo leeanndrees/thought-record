@@ -63,6 +63,8 @@ class RecordDetailViewController: UIViewController {
         show(views: editModeViews)
         hide(views: viewModeViews)
         
+        displayEditModeData()
+        
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: nil)
     }
     
@@ -116,6 +118,29 @@ extension RecordDetailViewController {
             afterFeelingLabel.text = feelingsArrayToString(array: record.feelingsEnd)
             tagsLabel.text = tagArrayToString(array: record.tags)
         } else {
+            return
+        }
+    }
+    
+    private func displayEditModeData() {
+        if let record = recordToShow {
+            dateButton.setTitle(record.longDate, for: .normal)
+            thoughtSummaryField.text = record.thought
+            situationField.text = record.situation
+            unhelpfulThoughtsView.text = record.unhelpfulThoughts
+            beforeFeelingField.text = record.feelingsStart[0].name
+            beforeFeelingSlider.value = Float(record.feelingsStart[0].rating)
+            beforeFeelingRatingLabel.text = String(record.feelingsStart[0].rating)
+            factsSupportingView.text = record.factsSupporting
+            factsContradictingView.text = record.factsAgainst
+            balancedPerspectiveView.text = record.balancedPerspective
+            afterFeelingField.text = record.feelingsEnd[0].name
+            afterFeelingSlider.value = Float(record.feelingsEnd[0].rating)
+            afterFeelingRatingLabel.text = String(record.feelingsEnd[0].rating)
+            tagsField.text = tagArrayToString(array: record.tags)
+            
+        }
+        else {
             return
         }
     }

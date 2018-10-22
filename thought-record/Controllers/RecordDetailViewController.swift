@@ -54,6 +54,7 @@ class RecordDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentMode = .view
         hide(views: editModeViews)
         displayThoughtRecordData()
         print(currentMode ?? "no mode set")

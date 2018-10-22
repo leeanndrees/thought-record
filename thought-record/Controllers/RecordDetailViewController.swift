@@ -59,14 +59,14 @@ extension RecordDetailViewController {
         }
     }
     
-    private func show(views: [UIStackView]) {
+    private func show(views: [UIView]) {
         views.forEach { (view) in
             view.isHidden = false
             print("show method called")
         }
     }
     
-    private func hide(views: [UIStackView]) {
+    private func hide(views: [UIView]) {
         views.forEach { (view) in
             view.isHidden = true
         }

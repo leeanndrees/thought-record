@@ -36,20 +36,17 @@ class RecordDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideEditViews()
+        //hideEditViews()
         displayThoughtRecordData()
     }
     
     // MARK: Actions
     
     @IBAction func editButtonTap(_ sender: Any) {
-        viewModeViews.forEach { (view) in
-            view.isHidden = true
-        }
-        editModeViews.forEach { (view) in
-            view.isHidden = false
-        }
+        show(views: editModeViews)
+        hide(views: viewModeViews)
     }
+    
 }
 
 // MARK: Private Implementation
@@ -58,6 +55,19 @@ extension RecordDetailViewController {
     
     private func hideEditViews() {
         editModeViews.forEach { (view) in
+            view.isHidden = true
+        }
+    }
+    
+    private func show(views: [UIStackView]) {
+        views.forEach { (view) in
+            view.isHidden = false
+            print("show method called")
+        }
+    }
+    
+    private func hide(views: [UIStackView]) {
+        views.forEach { (view) in
             view.isHidden = true
         }
     }

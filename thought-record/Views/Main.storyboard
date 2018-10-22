@@ -932,6 +932,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="fgB-k6-Eq7"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="afterFeelingSliderValueChanged:" destination="JiI-iD-lEI" eventType="valueChanged" id="9ii-Ee-eYn"/>
+                                                                </connections>
                                                             </slider>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hku-uF-neJ">
                                                                 <rect key="frame" x="304.5" y="0.0" width="10.5" height="30"/>

@@ -95,10 +95,15 @@ class RecordDetailViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func dateButtonTapped(_ sender: Any) {
+        showDatePickerActionSheet()
     }
     
     @IBAction func beforeFeelingSliderValueChanged(_ sender: UISlider) {
         beforeFeelingRatingLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction func afterFeelingSliderValueChanged(_ sender: UISlider) {
+        afterFeelingRatingLabel.text = String(Int(sender.value))
     }
     
     @IBAction func suggestButtonTapped(_ sender: UIButton) {

@@ -29,10 +29,6 @@ class RecordDetailViewController: UIViewController {
     let database = TagDatabase()
     let datePicker = UIDatePicker()
     
-    /// bar buttons:
-    let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: nil)
-    let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)
-    
     // MARK: Outlets
     
     /// View Collections:
@@ -73,34 +69,29 @@ class RecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
+        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
+        
         if currentMode == Mode.view {
             hide(views: editModeViews)
             displayThoughtRecordData()
             self.navigationItem.rightBarButtonItem = editButton
+            print("edit button set")
         }
         
         if currentMode == Mode.add {
-            hide(views: editModeViews)
+            hide(views: viewModeViews)
+            show(views: editModeViews)
             thoughtSummaryField.becomeFirstResponder()
             setDateButtonText(date: Date())
             showOrHideSuggestButton()
+            self.navigationItem.rightBarButtonItem = saveButton
+            print("save button set")
         }
  
     }
     
     // MARK: Actions
-    
-    @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
-        currentMode = .edit
-        
-        show(views: editModeViews)
-        hide(views: viewModeViews)
-        
-        displayEditModeData()
-        
-    self.navigationItem.rightBarButtonItem = saveButton
-    }
-    
     
     @IBAction func dateButtonTapped(_ sender: Any) {
     }
@@ -112,7 +103,28 @@ class RecordDetailViewController: UIViewController {
     @IBAction func suggestButtonTapped(_ sender: UIButton) {
     }
     
-    @IBAction func save() {
+}
+
+// MARK: Private Implementation
+
+extension RecordDetailViewController {
+    
+    @objc func editButtonTapped() {
+        currentMode = .edit
+        
+        show(views: editModeViews)
+        hide(views: viewModeViews)
+        
+        displayEditModeData()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
+    }
+    
+    @objc func test() {
+        print("this got called")
+    }
+    
+    @objc func save() {
         // our else condition should maybe show an error instead of doing nothing
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
@@ -120,12 +132,6 @@ class RecordDetailViewController: UIViewController {
         
         delegate?.addRecordSave(self, didFinishAdding: newRecord)
     }
-    
-}
-
-// MARK: Private Implementation
-
-extension RecordDetailViewController {
     
     private func show(views: [UIView]) {
         views.forEach { (view) in

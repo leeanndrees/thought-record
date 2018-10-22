@@ -993,13 +993,7 @@
                         <viewLayoutGuide key="safeArea" id="cwC-X4-LaI"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="IQm-gp-Vwq">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Hax-9I-U41">
-                            <connections>
-                                <action selector="editButtonTap:" destination="JiI-iD-lEI" id="7Qh-Ey-P9c"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="IQm-gp-Vwq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2467"/>
                     <connections>

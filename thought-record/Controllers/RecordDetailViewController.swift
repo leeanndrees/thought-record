@@ -83,6 +83,8 @@ class RecordDetailViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
+        currentMode = .edit
+        
         show(views: editModeViews)
         hide(views: viewModeViews)
         

@@ -995,7 +995,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="IQm-gp-Vwq">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Hax-9I-U41">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Hax-9I-U41">
                             <connections>
                                 <action selector="save" destination="JiI-iD-lEI" id="q7n-ux-Uup"/>
                             </connections>

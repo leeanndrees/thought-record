@@ -23,7 +23,7 @@ class RecordDetailViewController: UIViewController {
     
     /// for add mode:
     var newRecord: ThoughtRecord?
-    weak var delegate: RecordDetailViewController?
+    weak var delegate: RecordDetailViewControllerDelegate?
     var toneID = ""
     var userChosenDate = Date()
     let database = TagDatabase()
@@ -68,7 +68,6 @@ class RecordDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentMode = .view
         hide(views: editModeViews)
         displayThoughtRecordData()
         print(currentMode ?? "no mode set")
@@ -109,7 +108,7 @@ class RecordDetailViewController: UIViewController {
         
         checkTagExistence(tagNames: splitTagInput())
         
-        //delegate?.addRecordSave(self, didFinishAdding: newRecord)
+        delegate?.addRecordSave(self, didFinishAdding: newRecord)
     }
     
 }

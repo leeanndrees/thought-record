@@ -70,7 +70,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JiI-iD-lEI" kind="show" identifier="AddRecord" id="uaX-tD-cTO"/>
+                                    <segue destination="JiI-iD-lEI" kind="show" identifier="ShowDetail" id="uaX-tD-cTO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -82,7 +82,7 @@
                     <navigationItem key="navigationItem" title="All Thought Records" id="HjW-Lq-AJa">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="CIe-tR-Gg7">
                             <connections>
-                                <segue destination="JiI-iD-lEI" kind="show" identifier="ShowDetail" id="7fW-Jm-5yy"/>
+                                <segue destination="JiI-iD-lEI" kind="show" identifier="AddRecord" id="7fW-Jm-5yy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1060,6 +1060,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uaX-tD-cTO"/>
+        <segue reference="7fW-Jm-5yy"/>
     </inferredMetricsTieBreakers>
 </document>

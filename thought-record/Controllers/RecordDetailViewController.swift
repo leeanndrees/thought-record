@@ -46,7 +46,7 @@ class RecordDetailViewController: UIViewController {
         show(views: editModeViews)
         hide(views: viewModeViews)
         
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: nil)
     }
     
 }

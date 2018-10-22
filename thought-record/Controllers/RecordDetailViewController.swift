@@ -32,6 +32,23 @@ class RecordDetailViewController: UIViewController {
     @IBOutlet weak var afterFeelingLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     
+    /// Edit Mode UI Elements:
+    @IBOutlet var dateButton: UIButton!
+    @IBOutlet var thoughtSummaryField: UITextField!
+    @IBOutlet var situationField: UITextField!
+    @IBOutlet var unhelpfulThoughtsView: UITextView!
+    @IBOutlet var beforeFeelingField: UITextField!
+    @IBOutlet var beforeFeelingSlider: UISlider!
+    @IBOutlet var beforeFeelingRatingLabel: UILabel!
+    @IBOutlet var suggestButton: UIButton!
+    @IBOutlet var factsSupportingView: UITextView!
+    @IBOutlet var factsContradictingView: UITextView!
+    @IBOutlet var balancedPerspectiveView: UITextView!
+    @IBOutlet var afterFeelingField: UITextField!
+    @IBOutlet var afterFeelingSlider: UISlider!
+    @IBOutlet var afterFeelingRatingLabel: UILabel!
+    @IBOutlet var tagsField: UITextField!
+    
     // MARK: Lifecycle Methods
     
     override func viewDidLoad() {

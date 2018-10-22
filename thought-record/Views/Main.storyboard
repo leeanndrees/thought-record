@@ -994,16 +994,31 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2467"/>
                     <connections>
+                        <outlet property="afterFeelingField" destination="5l1-GJ-Cjs" id="Zk5-dH-0d9"/>
                         <outlet property="afterFeelingLabel" destination="zER-DQ-G5h" id="bLf-bP-Bqa"/>
+                        <outlet property="afterFeelingRatingLabel" destination="Hku-uF-neJ" id="9YF-jF-rTu"/>
+                        <outlet property="afterFeelingSlider" destination="Fb8-xc-gff" id="5GH-aF-jdd"/>
                         <outlet property="balancedPerspectiveLabel" destination="8Xm-a2-3BP" id="z57-5T-Kon"/>
+                        <outlet property="balancedPerspectiveView" destination="kiP-Fk-g80" id="qHH-pH-TJb"/>
+                        <outlet property="beforeFeelingField" destination="rya-mJ-Tow" id="Yjm-kV-Yxe"/>
                         <outlet property="beforeFeelingLabel" destination="gWC-q3-vXh" id="5dr-9u-k2a"/>
+                        <outlet property="beforeFeelingRatingLabel" destination="3ni-ou-OvX" id="Vf7-d4-CvR"/>
+                        <outlet property="beforeFeelingSlider" destination="RZ8-QA-JHT" id="Yjq-bZ-8Ox"/>
+                        <outlet property="dateButton" destination="dzw-1T-pfk" id="L2a-JW-Atl"/>
                         <outlet property="dateLabel" destination="ied-mR-O3R" id="mfq-Fl-NBQ"/>
                         <outlet property="factsAgainstLabel" destination="aG3-tP-0r6" id="KVX-WM-rTa"/>
+                        <outlet property="factsContradictingView" destination="isB-QU-Fy9" id="cgg-7f-Lq6"/>
                         <outlet property="factsSupportingLabel" destination="ikQ-pW-i72" id="EZJ-dZ-jAP"/>
+                        <outlet property="factsSupportingView" destination="KYS-hV-ZvD" id="ZxG-MV-DOY"/>
+                        <outlet property="situationField" destination="bDW-fN-HUG" id="JFy-7K-Cis"/>
                         <outlet property="situationLabel" destination="YIK-m5-reu" id="NL5-k2-D1a"/>
+                        <outlet property="suggestButton" destination="AGi-GO-3iM" id="26L-7b-z2I"/>
+                        <outlet property="tagsField" destination="JQ4-de-cji" id="ngr-da-P8U"/>
                         <outlet property="tagsLabel" destination="OH3-Zm-3yS" id="A3j-4S-mbd"/>
+                        <outlet property="thoughtSummaryField" destination="dCc-Ad-jwj" id="Y18-hg-SZW"/>
                         <outlet property="thoughtSummaryLabel" destination="V2s-DU-zGT" id="5zw-Ix-fmd"/>
                         <outlet property="unhelpfulThoughtsLabel" destination="6rE-Yp-kY9" id="0bW-gb-5NL"/>
+                        <outlet property="unhelpfulThoughtsView" destination="Tjj-XR-T5B" id="lVP-9R-krc"/>
                         <outletCollection property="viewModeViews" destination="TY5-fM-EfH" collectionClass="NSMutableArray" id="k2A-h2-Tll"/>
                         <outletCollection property="editModeViews" destination="x7H-b8-xj3" collectionClass="NSMutableArray" id="fYq-yg-Eoc"/>
                         <outletCollection property="viewModeViews" destination="kUR-8o-qnR" collectionClass="NSMutableArray" id="mly-ud-q6i"/>

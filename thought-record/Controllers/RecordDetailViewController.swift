@@ -107,9 +107,10 @@ class RecordDetailViewController: UIViewController {
     }
     
     @IBAction func suggestButtonTapped(_ sender: UIButton) {
+        checkTone(of: generateToneString())
     }
     
-}
+} thi
 
 // MARK: Private Implementation
 

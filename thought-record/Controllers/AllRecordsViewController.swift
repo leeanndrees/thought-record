@@ -96,12 +96,12 @@ extension AllRecordsViewController {
 
 // MARK: - AddRecordViewControllerDelegate Methods
 
-extension AllRecordsViewController: AddRecordViewControllerDelegate {
-    func addRecordDidCancel(_ controller: AddRecordViewController) {
+extension AllRecordsViewController: RecordDetailViewControllerDelegate {
+    func addRecordDidCancel(_ controller: RecordDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
     
-    func addRecordSave(_ controller: AddRecordViewController, didFinishAdding item: ThoughtRecord) {
+    func addRecordSave(_ controller: RecordDetailViewController, didFinishAdding item: ThoughtRecord) {
         records.append(item)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
@@ -117,10 +117,12 @@ extension AllRecordsViewController {
         if segue.identifier == SegueIdentifier.detail.rawValue {
             guard let detailViewController = segue.destination as? RecordDetailViewController else { return }
             detailViewController.recordToShow = records[selectedRecordIndex]
+            detailViewController.currentMode = Mode.view
         }
         else if segue.identifier == SegueIdentifier.add.rawValue {
-            guard let addViewController = segue.destination as? AddRecordViewController else { return }
+            guard let addViewController = segue.destination as? RecordDetailViewController else { return }
             addViewController.delegate = self
+            addViewController.currentMode = Mode.add
         }
     }
 }

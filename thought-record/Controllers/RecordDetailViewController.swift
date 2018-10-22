@@ -13,6 +13,7 @@ class RecordDetailViewController: UIViewController {
     // MARK: Properties
     
     var recordToShow: ThoughtRecord?
+    var currentMode: Mode?
     
     // MARK: Outlets
     
@@ -55,6 +56,7 @@ class RecordDetailViewController: UIViewController {
         super.viewDidLoad()
         hide(views: editModeViews)
         displayThoughtRecordData()
+        print(currentMode ?? "no mode set")
     }
     
     // MARK: Actions

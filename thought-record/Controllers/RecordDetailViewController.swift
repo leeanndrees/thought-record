@@ -36,7 +36,7 @@ class RecordDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //hideEditViews()
+        hide(views: editModeViews)
         displayThoughtRecordData()
     }
     

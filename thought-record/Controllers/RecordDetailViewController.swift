@@ -8,12 +8,25 @@
 
 import UIKit
 
+protocol RecordDetailViewControllerDelegate: class {
+    func addRecordDidCancel(_ controller: RecordDetailViewController)
+    func addRecordSave(_ controller: RecordDetailViewController, didFinishAdding item: ThoughtRecord)
+}
+
 class RecordDetailViewController: UIViewController {
     
     // MARK: Properties
     
     var recordToShow: ThoughtRecord?
     var currentMode: Mode?
+    
+    /// for add mode:
+    var newRecord: ThoughtRecord?
+    weak var delegate: AddRecordViewControllerDelegate?
+    var toneID = ""
+    var userChosenDate = Date()
+    let database = TagDatabase()
+    let datePicker = UIDatePicker()
     
     // MARK: Outlets
     
@@ -58,6 +71,12 @@ class RecordDetailViewController: UIViewController {
         hide(views: editModeViews)
         displayThoughtRecordData()
         print(currentMode ?? "no mode set")
+        
+/* for add/edit mode:
+ thoughtField.becomeFirstResponder()
+ setDateButtonText(date: Date())
+ showOrHideSuggestButton()
+ */
     }
     
     // MARK: Actions
@@ -69,6 +88,17 @@ class RecordDetailViewController: UIViewController {
         displayEditModeData()
         
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: nil)
+    }
+    
+    
+    @IBAction func dateButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func beforeFeelingSliderValueChanged(_ sender: UISlider) {
+        beforeFeelingRatingLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction func suggestButtonTapped(_ sender: UIButton) {
     }
     
 }

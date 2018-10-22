@@ -599,6 +599,9 @@
                                                         <state key="normal" title="Date">
                                                             <color key="titleColor" name="AlmostBlack"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="dateButtonTapped:" destination="JiI-iD-lEI" eventType="touchUpInside" id="q7v-oI-j1v"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Thought:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfr-w8-3uC">
                                                         <rect key="frame" x="0.0" y="41" width="108" height="20.5"/>
@@ -730,6 +733,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="6ST-aV-8hc"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="beforeFeelingSliderValueChanged:" destination="JiI-iD-lEI" eventType="valueChanged" id="fPL-xh-M4y"/>
+                                                                </connections>
                                                             </slider>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ni-ou-OvX">
                                                                 <rect key="frame" x="304.5" y="0.0" width="10.5" height="30"/>
@@ -745,6 +751,9 @@
                                                         <state key="normal" title="Suggest">
                                                             <color key="titleColor" name="AlmostWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="suggestButtonTapped:" destination="JiI-iD-lEI" eventType="touchUpInside" id="0SB-Jn-M5T"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

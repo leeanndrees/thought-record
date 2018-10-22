@@ -107,7 +107,10 @@ extension AllRecordsViewController: RecordDetailViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    
+    func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord) {
+        
+        tableView.reloadData()
+    }
 }
 
 // MARK: - Navigation

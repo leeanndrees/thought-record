@@ -150,11 +150,11 @@ extension RecordDetailViewController {
         recordToUpdate.feelingsEnd = [createAfterFeeling()]
         recordToUpdate.tags = generateTags()
         
+        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
+        
         hide(views: editModeViews)
         show(views: viewModeViews)
         displayThoughtRecordData()
-        
-        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
     }
     
     private func show(views: [UIView]) {
@@ -249,7 +249,7 @@ extension RecordDetailViewController {
         return dateFormatter.string(from: formattedDate!)
     }
     
-    /// this reads easier to me than Date(), but it's basically just that. Is there a way to alias functions?
+    /// this reads easier to me than Date(), but it's basically just that. Is there a way to alias functions? - could extend Date, something like Date.now
     private func getCurrentDate() -> Date {
         return Date()
     }
@@ -258,7 +258,7 @@ extension RecordDetailViewController {
         dateButton.setTitle(formattedFullDate(date: date), for: .normal)
     }
     
-    /// this method needs breaking up (or at least renaming) but how
+    /// this method needs breaking up (or at least renaming) but how - could create/configure picker and then load it. probably not worth it?
     private func showDatePickerActionSheet() {
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)

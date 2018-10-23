@@ -16,4 +16,4 @@ class Settings: Codable {
     }
 }
 
-let userSettings = Settings(allowTextAnalysis: true)
+var userSettings = Settings(allowTextAnalysis: true)

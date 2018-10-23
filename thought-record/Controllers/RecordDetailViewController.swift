@@ -128,10 +128,6 @@ extension RecordDetailViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
     }
     
-    @objc func test() {
-        print("this got called")
-    }
-    
     @objc func save() {
         // our else condition should maybe show an error instead of doing nothing
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }

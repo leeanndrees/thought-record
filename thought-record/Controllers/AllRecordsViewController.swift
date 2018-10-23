@@ -22,6 +22,10 @@ class AllRecordsViewController: UITableViewController {
         getRecords()
         useLargeTitles()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
 
 // MARK: Private Implementation
@@ -107,7 +111,10 @@ extension AllRecordsViewController: RecordDetailViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    
+    func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord) {
+        
+        tableView.reloadData()
+    }
 }
 
 // MARK: - Navigation

@@ -12,6 +12,7 @@ import ToneAnalyzer
 protocol RecordDetailViewControllerDelegate: class {
     func addRecordDidCancel(_ controller: RecordDetailViewController)
     func addRecordSave(_ controller: RecordDetailViewController, didFinishAdding item: ThoughtRecord)
+    func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord)
 }
 
 class RecordDetailViewController: UIViewController {
@@ -77,6 +78,7 @@ class RecordDetailViewController: UIViewController {
             displayThoughtRecordData()
             self.navigationItem.rightBarButtonItem = editButton
             print("edit button set")
+            userChosenDate = recordToShow?.date ?? Date()
         }
         
         if currentMode == Mode.add {
@@ -94,13 +96,19 @@ class RecordDetailViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func dateButtonTapped(_ sender: Any) {
+        showDatePickerActionSheet()
     }
     
     @IBAction func beforeFeelingSliderValueChanged(_ sender: UISlider) {
         beforeFeelingRatingLabel.text = String(Int(sender.value))
     }
     
+    @IBAction func afterFeelingSliderValueChanged(_ sender: UISlider) {
+        afterFeelingRatingLabel.text = String(Int(sender.value))
+    }
+    
     @IBAction func suggestButtonTapped(_ sender: UIButton) {
+        checkTone(of: generateToneString())
     }
     
 }
@@ -120,10 +128,6 @@ extension RecordDetailViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
     }
     
-    @objc func test() {
-        print("this got called")
-    }
-    
     @objc func save() {
         // our else condition should maybe show an error instead of doing nothing
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
@@ -135,16 +139,22 @@ extension RecordDetailViewController {
     
     @objc func saveEdited() {
         guard let recordToUpdate = recordToShow else { return }
+        recordToUpdate.date = userChosenDate
         recordToUpdate.thought = thoughtSummaryField.text!
         recordToUpdate.situation = situationField.text!
         recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!
+        recordToUpdate.feelingsStart = [createBeforeFeeling()]
         recordToUpdate.factsSupporting = factsSupportingView.text!
         recordToUpdate.factsAgainst = factsContradictingView.text!
         recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
+        recordToUpdate.feelingsEnd = [createAfterFeeling()]
+        recordToUpdate.tags = generateTags()
         
         hide(views: editModeViews)
         show(views: viewModeViews)
         displayThoughtRecordData()
+        
+        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
     }
     
     private func show(views: [UIView]) {

@@ -27,6 +27,7 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        saveRecords()
     }
 }
 
@@ -140,6 +141,7 @@ extension AllRecordsViewController {
 // MARK: - AddRecordViewControllerDelegate Methods
 
 extension AllRecordsViewController: RecordDetailViewControllerDelegate {
+    // this currently doesn't get called:
     func addRecordDidCancel(_ controller: RecordDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
@@ -151,10 +153,10 @@ extension AllRecordsViewController: RecordDetailViewControllerDelegate {
         saveRecords()
     }
     
+    // this doesn't get called, do we need it? doing its stuff in ViewWillAppear() - is that bad?
     func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord) {
-        
-        tableView.reloadData()
-        saveRecords()
+//        saveRecords()
+//        tableView.reloadData()
     }
 }
 

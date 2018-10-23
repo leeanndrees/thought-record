@@ -150,11 +150,11 @@ extension RecordDetailViewController {
         recordToUpdate.feelingsEnd = [createAfterFeeling()]
         recordToUpdate.tags = generateTags()
         
+        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
+        
         hide(views: editModeViews)
         show(views: viewModeViews)
         displayThoughtRecordData()
-        
-        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
     }
     
     private func show(views: [UIView]) {

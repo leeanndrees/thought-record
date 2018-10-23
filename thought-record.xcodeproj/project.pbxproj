@@ -24,7 +24,7 @@
 		434C05E2216E4D91000CD1B6 /* ThoughtRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E1216E4D91000CD1B6 /* ThoughtRecord.swift */; };
 		434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E3216E4DD7000CD1B6 /* Feeling.swift */; };
 		434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C05E5216E4F1C000CD1B6 /* Tag.swift */; };
-		43657701216E51E100F54479 /* TemporaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657700216E51E100F54479 /* TemporaryData.swift */; };
+		43657701216E51E100F54479 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657700216E51E100F54479 /* SampleData.swift */; };
 		43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657702216E85C000F54479 /* RecordDetailViewController.swift */; };
 		4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365778E216FDEC400F54479 /* SegueIdentifier.swift */; };
 		43B290A9217FA3780069AAF2 /* Encouragement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B290A8217FA3780069AAF2 /* Encouragement.swift */; };
@@ -51,7 +51,7 @@
 		434C05E1216E4D91000CD1B6 /* ThoughtRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtRecord.swift; sourceTree = "<group>"; };
 		434C05E3216E4DD7000CD1B6 /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
 		434C05E5216E4F1C000CD1B6 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		43657700216E51E100F54479 /* TemporaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryData.swift; sourceTree = "<group>"; };
+		43657700216E51E100F54479 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		43657702216E85C000F54479 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		4365778E216FDEC400F54479 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		43B290A8217FA3780069AAF2 /* Encouragement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encouragement.swift; sourceTree = "<group>"; };
@@ -114,10 +114,10 @@
 				43473F1721778B440067F97C /* ExpandedTones.swift */,
 				434C05E3216E4DD7000CD1B6 /* Feeling.swift */,
 				43DE202D217E3FD800174D26 /* Mode.swift */,
+				43657700216E51E100F54479 /* SampleData.swift */,
 				4365778E216FDEC400F54479 /* SegueIdentifier.swift */,
 				43473F1B2177AE260067F97C /* Settings.swift */,
 				434C05E5216E4F1C000CD1B6 /* Tag.swift */,
-				43657700216E51E100F54479 /* TemporaryData.swift */,
 				434C05E1216E4D91000CD1B6 /* ThoughtRecord.swift */,
 				43473F15217789FA0067F97C /* Tone.swift */,
 			);
@@ -302,7 +302,7 @@
 				43DE202E217E3FD800174D26 /* Mode.swift in Sources */,
 				43B290A9217FA3780069AAF2 /* Encouragement.swift in Sources */,
 				43473F16217789FA0067F97C /* Tone.swift in Sources */,
-				43657701216E51E100F54479 /* TemporaryData.swift in Sources */,
+				43657701216E51E100F54479 /* SampleData.swift in Sources */,
 				434C05DC216E4A49000CD1B6 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -55,10 +55,6 @@ extension SettingsViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func displaySettings() {
-        
-    }
-    
 }
 
 // MARK: Data Persistence

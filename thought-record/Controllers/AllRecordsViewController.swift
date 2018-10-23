@@ -22,7 +22,6 @@ class AllRecordsViewController: UITableViewController {
         getRecords()
         loadSavedRecords()
         useLargeTitles()
-        //print("⭐️⭐️⭐️ \(documentsDirectory())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,7 +152,7 @@ extension AllRecordsViewController: RecordDetailViewControllerDelegate {
         saveRecords()
     }
     
-    // this doesn't get called, do we need it? doing its stuff in ViewWillAppear() - is that bad?
+    // this doesn't get called, do we need it? doing its stuff in ViewWillAppear() - is that bad? - save in DetailVC
     func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord) {
 //        saveRecords()
 //        tableView.reloadData()

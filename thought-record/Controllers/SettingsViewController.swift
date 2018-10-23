@@ -39,6 +39,7 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func analysisSettingSwitchChanged(_ sender: UISwitch) {
         userSettings.allowTextAnalysis = sender.isOn
+        saveSettings()
     }
 
 }
@@ -49,6 +50,31 @@ extension SettingsViewController {
     
     private func useLargeTitles() {
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+}
+
+// MARK: Data Persistence
+
+extension SettingsViewController {
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Settings.plist")
+    }
+    
+    func saveSettings() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(userSettings)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding")
+        }
     }
     
 }

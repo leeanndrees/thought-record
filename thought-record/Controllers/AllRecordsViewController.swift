@@ -19,7 +19,7 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getRecords()
+        getRecords()
         loadSavedRecords()
         useLargeTitles()
         //print("⭐️⭐️⭐️ \(documentsDirectory())")

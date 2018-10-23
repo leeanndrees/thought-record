@@ -19,8 +19,8 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRecords()
-        //loadSavedRecords()
+        //getSampleRecords()
+        loadSavedRecords()
         useLargeTitles()
     }
     
@@ -34,7 +34,7 @@ class AllRecordsViewController: UITableViewController {
 
 extension AllRecordsViewController {
     
-    func getRecords() {
+    func getSampleRecords() {
         let database = ThoughtRecordDatabase()
         records = database.thoughts
     }

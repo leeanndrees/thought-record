@@ -1,5 +1,5 @@
 //
-//  NewRecordDetailViewController.swift
+//  RecordDetailViewController.swift
 //  thought-record
 //
 //  Created by DetroitLabs on 10/18/18.
@@ -21,8 +21,6 @@ class RecordDetailViewController: UIViewController {
     
     var recordToShow: ThoughtRecord?
     var currentMode: Mode?
-    
-    /// for add mode:
     var newRecord: ThoughtRecord?
     weak var delegate: RecordDetailViewControllerDelegate?
     var toneID = ""
@@ -77,7 +75,6 @@ class RecordDetailViewController: UIViewController {
             hide(views: editModeViews)
             displayThoughtRecordData()
             self.navigationItem.rightBarButtonItem = editButton
-            print("edit button set")
             userChosenDate = recordToShow?.date ?? Date()
         }
         
@@ -88,7 +85,6 @@ class RecordDetailViewController: UIViewController {
             setDateButtonText(date: Date())
             showOrHideSuggestButton()
             self.navigationItem.rightBarButtonItem = saveButton
-            print("save button set")
         }
  
     }

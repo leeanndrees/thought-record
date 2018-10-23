@@ -216,8 +216,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWY-el-Sma">
                                 <rect key="frame" x="0.0" y="64" width="375" height="2354"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uET-9F-QIi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2107.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uET-9F-QIi">
+                                        <rect key="frame" x="8" y="21" width="375" height="2137"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="t3w-v4-Ore" userLabel="Title Stack View">
                                                 <rect key="frame" x="30" y="30" width="315" height="31.5"/>
@@ -642,15 +642,16 @@
                                                 </subviews>
                                                 <viewLayoutGuide key="safeArea" id="0sA-Mc-lnx"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fal-j1-s4r">
-                                                <rect key="frame" x="30" y="2057" width="315" height="20.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fal-j1-s4r">
+                                                <rect key="frame" x="30" y="2057" width="315" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-W7-req">
-                                                        <rect key="frame" x="120" y="0.0" width="75.5" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="untangle-50" translatesAutoresizingMaskIntoConstraints="NO" id="dYe-RD-Szd">
+                                                        <rect key="frame" x="132.5" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Gxa-Sx-jgN"/>
+                                                            <constraint firstAttribute="width" constant="50" id="pAs-bF-yI4"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -721,10 +722,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubQ-DT-4zS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2738" y="-833"/>
+            <point key="canvasLocation" x="2736.8000000000002" y="-833.43328335832086"/>
         </scene>
     </scenes>
     <resources>
+        <image name="untangle-50" width="605" height="605"/>
         <namedColor name="AlmostBlack">
             <color red="0.0078431372549019607" green="0.094117647058823528" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

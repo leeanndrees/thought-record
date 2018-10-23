@@ -19,8 +19,10 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRecords()
+        //getRecords()
+        loadSavedRecords()
         useLargeTitles()
+        //print("⭐️⭐️⭐️ \(documentsDirectory())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +37,19 @@ extension AllRecordsViewController {
     func getRecords() {
         let database = ThoughtRecordDatabase()
         records = database.thoughts
+    }
+    
+    func loadSavedRecords() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                records = try decoder.decode([ThoughtRecord].self, from: data)
+            } catch {
+                print("Error decoding")
+            }
+        }
     }
     
     func setCellTitle(recordAtPath: ThoughtRecord) -> String {
@@ -76,6 +91,7 @@ extension AllRecordsViewController {
     func deleteRecord(indexPath: IndexPath) {
         records.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        saveRecords()
     }
     
     func deletionAlert(indexPath: IndexPath) {
@@ -98,6 +114,29 @@ extension AllRecordsViewController {
     }
 }
 
+// MARK: - Data Persistence
+
+extension AllRecordsViewController {
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Records.plist")
+    }
+    
+    func saveRecords() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(records)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding")
+        }
+    }
+}
+
 // MARK: - AddRecordViewControllerDelegate Methods
 
 extension AllRecordsViewController: RecordDetailViewControllerDelegate {
@@ -109,11 +148,13 @@ extension AllRecordsViewController: RecordDetailViewControllerDelegate {
         records.append(item)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
+        saveRecords()
     }
     
     func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord) {
         
         tableView.reloadData()
+        saveRecords()
     }
 }
 

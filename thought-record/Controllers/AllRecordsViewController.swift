@@ -19,8 +19,7 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getSampleRecords()
-        loadSavedRecords()
+        getRecords()
         useLargeTitles()
     }
     
@@ -33,6 +32,21 @@ class AllRecordsViewController: UITableViewController {
 // MARK: Private Implementation
 
 extension AllRecordsViewController {
+    
+    func plistFileExists() -> Bool {
+        let fileManager = FileManager()
+        let filePath = dataFilePath().path
+        
+        return fileManager.fileExists(atPath: filePath)
+    }
+    
+    func getRecords() {
+        if plistFileExists() {
+            loadSavedRecords()
+        } else {
+            getSampleRecords()
+        }
+    }
     
     func getSampleRecords() {
         let database = ThoughtRecordDatabase()

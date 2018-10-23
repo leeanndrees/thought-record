@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  AllRecordsViewController.swift
 //  thought-record
 //
 //  Created by DetroitLabs on 10/10/18.
@@ -33,27 +33,27 @@ class AllRecordsViewController: UITableViewController {
 
 extension AllRecordsViewController {
     
-    func plistFileExists() -> Bool {
+    private func plistFileExists() -> Bool {
         let fileManager = FileManager()
         let filePath = dataFilePath().path
         
         return fileManager.fileExists(atPath: filePath)
     }
     
-    func getRecords() {
+    private func getRecords() {
         if plistFileExists() {
             loadSavedRecords()
         } else {
-            getSampleRecords()
+            loadSampleRecords()
         }
     }
     
-    func getSampleRecords() {
+    private func loadSampleRecords() {
         let database = ThoughtRecordDatabase()
         records = database.thoughts
     }
     
-    func loadSavedRecords() {
+    private func loadSavedRecords() {
         let path = dataFilePath()
         
         if let data = try? Data(contentsOf: path) {
@@ -66,13 +66,7 @@ extension AllRecordsViewController {
         }
     }
     
-    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
-        let title = recordAtPath.thought
-        let date = recordAtPath.shortDate
-        return "\(date): \(title)"
-    }
-    
-    func useLargeTitles() {
+    private func useLargeTitles() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
@@ -100,6 +94,12 @@ extension AllRecordsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
+        let title = recordAtPath.thought
+        let date = recordAtPath.shortDate
+        return "\(date): \(title)"
     }
     
     func deleteRecord(indexPath: IndexPath) {

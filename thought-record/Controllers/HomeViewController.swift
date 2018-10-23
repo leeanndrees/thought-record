@@ -53,7 +53,7 @@ extension HomeViewController {
     }
     
     private func updateEncouragementLabel() {
-        encouragementLabel.text = "Today's a great day to unpack & reframe a thought. :)"
+        encouragementLabel.text = encouragements.randomElement() ?? ":)"
     }
     
 }

@@ -147,9 +147,12 @@ extension RecordDetailViewController {
         recordToUpdate.thought = thoughtSummaryField.text!
         recordToUpdate.situation = situationField.text!
         recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!
+        recordToUpdate.feelingsStart = [createBeforeFeeling()]
         recordToUpdate.factsSupporting = factsSupportingView.text!
         recordToUpdate.factsAgainst = factsContradictingView.text!
         recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
+        recordToUpdate.feelingsEnd = [createAfterFeeling()]
+        recordToUpdate.tags = generateTags()
         
         hide(views: editModeViews)
         show(views: viewModeViews)

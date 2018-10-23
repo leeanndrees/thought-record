@@ -78,6 +78,7 @@ class RecordDetailViewController: UIViewController {
             displayThoughtRecordData()
             self.navigationItem.rightBarButtonItem = editButton
             print("edit button set")
+            userChosenDate = recordToShow?.date ?? Date()
         }
         
         if currentMode == Mode.add {
@@ -110,7 +111,7 @@ class RecordDetailViewController: UIViewController {
         checkTone(of: generateToneString())
     }
     
-} thi
+}
 
 // MARK: Private Implementation
 
@@ -142,6 +143,7 @@ extension RecordDetailViewController {
     
     @objc func saveEdited() {
         guard let recordToUpdate = recordToShow else { return }
+        recordToUpdate.date = userChosenDate
         recordToUpdate.thought = thoughtSummaryField.text!
         recordToUpdate.situation = situationField.text!
         recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!

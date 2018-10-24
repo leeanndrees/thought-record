@@ -148,22 +148,12 @@ extension AllRecordsViewController {
 // MARK: - AddRecordViewControllerDelegate Methods
 
 extension AllRecordsViewController: RecordDetailViewControllerDelegate {
-    // this currently doesn't get called:
-    func addRecordDidCancel(_ controller: RecordDetailViewController) {
-        navigationController?.popViewController(animated: true)
-    }
     
     func addRecordSave(_ controller: RecordDetailViewController, didFinishAdding item: ThoughtRecord) {
         records.append(item)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
         saveRecords(array: records)
-    }
-    
-    // this doesn't get called, do we need it? doing its stuff in ViewWillAppear() - is that bad? - save in DetailVC
-    func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord) {
-//        saveRecords()
-//        tableView.reloadData()
     }
 }
 

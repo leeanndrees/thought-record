@@ -10,9 +10,7 @@ import UIKit
 import ToneAnalyzer
 
 protocol RecordDetailViewControllerDelegate: class {
-    func addRecordDidCancel(_ controller: RecordDetailViewController)
     func addRecordSave(_ controller: RecordDetailViewController, didFinishAdding item: ThoughtRecord)
-    func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord)
 }
 
 class RecordDetailViewController: UIViewController {
@@ -273,8 +271,6 @@ extension RecordDetailViewController {
         recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
         recordToUpdate.feelingsEnd = [createAfterFeeling()]
         recordToUpdate.tags = generateTags()
-        
-        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
         
         hide(views: editModeViews)
         show(views: viewModeViews)

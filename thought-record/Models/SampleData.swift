@@ -24,7 +24,3 @@ class ThoughtRecordDatabase {
     )
     ]
 }
-
-class TagDatabase {
-    var tags: [Tag] = []
-}

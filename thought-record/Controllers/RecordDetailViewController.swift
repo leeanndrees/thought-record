@@ -23,7 +23,6 @@ class RecordDetailViewController: UIViewController {
     weak var delegate: RecordDetailViewControllerDelegate?
     var toneID = ""
     var userChosenDate = Date()
-    let database = TagDatabase()
     let datePicker = UIDatePicker()
     
     // MARK: Outlets

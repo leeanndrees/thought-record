@@ -18,6 +18,7 @@ class SettingsViewController: UITableViewController {
         
         loadSavedSettings()
         useLargeTitles()
+        setTitleColor()
     }
 
     // MARK: Table view data source

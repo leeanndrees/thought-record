@@ -15,4 +15,11 @@ extension UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    func setTitleColor() {
+        let darkPurple = UIColor(named: "DarkPurple")
+        
+        navigationController?.navigationBar.largeTitleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: darkPurple!]
+    }
+    
 }

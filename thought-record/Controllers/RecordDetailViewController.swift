@@ -142,7 +142,7 @@ extension RecordDetailViewController {
     
     @objc func editButtonTapped() {
         currentMode = .edit
-        
+        // why is it making me force unwrap currentMode below when I just set this variable above?
         setViewVisibility(for: currentMode!)
         displayData(for: currentMode!)
         

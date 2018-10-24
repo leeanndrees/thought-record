@@ -131,17 +131,18 @@ extension RecordDetailViewController {
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         let saveEditedButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        
+        let backButton = navigationItem.backBarButtonItem
         
         let magenta = UIColor(named: "BrightMagenta")
         
-        saveButton.tintColor = magenta
-        editButton.tintColor = magenta
-        saveEditedButton.tintColor = magenta
+        navigationController?.navigationBar.tintColor = magenta
         
         switch mode {
         case .view:
             self.navigationItem.rightBarButtonItem = editButton
+            self.navigationItem.leftBarButtonItem = backButton
         case .add:
             self.navigationItem.rightBarButtonItem = saveButton
             self.navigationItem.leftBarButtonItem = cancelButton

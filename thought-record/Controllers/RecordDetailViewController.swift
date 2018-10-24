@@ -69,9 +69,7 @@ class RecordDetailViewController: UIViewController {
         super.viewDidLoad()
         
         guard let mode = currentMode else { return }
-        setViewVisibility(for: mode)
-        displayData(for: mode)
-        setBarButtonItem(for: mode)
+        setMode(to: mode)
         
         
         if currentMode == Mode.view {
@@ -111,7 +109,9 @@ class RecordDetailViewController: UIViewController {
 extension RecordDetailViewController {
     
     private func setMode(to mode: Mode) {
-        
+        setViewVisibility(for: mode)
+        displayData(for: mode)
+        setBarButtonItem(for: mode)
     }
     
     private func setViewVisibility(for mode: Mode) {
@@ -154,9 +154,7 @@ extension RecordDetailViewController {
     @objc func editButtonTapped() {
         currentMode = .edit
         // why is it making me force unwrap currentMode below when I just set a value above?
-        setViewVisibility(for: currentMode!)
-        displayData(for: currentMode!)
-        setBarButtonItem(for: currentMode!)
+        setMode(to: currentMode!)
     }
     
     @objc func save() {

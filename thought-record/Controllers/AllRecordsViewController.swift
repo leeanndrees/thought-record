@@ -26,7 +26,7 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        persistence.saveRecords(array: records)
+        saveRecords(array: records)
     }
 }
 
@@ -103,7 +103,7 @@ extension AllRecordsViewController {
     func deleteRecord(indexPath: IndexPath) {
         records.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-        persistence.saveRecords(array: records)
+        saveRecords(array: records)
     }
     
     func deletionAlert(indexPath: IndexPath) {
@@ -134,6 +134,15 @@ extension AllRecordsViewController {
         return persistence.documentsDirectory().appendingPathComponent("Records.plist")
     }
     
+    func saveRecords(array: [ThoughtRecord]) {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(array)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding")
+        }
+    }
 }
 
 // MARK: - AddRecordViewControllerDelegate Methods
@@ -148,7 +157,7 @@ extension AllRecordsViewController: RecordDetailViewControllerDelegate {
         records.append(item)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
-        persistence.saveRecords(array: records)
+        saveRecords(array: records)
     }
     
     // this doesn't get called, do we need it? doing its stuff in ViewWillAppear() - is that bad? - save in DetailVC

@@ -86,6 +86,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="All Thought Records" id="HjW-Lq-AJa">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="CIe-tR-Gg7">
+                            <color key="tintColor" name="BrightMagenta"/>
                             <connections>
                                 <segue destination="JiI-iD-lEI" kind="show" identifier="AddRecord" id="7fW-Jm-5yy"/>
                             </connections>

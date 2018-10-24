@@ -136,6 +136,10 @@ extension RecordDetailViewController {
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         let saveEditedButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
         
+        saveButton.tintColor = UIColor(named: "BrightMagenta")
+        editButton.tintColor = UIColor(named: "BrightMagenta")
+        saveEditedButton.tintColor = UIColor(named: "BrightMagenta")
+        
         switch mode {
         case .view:
             self.navigationItem.rightBarButtonItem = editButton

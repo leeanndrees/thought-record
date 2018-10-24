@@ -128,12 +128,14 @@ extension RecordDetailViewController {
     }
     
     private func setBarButtonItem(for mode: Mode) {
-        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
-        let saveEditedButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+        let saveEditedButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEdited))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        
         let backButton = navigationItem.backBarButtonItem
+        
+        saveEditedButton.style = .done
+        saveButton.style = .done
         
         let magenta = UIColor(named: "BrightMagenta")
         

@@ -66,10 +66,7 @@ extension AllRecordsViewController {
             }
         }
     }
-    
-    private func useLargeTitles() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
+
 }
 
 // MARK: Table View Methods

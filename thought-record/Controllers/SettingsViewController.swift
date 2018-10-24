@@ -48,16 +48,6 @@ class SettingsViewController: UITableViewController {
 
 }
 
-// MARK: Private Implementation
-
-extension SettingsViewController {
-    
-    private func useLargeTitles() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-}
-
 // MARK: Data Persistence
 
 extension SettingsViewController {

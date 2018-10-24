@@ -28,6 +28,7 @@
 		43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43657702216E85C000F54479 /* RecordDetailViewController.swift */; };
 		4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365778E216FDEC400F54479 /* SegueIdentifier.swift */; };
 		438072652180C12700D0645A /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438072642180C12700D0645A /* DataPersistence.swift */; };
+		438072672180C36A00D0645A /* TableViewMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438072662180C36A00D0645A /* TableViewMethods.swift */; };
 		43B290A9217FA3780069AAF2 /* Encouragement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B290A8217FA3780069AAF2 /* Encouragement.swift */; };
 		43DE202E217E3FD800174D26 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE202D217E3FD800174D26 /* Mode.swift */; };
 		43DE2030217F8FD600174D26 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE202F217F8FD600174D26 /* SettingCell.swift */; };
@@ -56,6 +57,7 @@
 		43657702216E85C000F54479 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		4365778E216FDEC400F54479 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		438072642180C12700D0645A /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
+		438072662180C36A00D0645A /* TableViewMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewMethods.swift; sourceTree = "<group>"; };
 		43B290A8217FA3780069AAF2 /* Encouragement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encouragement.swift; sourceTree = "<group>"; };
 		43DE202D217E3FD800174D26 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		43DE202F217F8FD600174D26 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				438072642180C12700D0645A /* DataPersistence.swift */,
+				438072662180C36A00D0645A /* TableViewMethods.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */,
 				432208992174D5720080FCFD /* Constants.swift in Sources */,
 				43473F1821778B440067F97C /* ExpandedTones.swift in Sources */,
+				438072672180C36A00D0645A /* TableViewMethods.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,
 				43473F1C2177AE260067F97C /* Settings.swift in Sources */,
 				434C05E0216E4A8C000CD1B6 /* AllRecordsViewController.swift in Sources */,

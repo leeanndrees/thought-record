@@ -77,9 +77,7 @@ class RecordDetailViewController: UIViewController {
         }
         
         if currentMode == Mode.add {
-            thoughtSummaryField.becomeFirstResponder()
             setDateButtonText(date: Date())
-            showOrHideSuggestButton()
         }
  
     }
@@ -112,6 +110,11 @@ extension RecordDetailViewController {
         setViewVisibility(for: mode)
         displayData(for: mode)
         setBarButtonItem(for: mode)
+        
+        if mode == .add {
+            thoughtSummaryField.becomeFirstResponder()
+            showOrHideSuggestButton()
+        }
     }
     
     private func setViewVisibility(for mode: Mode) {

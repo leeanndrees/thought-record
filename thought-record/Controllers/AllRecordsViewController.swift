@@ -25,8 +25,10 @@ class AllRecordsViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-        saveRecords(array: records)
+        if plistFileExists() {
+            tableView.reloadData()
+            saveRecords(array: records)
+        }
     }
 }
 

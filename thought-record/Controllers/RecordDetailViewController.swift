@@ -119,8 +119,19 @@ extension RecordDetailViewController {
     
     private func showViews(for mode: Mode) {
         switch mode {
-        case .view: show(views: viewModeViews)
-        case .add, .edit: show(views: editModeViews)
+        case .view:
+            show(views: viewModeViews)
+        case .add, .edit:
+            show(views: editModeViews)
+        }
+    }
+    
+    private func hideViews(for mode: Mode) {
+        switch mode {
+        case .view:
+            hide(views: editModeViews)
+        case .add, .edit:
+            hide(views: viewModeViews)
         }
     }
     

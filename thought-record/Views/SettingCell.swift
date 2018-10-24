@@ -12,5 +12,4 @@ class SettingCell: UITableViewCell {
 
     @IBOutlet var settingSwitch: UISwitch!
     
-    
 }

@@ -93,7 +93,7 @@ class RecordDetailViewController: UIViewController {
     
 }
 
-// MARK: Private Implementation
+// MARK: Private Implementation: Mode Methods
 
 extension RecordDetailViewController {
     
@@ -159,41 +159,6 @@ extension RecordDetailViewController {
         }
     }
     
-    @objc func editButtonTapped() {
-        currentMode = .edit
-        // why is it making me force unwrap currentMode below when I just set a value above?
-        setMode(to: currentMode!)
-    }
-    
-    @objc func save() {
-        // our else condition should maybe show an error instead of doing nothing
-        guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
-        
-        checkTagExistence(tagNames: splitTagInput())
-        
-        delegate?.addRecordSave(self, didFinishAdding: newRecord)
-    }
-    
-    @objc func saveEdited() {
-        guard let recordToUpdate = recordToShow else { return }
-        recordToUpdate.date = userChosenDate
-        recordToUpdate.thought = thoughtSummaryField.text!
-        recordToUpdate.situation = situationField.text!
-        recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!
-        recordToUpdate.feelingsStart = [createBeforeFeeling()]
-        recordToUpdate.factsSupporting = factsSupportingView.text!
-        recordToUpdate.factsAgainst = factsContradictingView.text!
-        recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
-        recordToUpdate.feelingsEnd = [createAfterFeeling()]
-        recordToUpdate.tags = generateTags()
-        
-        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
-        
-        hide(views: editModeViews)
-        show(views: viewModeViews)
-        displayThoughtRecordData()
-    }
-    
     private func show(views: [UIView]) {
         views.forEach { (view) in
             view.isHidden = false
@@ -205,6 +170,11 @@ extension RecordDetailViewController {
             view.isHidden = true
         }
     }
+}
+
+// MARK: Data Display Methods
+
+extension RecordDetailViewController {
     
     private func feelingsArrayToString(array: [Feeling]) -> String {
         var feelingNames: [String] = []
@@ -264,38 +234,47 @@ extension RecordDetailViewController {
             return
         }
     }
+}
+
+// MARK: Record Creation/Saving Methods
+
+extension RecordDetailViewController {
     
-    private func formattedFullDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        
-        /// are these steps in this order necessary?
-        let dateString = dateFormatter.string(from: date)
-        let formattedDate = dateFormatter.date(from: dateString)
-        
-        return dateFormatter.string(from: formattedDate!)
+    @objc func editButtonTapped() {
+        currentMode = .edit
+        // why is it making me force unwrap currentMode below when I just set a value above?
+        setMode(to: currentMode!)
     }
     
-    private func formattedShortDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+    @objc func save() {
+        // our else condition should maybe show an error instead of doing nothing
+        guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
-        let dateString = dateFormatter.string(from: date)
-        let formattedDate = dateFormatter.date(from: dateString)
+        checkTagExistence(tagNames: splitTagInput())
         
-        return dateFormatter.string(from: formattedDate!)
+        delegate?.addRecordSave(self, didFinishAdding: newRecord)
     }
     
-    /// this reads easier to me than Date(), but it's basically just that. Is there a way to alias functions? - could extend Date, something like Date.now
-    private func getCurrentDate() -> Date {
-        return Date()
+    @objc func saveEdited() {
+        guard let recordToUpdate = recordToShow else { return }
+        recordToUpdate.date = userChosenDate
+        recordToUpdate.thought = thoughtSummaryField.text!
+        recordToUpdate.situation = situationField.text!
+        recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!
+        recordToUpdate.feelingsStart = [createBeforeFeeling()]
+        recordToUpdate.factsSupporting = factsSupportingView.text!
+        recordToUpdate.factsAgainst = factsContradictingView.text!
+        recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
+        recordToUpdate.feelingsEnd = [createAfterFeeling()]
+        recordToUpdate.tags = generateTags()
+        
+        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
+        
+        hide(views: editModeViews)
+        show(views: viewModeViews)
+        displayThoughtRecordData()
     }
     
-    private func setDateButtonText(date: Date) {
-        dateButton.setTitle(formattedFullDate(date: date), for: .normal)
-    }
-    
-    /// this method needs breaking up (or at least renaming) but how - could create/configure picker and then load it. probably not worth it?
     private func showDatePickerActionSheet() {
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)
@@ -321,17 +300,6 @@ extension RecordDetailViewController {
         return Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
     }
     
-    private func generateTags() -> [Tag] {
-        let tagInputArray = splitTagInput()
-        var newTags: [Tag] = []
-        
-        for name in tagInputArray {
-            newTags.append(Tag(name: name))
-        }
-        
-        return newTags
-    }
-    
     private func createNewRecord() -> ThoughtRecord? {
         
         guard let newThought = thoughtSummaryField.text,
@@ -348,6 +316,47 @@ extension RecordDetailViewController {
     
     private func showOrHideSuggestButton() {
         suggestButton.isHidden = !userSettings.allowTextAnalysis
+    }
+    
+    private func setDateButtonText(date: Date) {
+        dateButton.setTitle(formattedFullDate(date: date), for: .normal)
+    }
+    
+    private func generateTags() -> [Tag] {
+        let tagInputArray = splitTagInput()
+        var newTags: [Tag] = []
+        
+        for name in tagInputArray {
+            newTags.append(Tag(name: name))
+        }
+        
+        return newTags
+    }
+    
+    private func formattedFullDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+        
+        /// are these steps in this order necessary?
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        
+        return dateFormatter.string(from: formattedDate!)
+    }
+    
+    private func formattedShortDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        
+        return dateFormatter.string(from: formattedDate!)
+    }
+    
+    /// try extending Date, something like Date.now
+    private func getCurrentDate() -> Date {
+        return Date()
     }
     
 }

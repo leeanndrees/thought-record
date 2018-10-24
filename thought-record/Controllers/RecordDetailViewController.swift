@@ -68,16 +68,13 @@ class RecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
-        
         guard let mode = currentMode else { return }
         setViewVisibility(for: mode)
         displayData(for: mode)
+        setBarButtonItem(for: mode)
         
         
         if currentMode == Mode.view {
-            self.navigationItem.rightBarButtonItem = editButton
             userChosenDate = recordToShow?.date ?? Date()
         }
         
@@ -85,7 +82,6 @@ class RecordDetailViewController: UIViewController {
             thoughtSummaryField.becomeFirstResponder()
             setDateButtonText(date: Date())
             showOrHideSuggestButton()
-            self.navigationItem.rightBarButtonItem = saveButton
         }
  
     }
@@ -140,13 +136,27 @@ extension RecordDetailViewController {
         }
     }
     
+    private func setBarButtonItem(for mode: Mode) {
+        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
+        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
+        let saveEditedButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
+        
+        switch mode {
+        case .view:
+            self.navigationItem.rightBarButtonItem = editButton
+        case .add:
+            self.navigationItem.rightBarButtonItem = saveButton
+        case .edit:
+            self.navigationItem.rightBarButtonItem = saveEditedButton
+        }
+    }
+    
     @objc func editButtonTapped() {
         currentMode = .edit
-        // why is it making me force unwrap currentMode below when I just set this variable above?
+        // why is it making me force unwrap currentMode below when I just set a value above?
         setViewVisibility(for: currentMode!)
         displayData(for: currentMode!)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
+        setBarButtonItem(for: currentMode!)
     }
     
     @objc func save() {

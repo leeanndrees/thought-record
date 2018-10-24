@@ -70,15 +70,6 @@ class RecordDetailViewController: UIViewController {
         
         guard let mode = currentMode else { return }
         setMode(to: mode)
-        
-        
-        if currentMode == Mode.view {
-            userChosenDate = recordToShow?.date ?? Date()
-        }
-        
-        if currentMode == Mode.add {
-            setDateButtonText(date: Date())
-        }
  
     }
     
@@ -110,6 +101,7 @@ extension RecordDetailViewController {
         setViewVisibility(for: mode)
         displayData(for: mode)
         setBarButtonItem(for: mode)
+        setDate(for: mode)
         
         if mode == .add {
             thoughtSummaryField.becomeFirstResponder()
@@ -151,6 +143,19 @@ extension RecordDetailViewController {
             self.navigationItem.rightBarButtonItem = saveButton
         case .edit:
             self.navigationItem.rightBarButtonItem = saveEditedButton
+        }
+    }
+    
+    private func setDate(for mode: Mode) {
+        switch mode {
+        case .edit:
+            userChosenDate = recordToShow?.date ?? getCurrentDate()
+            setDateButtonText(date: userChosenDate)
+        case .add:
+            let today = getCurrentDate()
+            setDateButtonText(date: today)
+        case .view:
+            return
         }
     }
     

@@ -131,6 +131,7 @@ extension RecordDetailViewController {
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         let saveEditedButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
         
         let magenta = UIColor(named: "BrightMagenta")
         
@@ -143,9 +144,15 @@ extension RecordDetailViewController {
             self.navigationItem.rightBarButtonItem = editButton
         case .add:
             self.navigationItem.rightBarButtonItem = saveButton
+            self.navigationItem.leftBarButtonItem = cancelButton
         case .edit:
             self.navigationItem.rightBarButtonItem = saveEditedButton
+            self.navigationItem.leftBarButtonItem = cancelButton
         }
+    }
+    
+    @objc func cancel() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func setDate(for mode: Mode) {

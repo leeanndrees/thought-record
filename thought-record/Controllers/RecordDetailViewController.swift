@@ -71,10 +71,12 @@ class RecordDetailViewController: UIViewController {
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         
-        setViewVisibility(for: currentMode ?? .view)
+        guard let mode = currentMode else { return }
+        setViewVisibility(for: mode)
+        displayData(for: mode)
+        
         
         if currentMode == Mode.view {
-            displayThoughtRecordData()
             self.navigationItem.rightBarButtonItem = editButton
             userChosenDate = recordToShow?.date ?? Date()
         }
@@ -127,13 +129,22 @@ extension RecordDetailViewController {
         }
     }
     
+    private func displayData(for mode: Mode) {
+        switch mode {
+        case .view:
+            displayThoughtRecordData()
+        case .edit:
+            displayEditModeData()
+        case .add:
+            return
+        }
+    }
+    
     @objc func editButtonTapped() {
         currentMode = .edit
         
-        show(views: editModeViews)
-        hide(views: viewModeViews)
-        
-        displayEditModeData()
+        setViewVisibility(for: currentMode!)
+        displayData(for: currentMode!)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
     }

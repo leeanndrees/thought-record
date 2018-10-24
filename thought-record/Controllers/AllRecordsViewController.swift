@@ -89,6 +89,7 @@ extension AllRecordsViewController {
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRecordIndex = indexPath.row
+        
         return indexPath
     }
     
@@ -99,12 +100,14 @@ extension AllRecordsViewController {
     func setCellTitle(recordAtPath: ThoughtRecord) -> String {
         let title = recordAtPath.thought
         let date = recordAtPath.shortDate
+        
         return "\(date): \(title)"
     }
     
     func deleteRecord(indexPath: IndexPath) {
         records.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        
         saveRecords(array: records)
     }
     

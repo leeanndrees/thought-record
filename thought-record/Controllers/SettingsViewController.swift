@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     
+    let persistence = DataPersistence()
     let settingOptions = ["Allow Text Analysis"]
     
     override func viewDidLoad() {
@@ -61,13 +62,8 @@ extension SettingsViewController {
 
 extension SettingsViewController {
     
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
     func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Settings.plist")
+        return persistence.documentsDirectory().appendingPathComponent("Settings.plist")
     }
     
     func saveSettings() {

@@ -65,6 +65,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="AlmostWhite"/>
+                        <color key="tintColor" name="BrightMagenta"/>
                         <color key="separatorColor" name="Teal"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordListCell" id="GhC-ey-egj">
@@ -674,6 +675,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" name="AlmostWhite"/>
+                        <color key="tintColor" name="BrightMagenta"/>
                         <constraints>
                             <constraint firstItem="cwC-X4-LaI" firstAttribute="trailing" secondItem="zWY-el-Sma" secondAttribute="trailing" id="1kZ-h4-yTJ"/>
                             <constraint firstItem="uET-9F-QIi" firstAttribute="width" secondItem="cwC-X4-LaI" secondAttribute="width" id="QGb-rd-1Jg"/>
@@ -727,7 +729,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubQ-DT-4zS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2736.8000000000002" y="-833.43328335832086"/>
+            <point key="canvasLocation" x="2073" y="73"/>
         </scene>
     </scenes>
     <resources>

@@ -333,7 +333,6 @@ extension RecordDetailViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         
-        /// are these steps in this order necessary?
         let dateString = dateFormatter.string(from: date)
         let formattedDate = dateFormatter.date(from: dateString)
         
@@ -346,7 +345,6 @@ extension RecordDetailViewController {
 
 extension RecordDetailViewController {
     
-    /// not sure how to fix these force unwraps
     private func generateToneString() -> String {
         let thoughtText = thoughtSummaryField.text!
         let unhelpfulThoughtsText = unhelpfulThoughtsView.text!

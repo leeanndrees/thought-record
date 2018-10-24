@@ -10,12 +10,15 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     
+    let persistence = DataPersistence()
     let settingOptions = ["Allow Text Analysis"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadSavedSettings()
         useLargeTitles()
+        setTitleColor()
     }
 
     // MARK: Table view data source
@@ -47,31 +50,12 @@ class SettingsViewController: UITableViewController {
 
 }
 
-// MARK: Private Implementation
-
-extension SettingsViewController {
-    
-    private func useLargeTitles() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    private func displaySettings() {
-        
-    }
-    
-}
-
 // MARK: Data Persistence
 
 extension SettingsViewController {
     
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
     func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Settings.plist")
+        return persistence.documentsDirectory().appendingPathComponent("Settings.plist")
     }
     
     func saveSettings() {

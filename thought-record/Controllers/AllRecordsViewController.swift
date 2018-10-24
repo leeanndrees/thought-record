@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  AllRecordsViewController.swift
 //  thought-record
 //
 //  Created by DetroitLabs on 10/10/18.
@@ -12,6 +12,7 @@ class AllRecordsViewController: UITableViewController {
     
     // MARK: Properties
     
+    let persistence = DataPersistence()
     var records: [ThoughtRecord] = []
     var selectedRecordIndex = 0
 
@@ -19,14 +20,17 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         getRecords()
-        loadSavedRecords()
         useLargeTitles()
+        setTitleColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-        saveRecords()
+        if plistFileExists() {
+            tableView.reloadData()
+            saveRecords(array: records)
+        }
     }
 }
 
@@ -34,12 +38,27 @@ class AllRecordsViewController: UITableViewController {
 
 extension AllRecordsViewController {
     
-    func getRecords() {
+    private func plistFileExists() -> Bool {
+        let fileManager = FileManager()
+        let filePath = dataFilePath().path
+        
+        return fileManager.fileExists(atPath: filePath)
+    }
+    
+    private func getRecords() {
+        if plistFileExists() {
+            loadSavedRecords()
+        } else {
+            loadSampleRecords()
+        }
+    }
+    
+    private func loadSampleRecords() {
         let database = ThoughtRecordDatabase()
         records = database.thoughts
     }
     
-    func loadSavedRecords() {
+    private func loadSavedRecords() {
         let path = dataFilePath()
         
         if let data = try? Data(contentsOf: path) {
@@ -51,16 +70,7 @@ extension AllRecordsViewController {
             }
         }
     }
-    
-    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
-        let title = recordAtPath.thought
-        let date = recordAtPath.shortDate
-        return "\(date): \(title)"
-    }
-    
-    func useLargeTitles() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
+
 }
 
 // MARK: Table View Methods
@@ -81,6 +91,7 @@ extension AllRecordsViewController {
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRecordIndex = indexPath.row
+        
         return indexPath
     }
     
@@ -88,10 +99,18 @@ extension AllRecordsViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func setCellTitle(recordAtPath: ThoughtRecord) -> String {
+        let title = recordAtPath.thought
+        let date = recordAtPath.shortDate
+        
+        return "\(date): \(title)"
+    }
+    
     func deleteRecord(indexPath: IndexPath) {
         records.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-        saveRecords()
+        
+        saveRecords(array: records)
     }
     
     func deletionAlert(indexPath: IndexPath) {
@@ -117,19 +136,15 @@ extension AllRecordsViewController {
 // MARK: - Data Persistence
 
 extension AllRecordsViewController {
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
+
     func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Records.plist")
+        return persistence.documentsDirectory().appendingPathComponent("Records.plist")
     }
     
-    func saveRecords() {
+    func saveRecords(array: [ThoughtRecord]) {
         let encoder = PropertyListEncoder()
         do {
-            let data = try encoder.encode(records)
+            let data = try encoder.encode(array)
             try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
         } catch {
             print("Error encoding")
@@ -140,22 +155,12 @@ extension AllRecordsViewController {
 // MARK: - AddRecordViewControllerDelegate Methods
 
 extension AllRecordsViewController: RecordDetailViewControllerDelegate {
-    // this currently doesn't get called:
-    func addRecordDidCancel(_ controller: RecordDetailViewController) {
-        navigationController?.popViewController(animated: true)
-    }
     
     func addRecordSave(_ controller: RecordDetailViewController, didFinishAdding item: ThoughtRecord) {
         records.append(item)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
-        saveRecords()
-    }
-    
-    // this doesn't get called, do we need it? doing its stuff in ViewWillAppear() - is that bad? - save in DetailVC
-    func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord) {
-//        saveRecords()
-//        tableView.reloadData()
+        saveRecords(array: records)
     }
 }
 

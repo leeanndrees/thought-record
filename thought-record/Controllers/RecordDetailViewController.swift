@@ -1,5 +1,5 @@
 //
-//  NewRecordDetailViewController.swift
+//  RecordDetailViewController.swift
 //  thought-record
 //
 //  Created by DetroitLabs on 10/18/18.
@@ -10,9 +10,7 @@ import UIKit
 import ToneAnalyzer
 
 protocol RecordDetailViewControllerDelegate: class {
-    func addRecordDidCancel(_ controller: RecordDetailViewController)
     func addRecordSave(_ controller: RecordDetailViewController, didFinishAdding item: ThoughtRecord)
-    func editRecordSave(_ controller: RecordDetailViewController, didFinishEditing item: ThoughtRecord)
 }
 
 class RecordDetailViewController: UIViewController {
@@ -21,13 +19,10 @@ class RecordDetailViewController: UIViewController {
     
     var recordToShow: ThoughtRecord?
     var currentMode: Mode?
-    
-    /// for add mode:
     var newRecord: ThoughtRecord?
     weak var delegate: RecordDetailViewControllerDelegate?
     var toneID = ""
     var userChosenDate = Date()
-    let database = TagDatabase()
     let datePicker = UIDatePicker()
     
     // MARK: Outlets
@@ -70,27 +65,8 @@ class RecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
-        
-        if currentMode == Mode.view {
-            hide(views: editModeViews)
-            displayThoughtRecordData()
-            self.navigationItem.rightBarButtonItem = editButton
-            print("edit button set")
-            userChosenDate = recordToShow?.date ?? Date()
-        }
-        
-        if currentMode == Mode.add {
-            hide(views: viewModeViews)
-            show(views: editModeViews)
-            thoughtSummaryField.becomeFirstResponder()
-            setDateButtonText(date: Date())
-            showOrHideSuggestButton()
-            self.navigationItem.rightBarButtonItem = saveButton
-            print("save button set")
-        }
- 
+        guard let mode = currentMode else { return }
+        setMode(to: mode)
     }
     
     // MARK: Actions
@@ -113,48 +89,86 @@ class RecordDetailViewController: UIViewController {
     
 }
 
-// MARK: Private Implementation
+// MARK: Mode Methods
 
 extension RecordDetailViewController {
     
-    @objc func editButtonTapped() {
-        currentMode = .edit
+    private func setMode(to mode: Mode) {
+        setViewVisibility(for: mode)
+        displayData(for: mode)
+        setBarButtonItem(for: mode)
+        setDate(for: mode)
         
-        show(views: editModeViews)
-        hide(views: viewModeViews)
-        
-        displayEditModeData()
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEdited))
+        if mode == .add {
+            thoughtSummaryField.becomeFirstResponder()
+            setSuggestButtonVisibility()
+        }
     }
     
-    @objc func save() {
-        // our else condition should maybe show an error instead of doing nothing
-        guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
-        
-        checkTagExistence(tagNames: splitTagInput())
-        
-        delegate?.addRecordSave(self, didFinishAdding: newRecord)
+    private func setViewVisibility(for mode: Mode) {
+        switch mode {
+        case .view:
+            show(views: viewModeViews)
+            hide(views: editModeViews)
+        case .add, .edit:
+            show(views: editModeViews)
+            hide(views: viewModeViews)
+        }
     }
     
-    @objc func saveEdited() {
-        guard let recordToUpdate = recordToShow else { return }
-        recordToUpdate.date = userChosenDate
-        recordToUpdate.thought = thoughtSummaryField.text!
-        recordToUpdate.situation = situationField.text!
-        recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!
-        recordToUpdate.feelingsStart = [createBeforeFeeling()]
-        recordToUpdate.factsSupporting = factsSupportingView.text!
-        recordToUpdate.factsAgainst = factsContradictingView.text!
-        recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
-        recordToUpdate.feelingsEnd = [createAfterFeeling()]
-        recordToUpdate.tags = generateTags()
+    private func displayData(for mode: Mode) {
+        switch mode {
+        case .view:
+            displayThoughtRecordData()
+        case .edit:
+            displayEditModeData()
+        case .add:
+            return
+        }
+    }
+    
+    private func setBarButtonItem(for mode: Mode) {
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+        let saveEditedButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEdited))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        let backButton = navigationItem.backBarButtonItem
         
-        delegate?.editRecordSave(self, didFinishEditing: recordToUpdate)
+        saveEditedButton.style = .done
+        saveButton.style = .done
         
-        hide(views: editModeViews)
-        show(views: viewModeViews)
-        displayThoughtRecordData()
+        let magenta = UIColor(named: "BrightMagenta")
+        
+        navigationController?.navigationBar.tintColor = magenta
+        
+        switch mode {
+        case .view:
+            self.navigationItem.rightBarButtonItem = editButton
+            self.navigationItem.leftBarButtonItem = backButton
+        case .add:
+            self.navigationItem.rightBarButtonItem = saveButton
+            self.navigationItem.leftBarButtonItem = cancelButton
+        case .edit:
+            self.navigationItem.rightBarButtonItem = saveEditedButton
+            self.navigationItem.leftBarButtonItem = cancelButton
+        }
+    }
+    
+    @objc func cancel() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func setDate(for mode: Mode) {
+        switch mode {
+        case .edit:
+            userChosenDate = recordToShow?.date ?? Date().now()
+            setDateButtonText(date: userChosenDate)
+        case .add:
+            let today = Date().now()
+            setDateButtonText(date: today)
+        case .view:
+            return
+        }
     }
     
     private func show(views: [UIView]) {
@@ -168,6 +182,11 @@ extension RecordDetailViewController {
             view.isHidden = true
         }
     }
+}
+
+// MARK: Data Display Methods
+
+extension RecordDetailViewController {
     
     private func feelingsArrayToString(array: [Feeling]) -> String {
         var feelingNames: [String] = []
@@ -227,38 +246,40 @@ extension RecordDetailViewController {
             return
         }
     }
+}
+
+// MARK: Record Creation/Saving Methods
+
+extension RecordDetailViewController {
     
-    private func formattedFullDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        
-        /// are these steps in this order necessary?
-        let dateString = dateFormatter.string(from: date)
-        let formattedDate = dateFormatter.date(from: dateString)
-        
-        return dateFormatter.string(from: formattedDate!)
+    @objc func editButtonTapped() {
+        currentMode = .edit
+        // why is it making me force unwrap currentMode below when I just set a value above?
+        setMode(to: currentMode!)
     }
     
-    private func formattedShortDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+    @objc func save() {
+        guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
         
-        let dateString = dateFormatter.string(from: date)
-        let formattedDate = dateFormatter.date(from: dateString)
+        delegate?.addRecordSave(self, didFinishAdding: newRecord)
+    }
+    
+    @objc func saveEdited() {
+        guard let recordToUpdate = recordToShow else { return }
+        recordToUpdate.date = userChosenDate
+        recordToUpdate.thought = thoughtSummaryField.text!
+        recordToUpdate.situation = situationField.text!
+        recordToUpdate.unhelpfulThoughts = unhelpfulThoughtsView.text!
+        recordToUpdate.feelingsStart = [createBeforeFeeling()]
+        recordToUpdate.factsSupporting = factsSupportingView.text!
+        recordToUpdate.factsAgainst = factsContradictingView.text!
+        recordToUpdate.balancedPerspective = balancedPerspectiveView.text!
+        recordToUpdate.feelingsEnd = [createAfterFeeling()]
+        recordToUpdate.tags = generateTags()
         
-        return dateFormatter.string(from: formattedDate!)
+        setMode(to: .view)
     }
     
-    /// this reads easier to me than Date(), but it's basically just that. Is there a way to alias functions? - could extend Date, something like Date.now
-    private func getCurrentDate() -> Date {
-        return Date()
-    }
-    
-    private func setDateButtonText(date: Date) {
-        dateButton.setTitle(formattedFullDate(date: date), for: .normal)
-    }
-    
-    /// this method needs breaking up (or at least renaming) but how - could create/configure picker and then load it. probably not worth it?
     private func showDatePickerActionSheet() {
         let datePickerAlert = UIAlertController(title: "Select Date", message: nil, preferredStyle: .actionSheet)
         datePickerAlert.view.addSubview(datePicker)
@@ -284,17 +305,6 @@ extension RecordDetailViewController {
         return Feeling(name: afterFeelingField.text!, rating: Int(afterFeelingSlider!.value))
     }
     
-    private func generateTags() -> [Tag] {
-        let tagInputArray = splitTagInput()
-        var newTags: [Tag] = []
-        
-        for name in tagInputArray {
-            newTags.append(Tag(name: name))
-        }
-        
-        return newTags
-    }
-    
     private func createNewRecord() -> ThoughtRecord? {
         
         guard let newThought = thoughtSummaryField.text,
@@ -309,8 +319,33 @@ extension RecordDetailViewController {
         return newRecord
     }
     
-    private func showOrHideSuggestButton() {
+    private func setSuggestButtonVisibility() {
         suggestButton.isHidden = !userSettings.allowTextAnalysis
+    }
+    
+    private func setDateButtonText(date: Date) {
+        dateButton.setTitle(formattedFullDate(date: date), for: .normal)
+    }
+    
+    private func generateTags() -> [Tag] {
+        let tagInputArray = splitTagInput()
+        var newTags: [Tag] = []
+        
+        for name in tagInputArray {
+            newTags.append(Tag(name: name))
+        }
+        
+        return newTags
+    }
+    
+    private func formattedFullDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+        
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        
+        return dateFormatter.string(from: formattedDate!)
     }
     
 }
@@ -319,7 +354,6 @@ extension RecordDetailViewController {
 
 extension RecordDetailViewController {
     
-    /// not sure how to fix these force unwraps
     private func generateToneString() -> String {
         let thoughtText = thoughtSummaryField.text!
         let unhelpfulThoughtsText = unhelpfulThoughtsView.text!
@@ -382,28 +416,5 @@ extension RecordDetailViewController {
         }
         return tagsTrimmed
     }
-    
-    private func checkTagExistence(tagNames: [String]) {
-        var existingTagNames: [String] = []
-        print(tagNames)
-        
-        for tag in database.tags {
-            existingTagNames.append(tag.name)
-        }
-        
-        for name in tagNames {
-            if existingTagNames.contains(name) {
-                return
-            }
-            else {
-                let newTag = Tag(name: name)
-                database.tags.append(newTag)
-                for tag in database.tags {
-                    print(tag.name)
-                }
-            }
-        }
-    }
-    
     
 }

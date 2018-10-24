@@ -113,6 +113,17 @@ class RecordDetailViewController: UIViewController {
 
 extension RecordDetailViewController {
     
+    private func setMode(to mode: Mode) {
+        
+    }
+    
+    private func showViews(for mode: Mode) {
+        switch mode {
+        case .view: show(views: viewModeViews)
+        case .add, .edit: show(views: editModeViews)
+        }
+    }
+    
     @objc func editButtonTapped() {
         currentMode = .edit
         

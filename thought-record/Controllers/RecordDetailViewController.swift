@@ -408,27 +408,4 @@ extension RecordDetailViewController {
         return tagsTrimmed
     }
     
-    private func checkTagExistence(tagNames: [String]) {
-        var existingTagNames: [String] = []
-        print(tagNames)
-        
-        for tag in database.tags {
-            existingTagNames.append(tag.name)
-        }
-        
-        for name in tagNames {
-            if existingTagNames.contains(name) {
-                return
-            }
-            else {
-                let newTag = Tag(name: name)
-                database.tags.append(newTag)
-                for tag in database.tags {
-                    print(tag.name)
-                }
-            }
-        }
-    }
-    
-    
 }

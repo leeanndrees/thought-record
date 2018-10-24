@@ -28,6 +28,7 @@
 		4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4365778E216FDEC400F54479 /* SegueIdentifier.swift */; };
 		438072652180C12700D0645A /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438072642180C12700D0645A /* DataPersistence.swift */; };
 		438072672180C36A00D0645A /* TableViewMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438072662180C36A00D0645A /* TableViewMethods.swift */; };
+		4380726B2180E7F300D0645A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380726A2180E7F300D0645A /* DateExtension.swift */; };
 		43B290A9217FA3780069AAF2 /* Encouragement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B290A8217FA3780069AAF2 /* Encouragement.swift */; };
 		43DE202E217E3FD800174D26 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE202D217E3FD800174D26 /* Mode.swift */; };
 		43DE2030217F8FD600174D26 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE202F217F8FD600174D26 /* SettingCell.swift */; };
@@ -56,6 +57,7 @@
 		4365778E216FDEC400F54479 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		438072642180C12700D0645A /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		438072662180C36A00D0645A /* TableViewMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewMethods.swift; sourceTree = "<group>"; };
+		4380726A2180E7F300D0645A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		43B290A8217FA3780069AAF2 /* Encouragement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encouragement.swift; sourceTree = "<group>"; };
 		43DE202D217E3FD800174D26 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		43DE202F217F8FD600174D26 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				438072642180C12700D0645A /* DataPersistence.swift */,
+				4380726A2180E7F300D0645A /* DateExtension.swift */,
 				438072662180C36A00D0645A /* TableViewMethods.swift */,
 			);
 			path = Reusable;
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43DE2030217F8FD600174D26 /* SettingCell.swift in Sources */,
+				4380726B2180E7F300D0645A /* DateExtension.swift in Sources */,
 				434C05E6216E4F1C000CD1B6 /* Tag.swift in Sources */,
 				43657703216E85C000F54479 /* RecordDetailViewController.swift in Sources */,
 				4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */,

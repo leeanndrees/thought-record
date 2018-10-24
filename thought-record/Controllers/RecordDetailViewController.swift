@@ -153,10 +153,10 @@ extension RecordDetailViewController {
     private func setDate(for mode: Mode) {
         switch mode {
         case .edit:
-            userChosenDate = recordToShow?.date ?? getCurrentDate()
+            userChosenDate = recordToShow?.date ?? Date().now()
             setDateButtonText(date: userChosenDate)
         case .add:
-            let today = getCurrentDate()
+            let today = Date().now()
             setDateButtonText(date: today)
         case .view:
             return
@@ -344,11 +344,6 @@ extension RecordDetailViewController {
         let formattedDate = dateFormatter.date(from: dateString)
         
         return dateFormatter.string(from: formattedDate!)
-    }
-    
-    /// try extending Date, something like Date.now
-    private func getCurrentDate() -> Date {
-        return Date()
     }
     
 }

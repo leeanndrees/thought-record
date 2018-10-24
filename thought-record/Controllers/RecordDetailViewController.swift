@@ -344,16 +344,6 @@ extension RecordDetailViewController {
         return dateFormatter.string(from: formattedDate!)
     }
     
-    private func formattedShortDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy"
-        
-        let dateString = dateFormatter.string(from: date)
-        let formattedDate = dateFormatter.date(from: dateString)
-        
-        return dateFormatter.string(from: formattedDate!)
-    }
-    
     /// try extending Date, something like Date.now
     private func getCurrentDate() -> Date {
         return Date()

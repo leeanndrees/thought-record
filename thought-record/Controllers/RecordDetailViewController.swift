@@ -103,7 +103,7 @@ extension RecordDetailViewController {
         
         if mode == .add {
             thoughtSummaryField.becomeFirstResponder()
-            showOrHideSuggestButton()
+            setSuggestButtonVisibility()
         }
     }
     
@@ -316,7 +316,7 @@ extension RecordDetailViewController {
         return newRecord
     }
     
-    private func showOrHideSuggestButton() {
+    private func setSuggestButtonVisibility() {
         suggestButton.isHidden = !userSettings.allowTextAnalysis
     }
     

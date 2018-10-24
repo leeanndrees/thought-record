@@ -71,16 +71,15 @@ class RecordDetailViewController: UIViewController {
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         
+        setViewVisibility(for: currentMode ?? .view)
+        
         if currentMode == Mode.view {
-            hide(views: editModeViews)
             displayThoughtRecordData()
             self.navigationItem.rightBarButtonItem = editButton
             userChosenDate = recordToShow?.date ?? Date()
         }
         
         if currentMode == Mode.add {
-            hide(views: viewModeViews)
-            show(views: editModeViews)
             thoughtSummaryField.becomeFirstResponder()
             setDateButtonText(date: Date())
             showOrHideSuggestButton()

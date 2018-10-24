@@ -90,7 +90,7 @@ class RecordDetailViewController: UIViewController {
     
 }
 
-// MARK: Private Implementation: Mode Methods
+// MARK: Mode Methods
 
 extension RecordDetailViewController {
     
@@ -250,10 +250,7 @@ extension RecordDetailViewController {
     }
     
     @objc func save() {
-        // our else condition should maybe show an error instead of doing nothing
         guard let newRecord = createNewRecord() else { navigationController?.popViewController(animated: true); return }
-        
-        checkTagExistence(tagNames: splitTagInput())
         
         delegate?.addRecordSave(self, didFinishAdding: newRecord)
     }
@@ -271,9 +268,7 @@ extension RecordDetailViewController {
         recordToUpdate.feelingsEnd = [createAfterFeeling()]
         recordToUpdate.tags = generateTags()
         
-        hide(views: editModeViews)
-        show(views: viewModeViews)
-        displayThoughtRecordData()
+        setMode(to: .view)
     }
     
     private func showDatePickerActionSheet() {

@@ -20,6 +20,7 @@ class AllRecordsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         getRecords()
         useLargeTitles()
     }

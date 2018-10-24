@@ -68,7 +68,6 @@ class RecordDetailViewController: UIViewController {
         
         guard let mode = currentMode else { return }
         setMode(to: mode)
- 
     }
     
     // MARK: Actions

@@ -12,5 +12,11 @@ import ToneAnalyzer
 let toneAnalyzer = ToneAnalyzer(
     username: "your-username",
     password: "your-password",
-    version: "your-version-date"
+    version: "your-version"
 )
+
+let encouragements = [
+    "Today is a great day to check in & untangle a thought. :)",
+    "💜",
+    "🖤"
+]

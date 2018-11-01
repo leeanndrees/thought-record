@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum Mode {
+enum DetailViewControllerMode {
     case add, view, edit
 }

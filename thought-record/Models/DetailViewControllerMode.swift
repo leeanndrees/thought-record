@@ -1,5 +1,5 @@
 //
-//  Mode.swift
+//  DetailViewControllerMode.swift
 //  thought-record
 //
 //  Created by DetroitLabs on 10/22/18.

@@ -1,5 +1,5 @@
 //
-//  TemporaryData.swift
+//  SampleThoughtRecordDatabase.swift
 //  thought-record
 //
 //  Created by DetroitLabs on 10/10/18.
@@ -10,7 +10,7 @@ import Foundation
 
 class ThoughtRecordDatabase {
     
-    var thoughts = [
+    let thoughts = [
         ThoughtRecord(date: Date(),
                       thought: "Sample: presenting this app at work",
                       situation: "work presentation",

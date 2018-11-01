@@ -21,7 +21,7 @@ class RecordDetailViewController: UIViewController {
     var currentMode: DetailViewControllerMode?
     var newRecord: ThoughtRecord?
     weak var delegate: RecordDetailViewControllerDelegate?
-    var toneID = ""
+    var tone: Tone?
     var userChosenDate = Date()
     let datePicker = UIDatePicker()
     
@@ -367,33 +367,19 @@ extension RecordDetailViewController {
             print(error)
         }) { (response) in
             DispatchQueue.main.async {
-                self.toneID = self.getToneID(from: response)
-                self.populateSuggestionField(with: self.getExpandedFeelingName(from: self.toneID))
+                guard let tone = self.getTone(from: response) else { return }
+                self.tone = tone
+                self.populateSuggestionField(with: tone.getExpandedTones().randomElement()!)
             }
         }
     }
     
-    private func getToneID(from analysis: ToneAnalysis) -> String {
+    private func getTone(from analysis: ToneAnalysis) -> Tone? {
         if let toneID = analysis.documentTone.tones?[0].toneID {
-            return toneID
+            return Tone(rawValue: toneID)
         }
         else {
-            return "no suggestion"
-        }
-    }
-    
-    private func getExpandedFeelingName(from toneID: String) -> String {
-        let expandedTones = ExpandedTones()
-        
-        switch toneID {
-        case Tone.anger.rawValue: return expandedTones.angerTones.randomElement() ?? "angry"
-        case Tone.fear.rawValue: return expandedTones.fearTones.randomElement() ?? "afraid"
-        case Tone.joy.rawValue: return expandedTones.joyTones.randomElement() ?? "joyful"
-        case Tone.sadness.rawValue: return expandedTones.sadnessTones.randomElement() ?? "sad"
-        case Tone.analytical.rawValue: return expandedTones.analyticalTones.randomElement() ?? "analytical"
-        case Tone.confident.rawValue: return expandedTones.confidentTones.randomElement() ?? "confident"
-        case Tone.tentative.rawValue: return expandedTones.tentativeTones.randomElement() ?? "tentative"
-        default: return "sorry, no suggestion"
+            return nil
         }
     }
     

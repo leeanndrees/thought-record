@@ -10,7 +10,6 @@
 		1E76B5B36914940203B1F85D /* Pods_thought_record.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90ABD5CEBD5D4067793359BF /* Pods_thought_record.framework */; };
 		432208992174D5720080FCFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432208982174D5720080FCFD /* Constants.swift */; };
 		43473F16217789FA0067F97C /* Tone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F15217789FA0067F97C /* Tone.swift */; };
-		43473F1821778B440067F97C /* ExpandedTones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1721778B440067F97C /* ExpandedTones.swift */; };
 		43473F1C2177AE260067F97C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1B2177AE260067F97C /* Settings.swift */; };
 		43473F202177AFF20067F97C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43473F1F2177AFF20067F97C /* SettingsViewController.swift */; };
 		43473F222177C6840067F97C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43473F212177C6840067F97C /* Colors.xcassets */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		432208982174D5720080FCFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		43473F15217789FA0067F97C /* Tone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tone.swift; sourceTree = "<group>"; };
-		43473F1721778B440067F97C /* ExpandedTones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTones.swift; sourceTree = "<group>"; };
 		43473F1B2177AE260067F97C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43473F1F2177AFF20067F97C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43473F212177C6840067F97C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 			children = (
 				432208982174D5720080FCFD /* Constants.swift */,
 				43DE202D217E3FD800174D26 /* DetailViewControllerMode.swift */,
-				43473F1721778B440067F97C /* ExpandedTones.swift */,
 				434C05E3216E4DD7000CD1B6 /* Feeling.swift */,
 				43657700216E51E100F54479 /* SampleThoughtRecordDatabase.swift */,
 				4365778E216FDEC400F54479 /* SegueIdentifier.swift */,
@@ -304,7 +301,6 @@
 				4365778F216FDEC400F54479 /* SegueIdentifier.swift in Sources */,
 				434C05B2216E328A000CD1B6 /* AppDelegate.swift in Sources */,
 				432208992174D5720080FCFD /* Constants.swift in Sources */,
-				43473F1821778B440067F97C /* ExpandedTones.swift in Sources */,
 				438072672180C36A00D0645A /* TableViewMethods.swift in Sources */,
 				434C05E4216E4DD7000CD1B6 /* Feeling.swift in Sources */,
 				43473F1C2177AE260067F97C /* Settings.swift in Sources */,

@@ -16,4 +16,17 @@ enum Tone: String {
     case analytical = "analytical"
     case confident = "confident"
     case tentative = "tentative"
+    
+    func getExpandedTones() -> [String] {
+        switch self {
+        case .anger: return ["frustrated", "annoyed", "angry"]
+        case .fear: return ["concerned", "alarmed", "afraid"]
+        case .joy: return ["happy", "joyful", "content"]
+        case .sadness: return ["sad", "gloomy", "glum"]
+        case .analytical: return ["analytical", "thoughtful"]
+        case .confident: return ["confident", "strong", "sure"]
+        case .tentative: return ["uncertain", "confused", "tentative"]
+        }
+    }
 }
+

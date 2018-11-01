@@ -18,7 +18,7 @@ class RecordDetailViewController: UIViewController {
     // MARK: Properties
     
     var recordToShow: ThoughtRecord?
-    var currentMode: Mode?
+    var currentMode: DetailViewControllerMode?
     var newRecord: ThoughtRecord?
     weak var delegate: RecordDetailViewControllerDelegate?
     var toneID = ""
@@ -89,11 +89,11 @@ class RecordDetailViewController: UIViewController {
     
 }
 
-// MARK: Mode Methods
+// MARK: DetailViewControllerMode Methods
 
 extension RecordDetailViewController {
     
-    private func setMode(to mode: Mode) {
+    private func setMode(to mode: DetailViewControllerMode) {
         setViewVisibility(for: mode)
         displayData(for: mode)
         setBarButtonItem(for: mode)
@@ -105,7 +105,7 @@ extension RecordDetailViewController {
         }
     }
     
-    private func setViewVisibility(for mode: Mode) {
+    private func setViewVisibility(for mode: DetailViewControllerMode) {
         switch mode {
         case .view:
             show(views: viewModeViews)
@@ -116,7 +116,7 @@ extension RecordDetailViewController {
         }
     }
     
-    private func displayData(for mode: Mode) {
+    private func displayData(for mode: DetailViewControllerMode) {
         switch mode {
         case .view:
             displayThoughtRecordData()
@@ -127,7 +127,7 @@ extension RecordDetailViewController {
         }
     }
     
-    private func setBarButtonItem(for mode: Mode) {
+    private func setBarButtonItem(for mode: DetailViewControllerMode) {
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
         let saveEditedButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEdited))
@@ -158,7 +158,7 @@ extension RecordDetailViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    private func setDate(for mode: Mode) {
+    private func setDate(for mode: DetailViewControllerMode) {
         switch mode {
         case .edit:
             userChosenDate = recordToShow?.date ?? Date().now()

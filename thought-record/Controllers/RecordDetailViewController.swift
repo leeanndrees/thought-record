@@ -367,7 +367,7 @@ extension RecordDetailViewController {
             print(error)
         }) { (response) in
             DispatchQueue.main.async {
-                guard let tone = self.getTone(from: response) else { return }
+                guard let tone = self.getTone(from: response) else { self.populateSuggestionField(with: "no suggestion, try again"); return }
                 self.tone = tone
                 self.populateSuggestionField(with: tone.getExpandedTones().randomElement()!)
             }
@@ -375,6 +375,8 @@ extension RecordDetailViewController {
     }
     
     private func getTone(from analysis: ToneAnalysis) -> Tone? {
+        guard let tonesReturned = analysis.documentTone.tones else { return nil }
+        if tonesReturned.count < 1 { return nil }
         if let toneID = analysis.documentTone.tones?[0].toneID {
             return Tone(rawValue: toneID)
         }
